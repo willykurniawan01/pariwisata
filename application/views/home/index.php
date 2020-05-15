@@ -146,6 +146,7 @@
                     </div>
 
                 </div>
+            </div>
         </section><!-- End About Us Section -->
 
 
@@ -211,4 +212,3 @@
 
 
     </main><!-- End #main -->
-

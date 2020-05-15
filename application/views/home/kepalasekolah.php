@@ -7,14 +7,13 @@
             </header>
 
             <div class="row">
-
-                <div class="col">
-                    <figure class="figure float-left">
-                        <img src="<?= base_url('assets/home/') ?>assets/img/kepala-sekolah.jpg" class="figure-img img-fluid rounded" alt="...">
+                <div class="col text-center">
+                    <figure class="figure">
+                        <img src="<?= base_url('assets/home/') ?>assets/img/kepala-sekolah.jpg" class="figure-img  img-fluid rounded" alt="...">
                         <figcaption class="name">H.Herman Yulis.A .S.Pd</figcaption>
                         <figcaption class="position">Kepala Sekolah SMP Masmur Pekanbaru</figcaption>
                     </figure>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi officiis fuga corporis magnam, nesciunt maxime, cupiditate ut, vel voluptatibus distinctio facere incidunt molestiae provident? Totam adipisci harum delectus esse, ullam quas doloremque, iusto sed, sit at voluptas optio! Deleniti animi atque, minus natus exercitationem blanditiis sint eum qui consectetur reiciendis ipsum assumenda illum maxime? Commodi tenetur doloremque debitis. Similique dicta exercitationem natus optio ab dolorem adipisci quibusdam doloribus neque quo, cum obcaecati earum dignissimos? Sapiente, obcaecati pariatur. Unde voluptate recusandae voluptatum iste mollitia reprehenderit ab velit maiores id sequi, architecto officia. Necessitatibus cupiditate sapiente vero, dolores fugiat exercitationem dicta at aut iste dolorem vel velit dolorum, dolore est eaque nulla non! Asperiores velit rem illum accusamus! Explicabo, vero delectus neque ut assumenda pariatur asperiores corrupti dolorum maxime voluptatum harum distinctio modi facere nulla nesciunt sunt, hic unde maiores saepe. Eveniet modi ipsam animi repellendus doloribus expedita hic quod recusandae iure?</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque suscipit ad possimus voluptates, explicabo vel omnis temporibus, esse ratione similique modi sit? Blanditiis alias nemo repudiandae unde nobis temporibus, minus vel dicta? Commodi, deserunt porro dolorum totam dolorem quia voluptatem nam neque atque accusamus impedit ab, voluptates animi necessitatibus nemo veritatis sequi aspernatur rem recusandae hic voluptatibus! Necessitatibus temporibus cumque blanditiis natus corporis, impedit magnam. Obcaecati aspernatur ullam, sequi dicta, omnis tempore atque quae dolore laboriosam dolor quibusdam ducimus accusantium. Maxime dolorum iure illo quam mollitia atque quibusdam aliquid velit consequuntur nesciunt doloribus culpa aliquam nisi, praesentium similique accusamus debitis ea minima id cumque quod, ducimus fugit ut. Distinctio dolore, illo earum culpa nostrum eum velit, iste amet harum tempora eius? Doloremque qui iste sed veniam magni rerum non minus omnis! Nulla assumenda harum hic nostrum, eligendi quas iure! Nulla debitis corrupti velit facere quam provident rem, autem ea praesentium voluptatem unde impedit eos quibusdam. Magnam tempore explicabo sed itaque iste harum laudantium saepe dignissimos, labore ab eos perspiciatis sapiente exercitationem ipsa aliquid reprehenderit autem ipsam pariatur libero at nostrum est voluptas vero quam. Debitis dolore, quas explicabo magnam, cumque eius qui expedita in iste nemo rem ab dicta. Illum!</p>
                 </div>
             </div>
         </div>

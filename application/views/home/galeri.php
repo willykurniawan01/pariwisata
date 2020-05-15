@@ -5,32 +5,21 @@
         <div class="container">
 
             <header class="section-header">
-                <h3 class="section-title">Gallery</h3>
+                <h3 class="section-title">Galeri</h3>
             </header>
 
-            <div class="row">
-                <div class="col-lg-12">
-                    <ul id="portfolio-flters">
-                        <li data-filter="*" class="filter-active">All</li>
-                        <li data-filter=".filter-app">App</li>
-                        <li data-filter=".filter-card">Card</li>
-                        <li data-filter=".filter-web">Web</li>
-                    </ul>
-                </div>
-            </div>
 
             <div class="row portfolio-container">
 
                 <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp">
                     <div class="portfolio-wrap">
                         <figure>
-                            <img src="assets/img/portfolio/app1.jpg" class="img-fluid" alt="">
-                            <a href="assets/img/portfolio/app1.jpg" data-lightbox="portfolio" data-title="App 1" class="link-preview"><i class="ion ion-eye"></i></a>
-                            <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
+                            <img src="<?= base_url('assets/home/') ?>assets/img/gallery/1.jpeg" class="img-fluid" alt="">
+                            <a href="<?= base_url('assets/home/') ?>assets/img/gallery/1.jpeg" class="link-preview venobox" data-gall="portfolioGallery" title="Web 3"><i class="ion ion-eye"></i></a>
                         </figure>
 
                         <div class="portfolio-info">
-                            <h4><a href="#">App 1</a></h4>
+                            <h4>App 1</h4>
                             <p>App</p>
                         </div>
                     </div>
@@ -39,13 +28,12 @@
                 <div class="col-lg-4 col-md-6 portfolio-item filter-web wow fadeInUp" data-wow-delay="0.1s">
                     <div class="portfolio-wrap">
                         <figure>
-                            <img src="assets/img/portfolio/web3.jpg" class="img-fluid" alt="">
-                            <a href="assets/img/portfolio/web3.jpg" class="link-preview venobox" data-gall="portfolioGallery" title="Web 3"><i class="ion ion-eye"></i></a>
-                            <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
+                            <img src="<?= base_url('assets/home/') ?>assets/img/gallery/2.jpeg" class="img-fluid" alt="">
+                            <a href="<?= base_url('assets/home/') ?>assets/img/gallery/2.jpeg" class="link-preview venobox" data-gall="portfolioGallery" title="Web 3"><i class="ion ion-eye"></i></a>
                         </figure>
 
                         <div class="portfolio-info">
-                            <h4><a href="#">Web 3</a></h4>
+                            <h4>Web 3</h4>
                             <p>Web</p>
                         </div>
                     </div>
@@ -54,14 +42,12 @@
                 <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp" data-wow-delay="0.2s">
                     <div class="portfolio-wrap">
                         <figure>
-                            <img src="assets/img/portfolio/app2.jpg" class="img-fluid" alt="">
-                            <a href="assets/img/portfolio/app2.jpg" class="link-preview venobox" data-gall="portfolioGallery" title="App 2"><i class="ion ion-eye"></i></a>
-                            <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
+                            <img src="<?= base_url('assets/home/') ?>assets/img/gallery/3.jpeg" class="img-fluid" alt="">
+                            <a href="<?= base_url('assets/home/') ?>assets/img/gallery/3.jpeg" class="link-preview venobox" data-gall="portfolioGallery" title="App 2"><i class="ion ion-eye"></i></a>
                         </figure>
 
                         <div class="portfolio-info">
-                            <h4><a href="#">App 2</a></h4>
-                            <p>App</p>
+                            <h4>App 2</h4>
                         </div>
                     </div>
                 </div>
@@ -69,14 +55,12 @@
                 <div class="col-lg-4 col-md-6 portfolio-item filter-card wow fadeInUp">
                     <div class="portfolio-wrap">
                         <figure>
-                            <img src="assets/img/portfolio/card2.jpg" class="img-fluid" alt="">
-                            <a href="assets/img/portfolio/card2.jpg" class="link-preview venobox" data-gall="portfolioGallery" title="Card 2"><i class="ion ion-eye"></i></a>
-                            <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
+                            <img src="<?= base_url('assets/home/') ?>assets/img/gallery/4.jpeg" class="img-fluid" alt="">
+                            <a href="<?= base_url('assets/home/') ?>assets/img/gallery/4.jpeg" class="link-preview venobox" data-gall="portfolioGallery" title="App 2"><i class="ion ion-eye"></i></a>
                         </figure>
 
                         <div class="portfolio-info">
-                            <h4><a href="#">Card 2</a></h4>
-                            <p>Card</p>
+                            <h4>App 2</h4>
                         </div>
                     </div>
                 </div>
@@ -84,14 +68,12 @@
                 <div class="col-lg-4 col-md-6 portfolio-item filter-web wow fadeInUp" data-wow-delay="0.1s">
                     <div class="portfolio-wrap">
                         <figure>
-                            <img src="assets/img/portfolio/web2.jpg" class="img-fluid" alt="">
-                            <a href="assets/img/portfolio/web2.jpg" class="link-preview venobox" data-gall="portfolioGallery" title="Web 2"><i class="ion ion-eye"></i></a>
-                            <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
+                            <img src="<?= base_url('assets/home/') ?>assets/img/gallery/5.jpeg" class="img-fluid" alt="">
+                            <a href="<?= base_url('assets/home/') ?>assets/img/gallery/5.jpeg" class="link-preview venobox" data-gall="portfolioGallery" title="App 2"><i class="ion ion-eye"></i></a>
                         </figure>
 
                         <div class="portfolio-info">
-                            <h4><a href="#">Web 2</a></h4>
-                            <p>Web</p>
+                            <h4>App 2</h4>
                         </div>
                     </div>
                 </div>
@@ -99,14 +81,12 @@
                 <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp" data-wow-delay="0.2s">
                     <div class="portfolio-wrap">
                         <figure>
-                            <img src="assets/img/portfolio/app3.jpg" class="img-fluid" alt="">
-                            <a href="assets/img/portfolio/app3.jpg" class="link-preview venobox" data-gall="portfolioGallery" title="App 3"><i class="ion ion-eye"></i></a>
-                            <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
+                            <img src="<?= base_url('assets/home/') ?>assets/img/gallery/6.jpeg" class="img-fluid" alt="">
+                            <a href="<?= base_url('assets/home/') ?>assets/img/gallery/6.jpeg" class="link-preview venobox" data-gall="portfolioGallery" title="App 2"><i class="ion ion-eye"></i></a>
                         </figure>
 
                         <div class="portfolio-info">
-                            <h4><a href="#">App 3</a></h4>
-                            <p>App</p>
+                            <h4>App 2</h4>
                         </div>
                     </div>
                 </div>
@@ -114,14 +94,12 @@
                 <div class="col-lg-4 col-md-6 portfolio-item filter-card wow fadeInUp">
                     <div class="portfolio-wrap">
                         <figure>
-                            <img src="assets/img/portfolio/card1.jpg" class="img-fluid" alt="">
-                            <a href="assets/img/portfolio/card1.jpg" class="link-preview venobox" data-gall="portfolioGallery" title="Card 1"><i class="ion ion-eye"></i></a>
-                            <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
+                            <img src="<?= base_url('assets/home/') ?>assets/img/gallery/7.jpeg" class="img-fluid" alt="">
+                            <a href="<?= base_url('assets/home/') ?>assets/img/gallery/7.jpeg" class="link-preview venobox" data-gall="portfolioGallery" title="App 2"><i class="ion ion-eye"></i></a>
                         </figure>
 
                         <div class="portfolio-info">
-                            <h4><a href="#">Card 1</a></h4>
-                            <p>Card</p>
+                            <h4>App 2</h4>
                         </div>
                     </div>
                 </div>
@@ -129,14 +107,12 @@
                 <div class="col-lg-4 col-md-6 portfolio-item filter-card wow fadeInUp" data-wow-delay="0.1s">
                     <div class="portfolio-wrap">
                         <figure>
-                            <img src="assets/img/portfolio/card3.jpg" class="img-fluid" alt="">
-                            <a href="assets/img/portfolio/card3.jpg" class="link-preview venobox" data-gall="portfolioGallery" title="Card 3"><i class="ion ion-eye"></i></a>
-                            <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
+                            <img src="<?= base_url('assets/home/') ?>assets/img/gallery/8.jpeg" class="img-fluid" alt="">
+                            <a href="<?= base_url('assets/home/') ?>assets/img/gallery/8.jpeg" class="link-preview venobox" data-gall="portfolioGallery" title="App 2"><i class="ion ion-eye"></i></a>
                         </figure>
 
                         <div class="portfolio-info">
-                            <h4><a href="#">Card 3</a></h4>
-                            <p>Card</p>
+                            <h4>App 2</h4>
                         </div>
                     </div>
                 </div>
@@ -144,14 +120,12 @@
                 <div class="col-lg-4 col-md-6 portfolio-item filter-web wow fadeInUp" data-wow-delay="0.2s">
                     <div class="portfolio-wrap">
                         <figure>
-                            <img src="assets/img/portfolio/web1.jpg" class="img-fluid" alt="">
-                            <a href="assets/img/portfolio/web1.jpg" class="link-preview venobox" data-gall="portfolioGallery" title="Web 1"><i class="ion ion-eye"></i></a>
-                            <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
+                            <img src="<?= base_url('assets/home/') ?>assets/img/gallery/9.jpeg" class="img-fluid" alt="">
+                            <a href="<?= base_url('assets/home/') ?>assets/img/gallery/9.jpeg" class="link-preview venobox" data-gall="portfolioGallery" title="App 2"><i class="ion ion-eye"></i></a>
                         </figure>
 
                         <div class="portfolio-info">
-                            <h4><a href="#">Web 1</a></h4>
-                            <p>Web</p>
+                            <h4>App 2</h4>
                         </div>
                     </div>
                 </div>
@@ -162,14 +136,13 @@
     </section><!-- End Portfolio Section -->
 
 
-
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="section-bg wow fadeInUp">
         <div class="container">
 
             <div class="section-header">
-                <h3>Contact Us</h3>
-                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
+                <h3>Kontak</h3>
+
             </div>
 
             <div class="row contact-info">
@@ -177,16 +150,20 @@
                 <div class="col-md-4">
                     <div class="contact-address">
                         <i class="ion-ios-location-outline"></i>
-                        <h3>Address</h3>
-                        <address>A108 Adam Street, NY 535022, USA</address>
+                        <h3>Alamat</h3>
+                        <address>JL.KH Ahmad Dahlan / KUAU No.96 Sukajadi,Pekanbaru</address>
                     </div>
                 </div>
+
 
                 <div class="col-md-4">
                     <div class="contact-phone">
                         <i class="ion-ios-telephone-outline"></i>
-                        <h3>Phone Number</h3>
-                        <p><a href="tel:+155895548855">+1 5589 55488 55</a></p>
+                        <h3>Nomor Telepon
+                        </h3>
+                        <p> 0813-7839-5533<br>
+                            0812-7565-5644 <br>
+                            0813-6572-3496</p>
                     </div>
                 </div>
 

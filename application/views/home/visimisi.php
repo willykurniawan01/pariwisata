@@ -26,7 +26,9 @@
                     </div>
                 </div>
             </div>
+        </div>
     </section>
+
     <!-- End Visi dan Misi Section -->
 
 
