@@ -1,6 +1,6 @@
 <main id="mains">
 
-    <!-- ======= Portfolio Section ======= -->
+    <!-- ======= Gallery Section ======= -->
     <section id="portfolio" class="section-bg">
         <div class="container">
 
@@ -9,8 +9,16 @@
             </header>
 
 
-            <div class="row portfolio-container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul id="portfolio-flters">
+                        <li data-filter="*" class="filter-active">All</li>
+                        <li data-filter=".filter-app">Prestasi</li>
+                    </ul>
+                </div>
+            </div>
 
+            <div class="row portfolio-container">
                 <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp">
                     <div class="portfolio-wrap">
                         <figure>
@@ -131,9 +139,9 @@
                 </div>
 
             </div>
-
         </div>
-    </section><!-- End Portfolio Section -->
+        </div>
+    </section><!-- End Gallery Section -->
 
 
     <!-- ======= Contact Section ======= -->

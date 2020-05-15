@@ -28,7 +28,6 @@
                         </ul>
                     </li>
                     <li><a href="<?= base_url('home/galeri') ?>">Galeri</a></li>
-                    <li><a href="<?= base_url('home/prestasi') ?>">Prestasi</a></li>
                     <li><a href="#contact">Kontak</a></li>
                 </ul>
             </nav>

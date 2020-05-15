@@ -71,13 +71,4 @@ class Home extends CI_Controller
         $this->load->view('home/pendaftaran', $data);
         $this->load->view('home/template/footer');
     }
-
-    public function prestasi()
-    {
-        $data['judul'] = "Prestasi";
-        $this->load->view('home/template/header', $data);
-        $this->load->view('home/template/navbar', $data);
-        $this->load->view('home/prestasi', $data);
-        $this->load->view('home/template/footer');
-    }
 }
