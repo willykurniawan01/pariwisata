@@ -11,7 +11,7 @@
 
             <nav id="nav-menu-container">
                 <ul class="nav-menu">
-                    <li class="menu-active"><a href="">Home</a></li>
+                    <li class="menu-active"><a href="<?= base_url('home') ?>">Home</a></li>
                     <li class="menu-has-children"><a href="">Profil</a>
                         <ul>
                             <li><a href="sekolah.html">Sekolah</a></li>
