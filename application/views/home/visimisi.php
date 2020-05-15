@@ -9,7 +9,7 @@
             <div class="visi-misi">
                 <div class="row justify-content-center">
                     <div class="col-12">
-                        <h5 class="m-0">Visi</h5>
+                        <h5>Visi</h5>
                         <p> <br> Terwujudnya Peserta Didik yang Berilmu,Beriman,Bertaqwa,dan Berakhlak Mulia.</p>
                     </div>
                 </div>
