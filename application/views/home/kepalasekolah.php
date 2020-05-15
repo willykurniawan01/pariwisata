@@ -41,11 +41,9 @@
 
             <div class="section-header">
                 <h3>Kontak</h3>
-
             </div>
 
             <div class="row contact-info">
-
                 <div class="col-md-4">
                     <div class="contact-address">
                         <i class="ion-ios-location-outline"></i>
@@ -73,12 +71,7 @@
                         <p><a href="mailto:info@example.com">info@example.com</a></p>
                     </div>
                 </div>
-
             </div>
-
-
-        </div>
-
         </div>
     </section><!-- End Contact Section -->
 

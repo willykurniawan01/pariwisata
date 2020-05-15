@@ -32,13 +32,14 @@
 
 
 
+
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="section-bg wow fadeInUp">
         <div class="container">
 
             <div class="section-header">
-                <h3>Contact Us</h3>
-                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
+                <h3>Kontak</h3>
+
             </div>
 
             <div class="row contact-info">
@@ -46,16 +47,20 @@
                 <div class="col-md-4">
                     <div class="contact-address">
                         <i class="ion-ios-location-outline"></i>
-                        <h3>Address</h3>
-                        <address>A108 Adam Street, NY 535022, USA</address>
+                        <h3>Alamat</h3>
+                        <address>JL.KH Ahmad Dahlan / KUAU No.96 Sukajadi,Pekanbaru</address>
                     </div>
                 </div>
+
 
                 <div class="col-md-4">
                     <div class="contact-phone">
                         <i class="ion-ios-telephone-outline"></i>
-                        <h3>Phone Number</h3>
-                        <p><a href="tel:+155895548855">+1 5589 55488 55</a></p>
+                        <h3>Nomor Telepon
+                        </h3>
+                        <p> 0813-7839-5533<br>
+                            0812-7565-5644 <br>
+                            0813-6572-3496</p>
                     </div>
                 </div>
 
@@ -66,14 +71,10 @@
                         <p><a href="mailto:info@example.com">info@example.com</a></p>
                     </div>
                 </div>
-
             </div>
-
-
-        </div>
-
         </div>
     </section><!-- End Contact Section -->
+
 
 </main>
 <!-- End #main -->
