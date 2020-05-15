@@ -6,29 +6,18 @@
                 <h3>Profil Kepala Sekolah</h3>
             </header>
 
-            <div class="row my-5">
-                <div class="col-12 col-md-4 text-center">
-                    <figure class="figure">
+            <div class="row">
+                <div class="col">
+                    <figure class="figure float-left">
                         <img src="<?= base_url('assets/home/') ?>assets/img/kepala-sekolah.jpg" class="figure-img img-fluid rounded" alt="...">
                         <figcaption class="name">H.Herman Yulis.A .S.Pd</figcaption>
                         <figcaption class="position">Kepala Sekolah SMP Masmur Pekanbaru</figcaption>
                     </figure>
-
-                </div>
-                <div class="col-12 col-md-8">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                        Exercitationem sapiente minima
-                        cumque laborum molestias voluptate, accusamus modi doloribus hic rem est ipsa provident,
-                        voluptatum voluptates reprehenderit! Incidunt corporis veritatis libero obcaecati non
-                        distinctio minus dignissimos nobis iure architecto fugiat voluptatem atque deleniti
-                        esse, veniam voluptate accusantium alias rem quaerat molestiae perferendis, illum totam
-                        qui? Fugiat quaerat sequi neque sed aut aspernatur necessitatibus quae corporis mollitia
-                        eum, molestiae cumque quis deserunt animi itaque facere officia minima dignissimos
-                        quibusdam sunt nulla, inventore optio accusamus voluptas. Corporis repudiandae impedit
-                        consequuntur. At aliquid, eos eaque voluptates fuga quod eum non quam quasi, laudantium
-                        dolores!</p>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi officiis fuga corporis magnam, nesciunt maxime, cupiditate ut, vel voluptatibus distinctio facere incidunt molestiae provident? Totam adipisci harum delectus esse, ullam quas doloremque, iusto sed, sit at voluptas optio! Deleniti animi atque, minus natus exercitationem blanditiis sint eum qui consectetur reiciendis ipsum assumenda illum maxime? Commodi tenetur doloremque debitis. Similique dicta exercitationem natus optio ab dolorem adipisci quibusdam doloribus neque quo, cum obcaecati earum dignissimos? Sapiente, obcaecati pariatur. Unde voluptate recusandae voluptatum iste mollitia reprehenderit ab velit maiores id sequi, architecto officia. Necessitatibus cupiditate sapiente vero, dolores fugiat exercitationem dicta at aut iste dolorem vel velit dolorum, dolore est eaque nulla non! Asperiores velit rem illum accusamus! Explicabo, vero delectus neque ut assumenda pariatur asperiores corrupti dolorum maxime voluptatum harum distinctio modi facere nulla nesciunt sunt, hic unde maiores saepe. Eveniet modi ipsam animi repellendus doloribus expedita hic quod recusandae iure?</p>
                 </div>
             </div>
+        </div>
+
     </section>
     <!-- End Visi dan Misi Section -->
 
