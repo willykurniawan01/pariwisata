@@ -7,7 +7,7 @@
             </header>
             <div class="row">
                 <div class="col">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati et officia soluta veniam sed ut dicta minus, sunt magnam quam, eligendi consectetur excepturi unde at deserunt accusamus vero ipsum hic a molestias quos necessitatibus provident earum quidem. Voluptate libero consequatur itaque quam nihil cupiditate voluptatum neque iure aliquam repellat ullam reiciendis dolorem autem, quidem nulla architecto eaque natus. Nemo tenetur soluta vitae, asperiores non ipsam inventore? Similique id distinctio nulla, consequuntur neque, doloribus adipisci eligendi recusandae quis autem possimus dignissimos? Laborum, earum necessitatibus voluptate, aperiam nam alias accusantium accusamus magnam repudiandae nulla ratione velit porro esse dolor impedit, fugiat sunt.</p>
+                    <p class="text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati et officia soluta veniam sed ut dicta minus, sunt magnam quam, eligendi consectetur excepturi unde at deserunt accusamus vero ipsum hic a molestias quos necessitatibus provident earum quidem. Voluptate libero consequatur itaque quam nihil cupiditate voluptatum neque iure aliquam repellat ullam reiciendis dolorem autem, quidem nulla architecto eaque natus. Nemo tenetur soluta vitae, asperiores non ipsam inventore? Similique id distinctio nulla, consequuntur neque, doloribus adipisci eligendi recusandae quis autem possimus dignissimos? Laborum, earum necessitatibus voluptate, aperiam nam alias accusantium accusamus magnam repudiandae nulla ratione velit porro esse dolor impedit, fugiat sunt.</p>
                 </div>
             </div>
 

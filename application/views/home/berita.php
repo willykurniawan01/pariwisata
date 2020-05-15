@@ -1,33 +1,46 @@
 <main id="mains">
-    <!-- ======= Visi dan Misi Section ======= -->
-    <section id="visi-misi">
+    <!-- ======= Sekolah Section ======= -->
+    <section id="about">
         <div class="container">
             <header class="section-header">
-                <h3>Visi Dan Misi</h3>
+                <h3>Berita</h3>
             </header>
 
-            <div class="visi-misi">
-                <div class="row justify-content-center">
-                    <div class="col-12">
-                        <h5 class="m-0">Visi</h5>
-                        <p> <br> Terwujudnya Peserta Didik yang Berilmu,Beriman,Bertaqwa,dan Berakhlak Mulia.</p>
-                    </div>
-                </div>
-                <div class="row justify-content-center">
-                    <div class="col-12">
-                        <h5>Misi</h5>
+            <div class="row about-cols">
+
+                <div class="col-md-6 wow" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+                    <div class="about-col">
+                        <div class="img">
+                            <img src="<?= base_url('assets/home/') ?>assets/img/berita/1.jpeg" alt="" class="img-fluid">
+                            <h4 class="date">14 Mei 2020</h4>
+                        </div>
+                        <h2 class="title"><a href="#">Our Mission</a></h2>
                         <p>
-                            1.Memberikan Pendidikan Umum yang Bermutu Untuk Melanjutkan ke Sekolah Unggulan.<br>
-                            2.Memberikan Pendidikan Agama yang Bermutu untuk Menghadapi Pengaruh Luar yang Bersifat
-                            Negatif. <br>
-                            3.Memberikan Bekal Keterampilan bagi Siswa Untuk Menghadapi Era Globalisasi. <br>
-                            4.Memberikan Motivasi pada Siswa dalam menghadapi Persaingan Berbasis Kompetensi.
+                            Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod tempor ut labore et dolore magna aliqua. Ut
+                            enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                         </p>
                     </div>
                 </div>
+
+                <div class="col-md-6 wow " data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500">
+                    <div class="about-col">
+                        <div class="img">
+                            <img src="<?= base_url('assets/home/') ?>assets/img/berita/2.jpeg" alt="" class="img-fluid">
+                            <h4 class="date">14 Mei 2020</h4>
+                        </div>
+                        <h2 class="title"><a href="#">Our Mission</a></h2>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod tempor ut labore et dolore magna aliqua. Ut
+                            enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        </p>
+                    </div>
+                </div>
+
             </div>
+
+        </div>
     </section>
-    <!-- End Visi dan Misi Section -->
+    <!-- End Sekolah Section -->
 
 
 

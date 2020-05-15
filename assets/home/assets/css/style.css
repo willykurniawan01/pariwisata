@@ -789,7 +789,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 #about .about-col .img img {
   border-radius: 4px 4px 0 0;
   height: 300px;
-  width: 600px;
+  width: 100%;
 }
 
 #about .about-col i {
@@ -842,46 +842,35 @@ font-weight: 700;
 text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.5);
 }
 
-#visi-misi,#kepala-sekolah,#sekolah{
+#visi-misi,#kepala-sekolah,#sekolah,#berita{
   padding:6rem;
 }
 
 /* Visi Misi Section
 --------------------------------*/
-#visi-misi .visi-misi{
-  font-family: Montserrat;
-}
 
 #visi-misi .visi-misi h5{
-  font-size: 30px;
+  font-size: 20px;
   font-weight: 700;
   color: black;
 }
 
-#visi-misi .visi-misi p{
-  font-size: 1.2rem;
-  color: #000;
-  text-align: justify;
-}
 
 /* Kepala Sekolah Section */
-#kepala-sekolah{
-  font-family: Montserrat;
-  color: #000;
-}
+
 #kepala-sekolah img{
   float: left;
   margin-right: 20px;
 }
 
 #kepala-sekolah p{
-font-size: 1.2rem;
 text-align: justify;
 text-indent: 5rem;
 } 
 
 #kepala-sekolah .figure .name{
   font-size: 16px;
+  color: #000;
 }
 #kepala-sekolah .figure{
   text-align: center;
@@ -890,6 +879,7 @@ text-indent: 5rem;
 #kepala-sekolah .figure .position{  
   font-size: 16px;
   font-weight: 600;
+  color: #000;
 }
 
 /* section sekolah */

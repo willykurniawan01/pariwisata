@@ -22,13 +22,13 @@
                     </li>
                     <li class="menu-has-children"><a href="">Info</a>
                         <ul>
-                            <li><a href="pendaftaran.html">Pendaftaran</a></li>
-                            <li><a href="fasilitas.html">Fasilitas</a></li>
-                            <li><a href="berita.html">Berita</a></li>
+                            <li><a href="<?= base_url('home/pendaftaran') ?>">Pendaftaran</a></li>
+                            <li><a href="<?= base_url('home/fasilitas') ?>">Fasilitas</a></li>
+                            <li><a href="<?= base_url('home/berita') ?>">Berita</a></li>
                         </ul>
                     </li>
                     <li><a href="<?= base_url('home/galeri') ?>">Galeri</a></li>
-                    <li><a href="prestasi.html">Prestasi</a></li>
+                    <li><a href="<?= base_url('home/prestasi') ?>">Prestasi</a></li>
                     <li><a href="#contact">Kontak</a></li>
                 </ul>
             </nav>
