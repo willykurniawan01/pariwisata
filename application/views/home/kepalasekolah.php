@@ -7,6 +7,7 @@
             </header>
 
             <div class="row">
+
                 <div class="col">
                     <figure class="figure float-left">
                         <img src="<?= base_url('assets/home/') ?>assets/img/kepala-sekolah.jpg" class="figure-img img-fluid rounded" alt="...">

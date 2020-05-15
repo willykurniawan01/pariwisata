@@ -35,4 +35,13 @@ class Home extends CI_Controller
         $this->load->view('home/galeri', $data);
         $this->load->view('home/template/footer');
     }
+
+    public function sekolah()
+    {
+        $data['judul'] = "Sekolah";
+        $this->load->view('home/template/header', $data);
+        $this->load->view('home/template/navbar', $data);
+        $this->load->view('home/sekolah', $data);
+        $this->load->view('home/template/footer');
+    }
 }

@@ -14,7 +14,7 @@
                     <li class="menu-active"><a href="<?= base_url('home') ?>">Home</a></li>
                     <li class="menu-has-children"><a href="">Profil</a>
                         <ul>
-                            <li><a href="sekolah.html">Sekolah</a></li>
+                            <li><a href="<?= base_url('home/sekolah') ?>">Sekolah</a></li>
                             <li><a href="<?= base_url('home/visimisi') ?>">Visi dan Misi</a></li>
                             <li><a href="<?= base_url('home/kepalasekolah') ?>">Kepala Sekolah</a></li>
 
