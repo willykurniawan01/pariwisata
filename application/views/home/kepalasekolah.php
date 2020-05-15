@@ -6,10 +6,10 @@
                 <h3>Profil Kepala Sekolah</h3>
             </header>
 
-            <div class="row">
+            <div class="row my-5">
                 <div class="col text-center">
-                    <figure class="figure">
-                        <img src="<?= base_url('assets/home/') ?>assets/img/kepala-sekolah.jpg" class="figure-img  img-fluid rounded" alt="...">
+                    <figure class="figure float-md-left mx-3">
+                        <img src="<?= base_url('assets/home/') ?>assets/img/kepala-sekolah.jpg" class="figure-img img-fluid rounded-circle" alt="...">
                         <figcaption class="name">H.Herman Yulis.A .S.Pd</figcaption>
                         <figcaption class="position">Kepala Sekolah SMP Masmur Pekanbaru</figcaption>
                     </figure>
