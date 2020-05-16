@@ -8,7 +8,7 @@
     </div>
 
     <!-- Content Row -->
-
+    <?= $this->session->flashdata('message'); ?>
     <div class="row">
         <div class="col-md-8">
             <div class="card shadow mb-4 border-left-primary">
@@ -22,31 +22,37 @@
                                 <div class="form-group">
                                     <label>Username</label>
                                     <input type="hidden" class="form-control" name="id" value="<?= $admin['id'] ?>">
-                                    <input type="text" class="form-control" name="username" value="<?= $admin['username'] ?>">
-                                    <small class="form-text text-danger">We'll never share your email with anyone else.</small>
+                                    <input type="text" class="form-control" name="username" value="<?= $admin['username'] ?>" readonly>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Ubah Password</label>
                                     <input type="password" class="form-control" name="password1">
+                                    <small class="form-text text-danger"><?= form_error('password1') ?></small>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Konfirmasi Password</label>
                                     <input type="password" class="form-control" name="password2">
+                                    <small class="form-text text-danger"><?= form_error('password2') ?></small>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Ubah</button>
                             </form>
                         </div>
                         <div class="col-md-4">
                             <div class="row justify-content-center">
-                                <img class="img-fluid rounded-circle" src="<?= base_url('assets/admin/img/profil/') . $admin['foto'] ?>">
-                                <a href="<?= base_url('admin/hapusfoto') ?>" class="btn btn-danger mt-3">Ubah Foto</a>
-                                <!-- <form method="POST" action="<?= base_url('admin/uploadfoto') ?>">
+                                <?php
+                                if ($foto == 'gantifoto') :
+                                ?>
+                                    <?php echo form_open_multipart('admin/gantifoto/' . $admin['id']); ?>
                                     <div class="form-group">
                                         <label>Upload foto</label>
                                         <input type="file" class="form-control-file" name="foto">
                                     </div>
                                     <button class="btn btn-primary" type="submit">Upload</button>
-                                </form> -->
+                                    </form>
+                                <?php else : ?>
+                                    <img class="img-fluid rounded-circle" src="<?= base_url('assets/admin/img/profil/') . $admin['foto'] ?>">
+                                    <a href="<?= base_url('admin/pengaturanakun/gantifoto') ?>" class="btn btn-danger mt-3">Ubah Foto</a>
+                                <?php endif; ?>
                             </div>
                         </div>
 
