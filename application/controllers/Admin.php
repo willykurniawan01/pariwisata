@@ -75,4 +75,10 @@ class Admin extends CI_Controller
             
         }
     }
+
+    public function tambahUser()
+    {
+        $data['judul'] = "Tambah User";
+        $this->tampilan('tambahuser', $data);
+    }
 }

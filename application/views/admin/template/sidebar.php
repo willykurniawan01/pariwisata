@@ -13,8 +13,8 @@
     <hr class="sidebar-divider my-0">
 
     <!-- Nav Item - Dashboard -->
-    <li class="nav-item active">
-        <a class="nav-link" href="index.html">
+    <li class="nav-item <?= ($judul == 'Dashboard') ? 'active' : '' ?>">
+        <a class="nav-link" href="<?= base_url('admin') ?>">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
     </li>
@@ -26,14 +26,14 @@
     <div class="sidebar-heading">
         Admin
     </div>
-    <li class="nav-item">
+    <li class="nav-item <?= ($judul == 'Pengaturan Akun') ? 'active' : '' ?>">
         <a class="nav-link" href="<?= base_url('admin/pengaturanakun') ?>">
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Pengaturan Akun</span>
         </a>
     </li>
-    <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+    <li class="nav-item <?= ($judul == 'Tambah User') ? 'active' : '' ?>">
+        <a class="nav-link" href="<?= base_url('admin/tambahuser') ?>">
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Tambah User Admin</span>
         </a>
