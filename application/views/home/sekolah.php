@@ -1,35 +1,19 @@
 <main id="mains">
-    <!-- ======= Visi dan Misi Section ======= -->
-    <section id="visi-misi">
+    <!-- ======= Sekolah Section ======= -->
+    <section id="sekolah">
         <div class="container">
             <header class="section-header">
-                <h3>Visi Dan Misi</h3>
+                <h3>Sejarah Sekolah</h3>
             </header>
-
-            <div class="visi-misi">
-                <div class="row justify-content-center">
-                    <div class="col-12">
-                        <h5>Visi</h5>
-                        <p> <br> Terwujudnya Peserta Didik yang Berilmu,Beriman,Bertaqwa,dan Berakhlak Mulia.</p>
-                    </div>
-                </div>
-                <div class="row justify-content-center">
-                    <div class="col-12">
-                        <h5>Misi</h5>
-                        <p>
-                            1.Memberikan Pendidikan Umum yang Bermutu Untuk Melanjutkan ke Sekolah Unggulan.<br>
-                            2.Memberikan Pendidikan Agama yang Bermutu untuk Menghadapi Pengaruh Luar yang Bersifat
-                            Negatif. <br>
-                            3.Memberikan Bekal Keterampilan bagi Siswa Untuk Menghadapi Era Globalisasi. <br>
-                            4.Memberikan Motivasi pada Siswa dalam menghadapi Persaingan Berbasis Kompetensi.
-                        </p>
-                    </div>
+            <div class="row">
+                <div class="col">
+                    <p class="text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati et officia soluta veniam sed ut dicta minus, sunt magnam quam, eligendi consectetur excepturi unde at deserunt accusamus vero ipsum hic a molestias quos necessitatibus provident earum quidem. Voluptate libero consequatur itaque quam nihil cupiditate voluptatum neque iure aliquam repellat ullam reiciendis dolorem autem, quidem nulla architecto eaque natus. Nemo tenetur soluta vitae, asperiores non ipsam inventore? Similique id distinctio nulla, consequuntur neque, doloribus adipisci eligendi recusandae quis autem possimus dignissimos? Laborum, earum necessitatibus voluptate, aperiam nam alias accusantium accusamus magnam repudiandae nulla ratione velit porro esse dolor impedit, fugiat sunt.</p>
                 </div>
             </div>
+
         </div>
     </section>
-
-    <!-- End Visi dan Misi Section -->
+    <!-- End Sekolah Section -->
 
 
 

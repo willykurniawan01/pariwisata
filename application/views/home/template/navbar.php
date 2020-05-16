@@ -14,7 +14,7 @@
                     <li class="menu-active"><a href="<?= base_url('home') ?>">Home</a></li>
                     <li class="menu-has-children"><a href="">Profil</a>
                         <ul>
-                            <li><a href="sekolah.html">Sekolah</a></li>
+                            <li><a href="<?= base_url('home/sekolah') ?>">Sekolah</a></li>
                             <li><a href="<?= base_url('home/visimisi') ?>">Visi dan Misi</a></li>
                             <li><a href="<?= base_url('home/kepalasekolah') ?>">Kepala Sekolah</a></li>
 
@@ -22,13 +22,12 @@
                     </li>
                     <li class="menu-has-children"><a href="">Info</a>
                         <ul>
-                            <li><a href="pendaftaran.html">Pendaftaran</a></li>
-                            <li><a href="fasilitas.html">Fasilitas</a></li>
-                            <li><a href="berita.html">Berita</a></li>
+                            <li><a href="<?= base_url('home/pendaftaran') ?>">Pendaftaran</a></li>
+                            <li><a href="<?= base_url('home/fasilitas') ?>">Fasilitas</a></li>
+                            <li><a href="<?= base_url('home/berita') ?>">Berita</a></li>
                         </ul>
                     </li>
                     <li><a href="<?= base_url('home/galeri') ?>">Galeri</a></li>
-                    <li><a href="prestasi.html">Prestasi</a></li>
                     <li><a href="#contact">Kontak</a></li>
                 </ul>
             </nav>

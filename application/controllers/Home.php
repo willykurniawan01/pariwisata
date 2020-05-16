@@ -35,4 +35,40 @@ class Home extends CI_Controller
         $this->load->view('home/galeri', $data);
         $this->load->view('home/template/footer');
     }
+
+    public function sekolah()
+    {
+        $data['judul'] = "Sekolah";
+        $this->load->view('home/template/header', $data);
+        $this->load->view('home/template/navbar', $data);
+        $this->load->view('home/sekolah', $data);
+        $this->load->view('home/template/footer');
+    }
+
+    public function berita()
+    {
+        $data['judul'] = "Berita";
+        $this->load->view('home/template/header', $data);
+        $this->load->view('home/template/navbar', $data);
+        $this->load->view('home/berita', $data);
+        $this->load->view('home/template/footer');
+    }
+
+    public function fasilitas()
+    {
+        $data['judul'] = "Fasilitas";
+        $this->load->view('home/template/header', $data);
+        $this->load->view('home/template/navbar', $data);
+        $this->load->view('home/fasilitas', $data);
+        $this->load->view('home/template/footer');
+    }
+
+    public function pendaftaran()
+    {
+        $data['judul'] = "Pendaftaran";
+        $this->load->view('home/template/header', $data);
+        $this->load->view('home/template/navbar', $data);
+        $this->load->view('home/pendaftaran', $data);
+        $this->load->view('home/template/footer');
+    }
 }

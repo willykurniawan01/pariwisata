@@ -7,28 +7,17 @@
             </header>
 
             <div class="row my-5">
-                <div class="col-12 col-md-4 text-center">
-                    <figure class="figure">
-                        <img src="<?= base_url('assets/home/') ?>assets/img/kepala-sekolah.jpg" class="figure-img img-fluid rounded" alt="...">
+                <div class="col text-center">
+                    <figure class="figure float-md-left mx-3">
+                        <img src="<?= base_url('assets/home/') ?>assets/img/kepala-sekolah.jpg" class="figure-img img-fluid rounded-circle" alt="...">
                         <figcaption class="name">H.Herman Yulis.A .S.Pd</figcaption>
                         <figcaption class="position">Kepala Sekolah SMP Masmur Pekanbaru</figcaption>
                     </figure>
-
-                </div>
-                <div class="col-12 col-md-8">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                        Exercitationem sapiente minima
-                        cumque laborum molestias voluptate, accusamus modi doloribus hic rem est ipsa provident,
-                        voluptatum voluptates reprehenderit! Incidunt corporis veritatis libero obcaecati non
-                        distinctio minus dignissimos nobis iure architecto fugiat voluptatem atque deleniti
-                        esse, veniam voluptate accusantium alias rem quaerat molestiae perferendis, illum totam
-                        qui? Fugiat quaerat sequi neque sed aut aspernatur necessitatibus quae corporis mollitia
-                        eum, molestiae cumque quis deserunt animi itaque facere officia minima dignissimos
-                        quibusdam sunt nulla, inventore optio accusamus voluptas. Corporis repudiandae impedit
-                        consequuntur. At aliquid, eos eaque voluptates fuga quod eum non quam quasi, laudantium
-                        dolores!</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque suscipit ad possimus voluptates, explicabo vel omnis temporibus, esse ratione similique modi sit? Blanditiis alias nemo repudiandae unde nobis temporibus, minus vel dicta? Commodi, deserunt porro dolorum totam dolorem quia voluptatem nam neque atque accusamus impedit ab, voluptates animi necessitatibus nemo veritatis sequi aspernatur rem recusandae hic voluptatibus! Necessitatibus temporibus cumque blanditiis natus corporis, impedit magnam. Obcaecati aspernatur ullam, sequi dicta, omnis tempore atque quae dolore laboriosam dolor quibusdam ducimus accusantium. Maxime dolorum iure illo quam mollitia atque quibusdam aliquid velit consequuntur nesciunt doloribus culpa aliquam nisi, praesentium similique accusamus debitis ea minima id cumque quod, ducimus fugit ut. Distinctio dolore, illo earum culpa nostrum eum velit, iste amet harum tempora eius? Doloremque qui iste sed veniam magni rerum non minus omnis! Nulla assumenda harum hic nostrum, eligendi quas iure! Nulla debitis corrupti velit facere quam provident rem, autem ea praesentium voluptatem unde impedit eos quibusdam. Magnam tempore explicabo sed itaque iste harum laudantium saepe dignissimos, labore ab eos perspiciatis sapiente exercitationem ipsa aliquid reprehenderit autem ipsam pariatur libero at nostrum est voluptas vero quam. Debitis dolore, quas explicabo magnam, cumque eius qui expedita in iste nemo rem ab dicta. Illum!</p>
                 </div>
             </div>
+        </div>
+
     </section>
     <!-- End Visi dan Misi Section -->
 
@@ -41,11 +30,9 @@
 
             <div class="section-header">
                 <h3>Kontak</h3>
-
             </div>
 
             <div class="row contact-info">
-
                 <div class="col-md-4">
                     <div class="contact-address">
                         <i class="ion-ios-location-outline"></i>
@@ -73,12 +60,7 @@
                         <p><a href="mailto:info@example.com">info@example.com</a></p>
                     </div>
                 </div>
-
             </div>
-
-
-        </div>
-
         </div>
     </section><!-- End Contact Section -->
 
