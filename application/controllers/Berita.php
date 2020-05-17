@@ -13,10 +13,10 @@ class Berita extends CI_Controller
     public function index()
     {
         //pagination config
-        $config['base_url'] = 'http://localhost/smp-masmur/berita/post';
+        $config['base_url'] = 'http://localhost/smp-masmur/berita/index';
         // $config['total_rows'] = $this->berita->countBerita();
         $config['total_rows'] = 200;
-        $config['per_page'] = 10;
+        $config['per_page'] = 4;
 
 
         //custom pagination
@@ -39,13 +39,13 @@ class Berita extends CI_Controller
         $config['prev_tag_open'] = '<li class="page-item">';
         $config['prev_tag_close'] = '</li>';
 
-        $config['cur_tag_open'] = '<li class="page-item active"> <a class="page-link">';
+        $config['cur_tag_open'] = '<li class="page-item"> <a class="page-link bg-success text-white">';
         $config['cur_tag_close'] = '</a></li>';
 
         $config['num_tag_open'] = '<li class="page-item">';
         $config['num_tag_close'] = '</li>';
 
-        $config['attributes'] = array('class' => 'page-link');
+        $config['attributes'] = array('class' => 'page-link text-success');
         $this->pagination->initialize($config);
         //end custom pagination
 
