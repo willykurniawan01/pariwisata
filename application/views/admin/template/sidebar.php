@@ -48,8 +48,8 @@
     </div>
 
     <!-- Nav Item - Charts -->
-    <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+    <li class="nav-item <?= ($judul == 'Slider') ? 'active' : '' ?>">
+        <a class="nav-link" href="<?= base_url('admin/slider') ?>">
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Slider</span>
         </a>

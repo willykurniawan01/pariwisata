@@ -55,13 +55,13 @@ class Admin extends CI_Controller
         $config['upload_path'] = './assets/admin/img/profil/';
         $config['allowed_types'] = 'jpg|jpeg|png|gif';
         $config['max_size'] = '1000000';
-        $config['file_name'] = 'foto-profil-'.$id;
+        $config['file_name'] = 'foto-profil-' . $id;
 
         $this->load->library('upload', $config, 'foto');
         $this->foto->initialize($config);
 
         if ($this->foto->do_upload('foto')) {
-            if($admin['foto'] != 'default.png'){
+            if ($admin['foto'] != 'default.png') {
                 $link = "./assets/admin/img/profil/";
                 unlink($link . $admin['foto']);
             }
@@ -72,7 +72,6 @@ class Admin extends CI_Controller
         } else {
             $this->session->set_flashdata('message', '<div class="alert alert-danger mt-4" role="alert">Gagal mengupload foto!</div>');
             redirect('admin/pengaturanakun');
-            
         }
     }
 
@@ -80,5 +79,46 @@ class Admin extends CI_Controller
     {
         $data['judul'] = "Tambah User";
         $this->tampilan('tambahuser', $data);
+    }
+
+    public function Slider()
+    {
+        $this->form_validation->set_rules('judul', 'Judul', 'required|trim');
+        $this->form_validation->set_rules('subjudul', 'Subjudul', 'required|trim');
+
+        $judul = $this->input->post('judul');
+        $subjudul = $this->input->post('subjudul');
+
+        $config['upload_path'] = './assets/admin/img/sliders/';
+        $config['allowed_types'] = 'jpg|jpeg|png|gif';
+        $config['max_size'] = '1000000';
+        $config['file_name'] = 'slider';
+
+        $this->load->library('upload', $config, 'gambar');
+        $this->gambar->initialize($config);
+
+        if ($this->form_validation->run() == FALSE) {
+            $data['error'] = '';
+            $data['slider'] = $this->db->get('slider')->result_array();
+            $data['judul'] = "Slider";
+            $this->tampilan('slider', $data);
+        } else {
+            if ($this->gambar->do_upload('gambar')) {
+                $data = [
+                    'gambar' => $this->gambar->data('file_name'),
+                    'judul' => $judul,
+                    'subjudul' => $subjudul
+                ];
+                $this->db->insert('slider', $data);
+                $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil menambah slider!</div>');
+                redirect('admin/slider');
+            } else {
+                $this->session->set_flashdata('message', '<div class="alert alert-danger mt-4" role="alert">Gagal menambah slider!</div>');
+                $data['error'] = $this->gambar->display_errors();
+                $data['slider'] = $this->db->get('slider')->result_array();
+                $data['judul'] = "Slider";
+                $this->tampilan('slider', $data);
+            }
+        }
     }
 }
