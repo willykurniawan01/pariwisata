@@ -6,56 +6,21 @@
                 <ol class="carousel-indicators"></ol>
 
                 <div class="carousel-inner" role="listbox">
+                    <?php
+                    $slider = $this->db->get('slider')->result_array();
 
-                    <div class="carousel-item active">
-                        <div class="carousel-background"><img src="<?= base_url('assets/home/') ?>assets/img/intro-carousel/1.jpeg" alt=""></div>
-                        <div class="carousel-container">
-                            <div class="carousel-content">
-                                <h2>Selamat Datang.</h2>
-                                <h4>Di Website Resmi SMP Masmur Pekanbaru .</h4>
+                    foreach ($slider as $s) :
+                    ?>
+                        <div class="carousel-item active">
+                            <div class="carousel-background"><img src="<?= base_url('assets/admin/img/sliders/') . $s['gambar'] ?>" alt="Slider"></div>
+                            <div class="carousel-container">
+                                <div class="carousel-content">
+                                    <h2><?= $s['judul'] ?></h2>
+                                    <h4><?= $s['subjudul'] ?></h4>
+                                </div>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="carousel-item">
-                        <div class="carousel-background"><img src="<?= base_url('assets/home/') ?>assets/img/intro-carousel/2.jpeg" alt=""></div>
-                        <div class="carousel-container">
-                            <div class="carousel-content">
-                                <h2 class="type">Selamat Datang.</h2>
-                                <h4>Di Website Resmi SMP Masmur Pekanbaru .</h4>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="carousel-item">
-                        <div class="carousel-background"><img src="<?= base_url('assets/home/') ?>assets/img/intro-carousel/3.jpeg" alt=""></div>
-                        <div class="carousel-container">
-                            <div class="carousel-content">
-                                <h2>Selamat Datang.</h2>
-                                <h4>Di Website Resmi SMP Masmur Pekanbaru .</h4>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="carousel-item">
-                        <div class="carousel-background"><img src="<?= base_url('assets/home/') ?>assets/img/intro-carousel/4.jpeg" alt=""></div>
-                        <div class="carousel-container">
-                            <div class="carousel-content">
-                                <h2>Selamat Datang.</h2>
-                                <h4>Di Website Resmi SMP Masmur Pekanbaru .</h4>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="carousel-item">
-                        <div class="carousel-background"><img src="<?= base_url('assets/home/') ?>assets/img/intro-carousel/5.jpeg" alt=""></div>
-                        <div class="carousel-container">
-                            <div class="carousel-content">
-                                <h2>Selamat Datang.</h2>
-                                <h4>Di Website Resmi SMP Masmur Pekanbaru .</h4>
-                            </div>
-                        </div>
-                    </div>
+                    <?php endforeach; ?>
 
                 </div>
 
