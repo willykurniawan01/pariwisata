@@ -11,7 +11,7 @@ class Home extends CI_Controller
         $this->load->view('home/index', $data);
         $this->load->view('home/template/footer');
     }
-    public function visimisi()
+    public function visiMisi()
     {
         $data['judul'] = "Visi dan Misi";
         $this->load->view('home/template/header', $data);
@@ -45,14 +45,6 @@ class Home extends CI_Controller
         $this->load->view('home/template/footer');
     }
 
-    public function berita()
-    {
-        $data['judul'] = "Berita";
-        $this->load->view('home/template/header', $data);
-        $this->load->view('home/template/navbar', $data);
-        $this->load->view('home/berita', $data);
-        $this->load->view('home/template/footer');
-    }
 
     public function fasilitas()
     {

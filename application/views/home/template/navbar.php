@@ -24,7 +24,7 @@
                         <ul>
                             <li><a href="<?= base_url('home/pendaftaran') ?>">Pendaftaran</a></li>
                             <li><a href="<?= base_url('home/fasilitas') ?>">Fasilitas</a></li>
-                            <li><a href="<?= base_url('home/berita') ?>">Berita</a></li>
+                            <li><a href="<?= base_url('berita') ?>">Berita</a></li>
                         </ul>
                     </li>
                     <li><a href="<?= base_url('home/galeri') ?>">Galeri</a></li>
