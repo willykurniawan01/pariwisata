@@ -43,6 +43,7 @@
 
             </div>
 
+            <?= $this->pagination->create_links(); ?>
         </div>
     </section>
     <!-- End Sekolah Section -->
