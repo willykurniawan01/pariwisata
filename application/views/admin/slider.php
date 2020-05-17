@@ -79,9 +79,7 @@
                 <div class="form-group">
                     <label>Upload Gambar</label>
                     <input type="file" class="form-control-file" name="gambar">
-                    <?php if ($error) : ?>
-                        <small id="error" class="form-text text-danger"><?= $error ?></small>
-                    <?php endif; ?>
+                    <small id="error" class="form-text text-danger"><?= $error ?></small>
                 </div>
                 <div class="form-group">
                     <label for="judul">Judul</label>

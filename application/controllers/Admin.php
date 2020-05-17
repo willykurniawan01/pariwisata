@@ -121,4 +121,56 @@ class Admin extends CI_Controller
             }
         }
     }
+
+    public function berita()
+    {
+        $data['judul'] = "Berita";
+        $data['kategori'] = $this->db->get('kategori')->result_array();
+        $data['berita'] = $this->db->get('berita')->result_array();
+        $this->tampilan('berita', $data);
+    }
+
+    public function tambahKategori()
+    {
+        $data['nama_kategori'] = $this->input->post('nama_kategori');
+        $this->db->insert('kategori', $data);
+        $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil menambah kategori!</div>');
+        redirect('admin/berita');
+    }
+
+    public function tambahBerita()
+    {
+        $this->form_validation->set_rules('judul', 'Judul Berita', 'required|trim');
+        $this->form_validation->set_rules('isi', 'Isi Berita', 'required|trim');
+
+        $config['upload_path'] = './assets/home/assets/img/berita/';
+        $config['allowed_types'] = 'jpg|jpeg|png|gif';
+        $config['max_size'] = '1000000';
+        $config['file_name'] = 'berita';
+
+        $this->load->library('upload', $config, 'gambar');
+        $this->gambar->initialize($config);
+
+        if ($this->form_validation->run() == FALSE) {
+            $data['error'] = '';
+            $data['judul'] = "Berita";
+            $this->tampilan('tambahberita', $data);
+        }else{
+            if ($this->gambar->do_upload('gambar')) {
+                $data = [
+                    'judul' => $this->input->post('judul'),
+                    'isi' => $this->input->post('isi'),
+                    'gambar' => $this->gambar->data('file_name')
+                ];
+
+                $this->db->insert('berita', $data);
+                $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil mengupload Berita!</div>');
+                redirect('admin/berita');
+            }else{
+                $data['error'] = $this->gambar->display_errors();
+                $data['judul'] = "Berita";
+                $this->tampilan('tambahberita', $data);
+            }
+        }
+    }
 }

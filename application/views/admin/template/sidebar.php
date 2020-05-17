@@ -54,8 +54,8 @@
             <span>Slider</span>
         </a>
     </li>
-    <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+    <li class="nav-item <?= ($judul == 'Berita') ? 'active' : '' ?>">
+        <a class="nav-link" href="<?= base_url('admin/berita') ?>">
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Berita</span>
         </a>

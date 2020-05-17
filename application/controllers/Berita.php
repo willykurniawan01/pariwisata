@@ -15,7 +15,7 @@ class Berita extends CI_Controller
         //pagination config
         $config['base_url'] = 'http://localhost/smp-masmur/berita/index';
         // $config['total_rows'] = $this->berita->countBerita();
-        $config['total_rows'] = 200;
+        $config['total_rows'] = $this->db->get('berita')->num_rows();
         $config['per_page'] = 4;
 
 
@@ -49,9 +49,10 @@ class Berita extends CI_Controller
         $this->pagination->initialize($config);
         //end custom pagination
 
-
+        
         $data['start'] = $this->uri->segment(3);
-        // $data['berita'] = $this->berita->getBerita($config['per_page'], $data['start']);
+        $berita = $this->db->get('berita', $config['per_page'], $data['start'])->result_array();
+        $data['berita'] = $berita;
         $data['judul'] = "Berita";
 
         $this->load->view('home/template/header', $data);
@@ -61,11 +62,11 @@ class Berita extends CI_Controller
     }
 
 
-    public function detail() //menerima parameter id dari post
+    public function detail($id) //menerima parameter id dari post
     {
         // $detail = $this->berita->getDetail($id);
         // $data['detail'] = $detail;
-
+        $data['berita'] = $this->db->get_where('berita', ['id_berita' => $id])->row_array();
         $data['judul'] = "Berita";
         $this->load->view('home/template/header', $data);
         $this->load->view('home/template/navbar', $data);
