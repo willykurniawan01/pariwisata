@@ -1,5 +1,6 @@
 <main id="mains">
-    <!-- ======= Sekolah Section ======= -->
+
+    <!-- ======= Berita Section ======= -->
     <section id="about">
         <div class="container">
             <header class="section-header">
@@ -10,10 +11,12 @@
 
                 <div class="col-md-6 wow" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
                     <div class="about-col">
-                        <div class="img">
-                            <img src="<?= base_url('assets/home/') ?>assets/img/berita/1.jpeg" alt="" class="img-fluid">
-                            <h4 class="date">14 Mei 2020</h4>
-                        </div>
+                        <a href="<?= base_url('berita/detail') ?>">
+                            <div class="img">
+                                <img src="<?= base_url('assets/home/') ?>assets/img/berita/1.jpeg" alt="" class="img-fluid">
+                                <h4 class="date">14 Mei 2020</h4>
+                            </div>
+                        </a>
                         <h2 class="title"><a href="#">Our Mission</a></h2>
                         <p>
                             Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod tempor ut labore et dolore magna aliqua. Ut
@@ -24,10 +27,12 @@
 
                 <div class="col-md-6 wow " data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500">
                     <div class="about-col">
-                        <div class="img">
-                            <img src="<?= base_url('assets/home/') ?>assets/img/berita/2.jpeg" alt="" class="img-fluid">
-                            <h4 class="date">14 Mei 2020</h4>
-                        </div>
+                        <a href="<?= base_url('berita/detail') ?>">
+                            <div class="img">
+                                <img src="<?= base_url('assets/home/') ?>assets/img/berita/1.jpeg" alt="" class="img-fluid">
+                                <h4 class="date">14 Mei 2020</h4>
+                            </div>
+                        </a>
                         <h2 class="title"><a href="#">Our Mission</a></h2>
                         <p>
                             Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod tempor ut labore et dolore magna aliqua. Ut
@@ -38,6 +43,43 @@
 
             </div>
 
+            <div class="row about-cols">
+
+                <div class="col-md-6 wow" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+                    <div class="about-col">
+                        <a href="<?= base_url('berita/detail') ?>">
+                            <div class="img">
+                                <img src="<?= base_url('assets/home/') ?>assets/img/berita/1.jpeg" alt="" class="img-fluid">
+                                <h4 class="date">14 Mei 2020</h4>
+                            </div>
+                        </a>
+                        <h2 class="title"><a href="#">Our Mission</a></h2>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod tempor ut labore et dolore magna aliqua. Ut
+                            enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 wow " data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500">
+                    <div class="about-col">
+                        <a href="<?= base_url('berita/detail') ?>">
+                            <div class="img">
+                                <img src="<?= base_url('assets/home/') ?>assets/img/berita/1.jpeg" alt="" class="img-fluid">
+                                <h4 class="date">14 Mei 2020</h4>
+                            </div>
+                        </a>
+                        <h2 class="title"><a href="#">Our Mission</a></h2>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod tempor ut labore et dolore magna aliqua. Ut
+                            enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <?= $this->pagination->create_links(); ?>
         </div>
     </section>
     <!-- End Sekolah Section -->

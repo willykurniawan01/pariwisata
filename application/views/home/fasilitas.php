@@ -1,6 +1,6 @@
 <main id="mains">
-    <!-- syarat pendaftaran -->
-    <section id="pendaftaran">
+    <!-- Fasilitas -->
+    <section id="fasilitas">
         <div class="container">
             <header class="section-header">
                 <h3>Fasilitas</h3>
@@ -14,7 +14,7 @@
         </div>
     </section>
 
-    <!-- end syarat pendaftaran -->
+    <!-- end Fasilitas -->
 
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="section-bg wow fadeInUp">
