@@ -1,6 +1,6 @@
 <main id="mains">
 
-    <!-- ======= Sekolah Section ======= -->
+    <!-- ======= Berita Section ======= -->
     <section id="about">
         <div class="container">
             <header class="section-header">
