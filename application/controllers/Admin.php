@@ -155,7 +155,7 @@ class Admin extends CI_Controller
             $data['error'] = '';
             $data['judul'] = "Berita";
             $this->tampilan('tambahberita', $data);
-        }else{
+        } else {
             if ($this->gambar->do_upload('gambar')) {
                 $data = [
                     'judul' => $this->input->post('judul'),
@@ -166,11 +166,36 @@ class Admin extends CI_Controller
                 $this->db->insert('berita', $data);
                 $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil mengupload Berita!</div>');
                 redirect('admin/berita');
-            }else{
+            } else {
                 $data['error'] = $this->gambar->display_errors();
                 $data['judul'] = "Berita";
                 $this->tampilan('tambahberita', $data);
             }
         }
+    }
+
+    public function kategoriBerita($id)
+    {
+        $data['id_berita'] = $id;
+        $data['kategori'] = $this->db->get('kategori')->result_array();
+        $data['judul'] = "Berita";
+        $this->tampilan('kategoriberita', $data);
+    }
+
+    public function tambahKategoriBerita()
+    {
+        $id_berita = $this->input->post('id_berita');
+        $kategori = $this->input->post('kategori');
+
+        $this->db->delete('rel_kategori_berita', ['id_berita' => $id_berita]);
+        foreach($kategori as $k){
+            $data = [
+                'id_berita' => $id_berita,
+                'id_kategori' => $k
+            ];
+            $this->db->insert('rel_kategori_berita', $data);
+        }
+        $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil menambah kategori berita!</div>');
+        redirect('admin/berita');
     }
 }

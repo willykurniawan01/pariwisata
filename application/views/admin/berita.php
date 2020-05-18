@@ -7,7 +7,7 @@
 
     <!-- DataTales Example -->
     <div class="row justify-content-between">
-        <div class="col-md-7">
+        <div class="col-md-9">
             <div class="card shadow mb-4 mt-3">
                 <div class="card-header bg-primary">
                     <h1 class="h3 text-light"><?= $judul ?></h1>
@@ -15,11 +15,11 @@
                 <div class="card-body">
                     <a href="<?= base_url('admin/tambahberita') ?>" class="btn btn-primary mb-3">Tambah Berita</a>
                     <div class="table-responsive">
-                        <table class="table table-bordered" id="dataTable">
+                        <table class="table table-sm table-bordered" id="dataTable">
                             <thead>
                                 <tr>
-                                    <th width="10%">No</th>
-                                    <th width="60%">Judul Berita</th>
+                                    <th width="8%">No</th>
+                                    <th width="59%">Judul Berita</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -35,17 +35,21 @@
                                             <?= $b['judul'] ?>
                                         </td>
                                         <td class="align-middle">
-                                            <a href="#" class="btn btn-sm btn-info">
+                                            <a href="#" class="btn btn-sm btn-warning">
                                                 <span class="text">Edit</span>
                                             </a>
                                             <a href="#" class="btn btn-sm btn-danger">
                                                 <span class="text">Delete</span>
                                             </a>
+                                            <a href="<?= base_url('admin/kategoriberita/') . $b['id_berita'] ?>" class="btn btn-sm btn-info">
+                                                <span class="text">Tambah Kategori</span>
+                                            </a>
 
                                         </td>
 
                                     </tr>
-                                <?php $i++; endforeach; ?>
+                                <?php $i++;
+                                endforeach; ?>
 
                             </tbody>
                         </table>
@@ -54,7 +58,7 @@
             </div>
         </div>
 
-        <div class="col-md-4">
+        <div class="col-md-3">
             <div class="card shadow mb-4 mt-3">
                 <!-- <div class="card-header bg-primary">
                     <h1 class="h3 text-light"><?= $judul ?></h1>
@@ -63,7 +67,7 @@
                     <a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#kategori">Tambah Kategori</a>
                     <div class="table-responsive">
                         <h6 class="h5">List Kategori</h6>
-                        <table class="table table-bordered" id="dataTables">
+                        <table class="table table-bordered table-sm" id="dataTables">
                             <thead>
                                 <tr>
                                     <th width="80%">Nama Kategori</th>
@@ -80,7 +84,7 @@
                                             <?= $k['nama_kategori'] ?>
                                         </td>
                                         <td>
-                                            <a href="#" class="btn btn-sm btn-danger">
+                                            <a href="#" class="badge badge-danger">
                                                 <span class="text">Delete</span>
                                             </a>
                                         </td>
