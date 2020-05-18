@@ -15,7 +15,7 @@
                 <div class="card-body">
                     <a href="<?= base_url('admin/tambahberita') ?>" class="btn btn-primary mb-3">Tambah Berita</a>
                     <div class="table-responsive">
-                        <table class="table table-bordered">
+                        <table class="table table-bordered" id="dataTable">
                             <thead>
                                 <tr>
                                     <th width="10%">No</th>

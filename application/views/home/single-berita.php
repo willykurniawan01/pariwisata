@@ -14,19 +14,21 @@
                     <h1 class="mt-4"><?= $berita['judul'] ?></h1>
 
                     <!-- Date/Time -->
-                    <p>Posted on <?= date("j F Y ", strtotime($berita["datetime"])) ?></p>
+                    <p>Posted on <?= date("j F Y ", strtotime($berita['datetime'])) ?></p>
 
                     <hr>
 
                     <!-- Preview Image -->
-                    <img class="img-fluid rounded" src="http://placehold.it/900x500" alt="">
+                    <img class="img-fluid rounded" src="<?= base_url('assets/home/assets/img/berita/') . $berita['gambar'] ?>" alt="">
 
                     <hr>
-
+                    <?php
+                    $data = str_replace('&', '&amp;', $berita['isi']);
+                    ?>
                     <!-- Post Content -->
-                    <p class="lead text-justify">
+                    <div class="lead text-justify">
                         <?= $berita['isi'] ?>
-                    </p>
+                    </div>
 
                 </div>
 

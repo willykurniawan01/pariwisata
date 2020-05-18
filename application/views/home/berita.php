@@ -23,7 +23,7 @@
                             </a>
                             <h2 class="title"><a href="<?= base_url('berita/detail/') . $b['id_berita'] ?>"><?= $b['judul'] ?></a></h2>
                             <p>
-                                <?= substr($b['isi'], 0, 100) . '...' ?>
+                                <?= substr($b['isi'], 0, 400) . '...' ?>
                             </p>
                         </div>
                     </div>

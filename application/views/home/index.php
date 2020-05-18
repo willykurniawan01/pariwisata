@@ -6,21 +6,22 @@
                 <ol class="carousel-indicators"></ol>
 
                 <div class="carousel-inner" role="listbox">
+
                     <?php
                     $slider = $this->db->get('slider')->result_array();
-
+                    $i = 1;
                     foreach ($slider as $s) :
                     ?>
-                        <div class="carousel-item active">
+                        <div class="carousel-item <?= ($i == 1) ? 'active' : '' ?>">
                             <div class="carousel-background"><img src="<?= base_url('assets/admin/img/sliders/') . $s['gambar'] ?>" alt="Slider"></div>
                             <div class="carousel-container">
                                 <div class="carousel-content">
-                                    <h2><?= $s['judul'] ?></h2>
-                                    <h4><?= $s['subjudul'] ?></h4>
+                                    <h2><?= $s['judul'] ?>.&nbsp;</h2>
+                                    <h4><?= $s['subjudul'] ?>.&nbsp;</h4>
                                 </div>
                             </div>
                         </div>
-                    <?php endforeach; ?>
+                    <?php $i++; endforeach; ?>
 
                 </div>
 
@@ -49,74 +50,22 @@
                 </header>
 
                 <div class="row about-cols">
-
-                    <div class="col-md-6 wow" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
-                        <div class="about-col">
-                            <a href="<?= base_url('berita/detail') ?>">
-                                <div class="img">
-                                    <img src="<?= base_url('assets/home/') ?>assets/img/berita/3.jpeg" alt="" class="img-fluid">
-                                    <h4 class="date">14 Mei 2020</h4>
-                                </div>
-                            </a>
-                            <h2 class="title"><a href="#">Our Mission</a></h2>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod tempor ut labore et dolore magna aliqua. Ut
-                                enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                            </p>
+                    <?php foreach ($berita as $b) : ?>
+                        <div class="col-md-6 wow" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+                            <div class="about-col">
+                                <a href="<?= base_url('berita/detail/') . $b['id_berita'] ?>">
+                                    <div class="img">
+                                        <img src="<?= base_url('assets/home/assets/img/berita/') . $b['gambar'] ?>" alt="<?= $b['judul'] ?>" class="img-fluid">
+                                        <h4 class="date"><?= date("j F Y ", strtotime($b['datetime'])) ?></h4>
+                                    </div>
+                                </a>
+                                <h2 class="title"><a href="<?= base_url('berita/detail/') . $b['id_berita'] ?>"><?= $b['judul'] ?></a></h2>
+                                <p>
+                                    <?= substr($b['isi'], 0, 400) . '...' ?>
+                                </p>
+                            </div>
                         </div>
-                    </div>
-
-                    <div class="col-md-6 wow " data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500">
-                        <div class="about-col">
-                            <a href="<?= base_url('berita/detail') ?>">
-                                <div class="img">
-                                    <img src="<?= base_url('assets/home/') ?>assets/img/berita/3.jpeg" alt="" class="img-fluid">
-                                    <h4 class="date">14 Mei 2020</h4>
-                                </div>
-                            </a>
-                            <h2 class="title"><a href="#">Our Mission</a></h2>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod tempor ut labore et dolore magna aliqua. Ut
-                                enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                            </p>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="row about-cols">
-
-                    <div class="col-md-6 wow" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
-                        <div class="about-col">
-                            <a href="<?= base_url('berita/detail') ?>">
-                                <div class="img">
-                                    <img src="<?= base_url('assets/home/') ?>assets/img/berita/3.jpeg" alt="" class="img-fluid">
-                                    <h4 class="date">14 Mei 2020</h4>
-                                </div>
-                            </a>
-                            <h2 class="title"><a href="#">Our Mission</a></h2>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod tempor ut labore et dolore magna aliqua. Ut
-                                enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 wow " data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500">
-                        <div class="about-col">
-                            <a href="<?= base_url('berita/detail') ?>">
-                                <div class="img">
-                                    <img src="<?= base_url('assets/home/') ?>assets/img/berita/3.jpeg" alt="" class="img-fluid">
-                                    <h4 class="date">14 Mei 2020</h4>
-                                </div>
-                            </a>
-                            <h2 class="title"><a href="#">Our Mission</a></h2>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod tempor ut labore et dolore magna aliqua. Ut
-                                enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                            </p>
-                        </div>
-                    </div>
+                    <?php endforeach; ?>
 
                 </div>
             </div>

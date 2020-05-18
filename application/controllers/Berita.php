@@ -51,6 +51,7 @@ class Berita extends CI_Controller
 
         
         $data['start'] = $this->uri->segment(3);
+        $this->db->order_by('id_berita', 'DESC');
         $berita = $this->db->get('berita', $config['per_page'], $data['start'])->result_array();
         $data['berita'] = $berita;
         $data['judul'] = "Berita";

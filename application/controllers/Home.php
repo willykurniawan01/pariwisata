@@ -6,6 +6,9 @@ class Home extends CI_Controller
     public function index()
     {
         $data['judul'] = "Homepage";
+        $this->db->order_by('id_berita', 'DESC');
+        $this->db->limit(4);
+        $data['berita'] = $this->db->get('berita')->result_array();
         $this->load->view('home/template/header', $data);
         $this->load->view('home/template/navbar', $data);
         $this->load->view('home/index', $data);
