@@ -37,13 +37,13 @@
                                 </td>
                                 <td class="align-middle">
                                     <div class="row">
-                                        <a href="#" class="btn ml-2 btn-warning btn-icon-split">
+                                        <a href="<?= base_url('admin/editslider/') . $s['id_slider'] ?>" class="btn ml-2 btn-warning btn-icon-split">
                                             <span class="icon text-white-50">
                                                 <i class="fas fa-info-circle"></i>
                                             </span>
                                             <span class="text">Edit Slider</span>
                                         </a>
-                                        <a href="#" class="btn ml-2 btn-danger btn-icon-split mt-3">
+                                        <a href="<?= base_url('admin/deleteslider/') . $s['id_slider'] ?>" class="btn ml-2 btn-danger btn-icon-split mt-3">
                                             <span class="icon text-white-50">
                                                 <i class="fas fa-trash"></i>
                                             </span>

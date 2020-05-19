@@ -67,6 +67,7 @@ class Berita extends CI_Controller
     {
         // $detail = $this->berita->getDetail($id);
         // $data['detail'] = $detail;
+        $data['kategori'] = $this->db->get('kategori')->result_array();
         $data['berita'] = $this->db->get_where('berita', ['id_berita' => $id])->row_array();
         $data['judul'] = "Berita";
         $this->load->view('home/template/header', $data);

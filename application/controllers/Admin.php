@@ -188,7 +188,7 @@ class Admin extends CI_Controller
         $kategori = $this->input->post('kategori');
 
         $this->db->delete('rel_kategori_berita', ['id_berita' => $id_berita]);
-        foreach($kategori as $k){
+        foreach ($kategori as $k) {
             $data = [
                 'id_berita' => $id_berita,
                 'id_kategori' => $k
@@ -197,5 +197,71 @@ class Admin extends CI_Controller
         }
         $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil menambah kategori berita!</div>');
         redirect('admin/berita');
+    }
+
+    public function editSlider($id, $foto = '')
+    {
+        $judul = $this->input->post('judul');
+        $subjudul = $this->input->post('subjudul');
+        $cek_gambar = $this->input->post('cek');
+        $slider = $this->db->get_where('slider', ['id_slider' => $id])->row_array();
+
+        $this->form_validation->set_rules('judul', 'Judul', 'required|trim');
+        $this->form_validation->set_rules('subjudul', 'SubJudul', 'required|trim');
+
+        if ($this->form_validation->run() == FALSE) {
+            $data['slider'] = $slider;
+            $data['foto'] = $foto;
+            $data['id_slider'] = $id;
+            $data['judul'] = "Slider";
+            $this->tampilan('editslider', $data);
+        } else {
+            $data = [
+                'judul' => $judul,
+                'subjudul' => $subjudul
+            ];
+            if ($cek_gambar) {
+                $config['upload_path'] = './assets/admin/img/sliders/';
+                $config['allowed_types'] = 'jpg|jpeg|png|gif';
+                $config['max_size'] = '1000000';
+                $config['file_name'] = 'slider';
+
+                $this->load->library('upload', $config, 'gambar');
+                $this->gambar->initialize($config);
+                if ($this->gambar->do_upload('gambar')) {
+                    $link = "./assets/admin/img/sliders/";
+                    unlink($link . $slider['gambar']);
+
+                    $data = [
+                        'gambar' => $this->gambar->data('file_name'),
+                        'judul' => $judul,
+                        'subjudul' => $subjudul
+                    ];
+                    $this->db->update('slider', $data, ['id_slider' => $id]);
+                    $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil mengubah slider!</div>');
+                    redirect('admin/slider');
+                } else {
+                    $this->session->set_flashdata('message', '<div class="alert alert-danger mt-4" role="alert">Gagal menambah slider!</div>');
+                    $data['error'] = $this->gambar->display_errors();
+                    $data['slider'] = $slider;
+                    $data['foto'] = $foto;
+                    $data['judul'] = "Slider";
+                    $this->tampilan('editslider', $data);
+                }
+            }
+            $this->db->update('slider', $data, ['id_slider' => $id]);
+            $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil mengubah slider!</div>');
+            redirect('admin/slider');
+        }
+    }
+
+    public function deleteSlider($id)
+    {
+        $slider = $this->db->get_where('slider', ['id_slider' => $id])->row_array();
+        $link = "./assets/admin/img/sliders/";
+        unlink($link . $slider['gambar']);
+        $this->db->delete('slider', ['id_slider' => $id]);
+        $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil menghapus slider!</div>');
+        redirect('admin/slider');
     }
 }
