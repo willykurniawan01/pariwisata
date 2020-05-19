@@ -42,7 +42,7 @@
                             <div class="input-group">
                                 <input type="text" class="form-control" placeholder="Cari berita...">
                                 <span class="input-group-btn">
-                                    <button class="btn btn-secondary" type="button">Cari!</button>
+                                    <button class="btn btn-success" type="button">Cari!</button>
                                 </span>
                             </div>
                         </div>
