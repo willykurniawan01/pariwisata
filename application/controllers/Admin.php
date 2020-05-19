@@ -261,8 +261,6 @@ class Admin extends CI_Controller
 
     public function editBerita($id, $gambar = '')
     {
-        
-
         $this->form_validation->set_rules('judul', 'Judul Berita', 'required|trim');
         $this->form_validation->set_rules('isi', 'Isi Berita', 'required|trim');
 
@@ -315,5 +313,15 @@ class Admin extends CI_Controller
                 redirect('admin/berita');
             }
         }
+    }
+
+    public function deleteBerita($id)
+    {
+        $berita = $this->db->get_where('berita', ['id_berita' => $id])->row_array();
+        $link = "./assets/home/assets/img/berita/";
+        unlink($link . $berita['gambar']);
+        $this->db->delete('berita', ['id_berita' => $id]);
+        $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil menghapus berita!</div>');
+        redirect('admin/berita');
     }
 }

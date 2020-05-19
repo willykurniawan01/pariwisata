@@ -38,7 +38,7 @@
                                             <a href="<?= base_url('admin/editberita/') . $b['id_berita'] ?>" class="btn btn-sm btn-warning">
                                                 <span class="text">Edit</span>
                                             </a>
-                                            <a href="#" class="btn btn-sm btn-danger">
+                                            <a href="<?= base_url('admin/deleteberita/') . $b['id_berita'] ?>" class="btn btn-sm btn-danger">
                                                 <span class="text">Delete</span>
                                             </a>
                                             <a href="<?= base_url('admin/kategoriberita/') . $b['id_berita'] ?>" class="btn btn-sm btn-info">
