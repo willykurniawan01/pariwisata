@@ -32,12 +32,12 @@
             <span>Pengaturan Akun</span>
         </a>
     </li>
-    <li class="nav-item <?= ($judul == 'Tambah User') ? 'active' : '' ?>">
+    <!-- <li class="nav-item <?= ($judul == 'Tambah User') ? 'active' : '' ?>">
         <a class="nav-link" href="<?= base_url('admin/tambahuser') ?>">
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Tambah User Admin</span>
         </a>
-    </li>
+    </li> -->
 
     <!-- Divider -->
     <hr class="sidebar-divider">

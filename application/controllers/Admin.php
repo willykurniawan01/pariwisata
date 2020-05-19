@@ -75,12 +75,6 @@ class Admin extends CI_Controller
         }
     }
 
-    public function tambahUser()
-    {
-        $data['judul'] = "Tambah User";
-        $this->tampilan('tambahuser', $data);
-    }
-
     public function Slider()
     {
         $this->form_validation->set_rules('judul', 'Judul', 'required|trim');
@@ -264,4 +258,6 @@ class Admin extends CI_Controller
         $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil menghapus slider!</div>');
         redirect('admin/slider');
     }
+
+
 }
