@@ -7,27 +7,15 @@
                 <h3>Berita</h3>
             </header>
 
-            <div class="row about-cols">
+            <div class="row my-3 justify-content-center">
+                <div class="col-6">
+                    <input type="text" name="search_text" id="search_text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                </div>
+            </div>
 
-                <?php
+            <div id="result" class="row about-cols">
 
-                foreach ($berita as $b) :
-                ?>
-                    <div class="col-md-6 wow" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
-                        <div class="about-col">
-                            <a href="<?= base_url('berita/detail/') . $b['id_berita'] ?>">
-                                <div class="img">
-                                    <img src="<?= base_url('assets/home/assets/img/berita/') . $b['gambar'] ?>" alt="<?= $b['judul'] ?>" class="img-fluid">
-                                    <h4 class="date"><?= date("j F Y ", strtotime($b['datetime'])) ?></h4>
-                                </div>
-                            </a>
-                            <h2 class="title"><a href="<?= base_url('berita/detail/') . $b['id_berita'] ?>"><?= $b['judul'] ?></a></h2>
-                            <p>
-                                <?= substr($b['isi'], 0, 400) . '...' ?>
-                            </p>
-                        </div>
-                    </div>
-                <?php endforeach; ?>
+
 
             </div>
 

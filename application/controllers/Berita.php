@@ -49,7 +49,7 @@ class Berita extends CI_Controller
         $this->pagination->initialize($config);
         //end custom pagination
 
-        
+
         $data['start'] = $this->uri->segment(3);
         $this->db->order_by('id_berita', 'DESC');
         $berita = $this->db->get('berita', $config['per_page'], $data['start'])->result_array();
@@ -73,5 +73,37 @@ class Berita extends CI_Controller
         $this->load->view('home/template/navbar', $data);
         $this->load->view('home/single-berita', $data);
         $this->load->view('home/template/footer');
+    }
+
+    function fetch()
+    {
+        $output = '';
+        $query = '';
+        $this->load->model('ajaxsearch_model');
+        if ($this->input->post('query')) {
+            $query = $this->input->post('query');
+        }
+        $data = $this->ajaxsearch_model->fetch_data($query);
+
+        if ($data->num_rows() > 0) {
+            foreach ($data->result() as $row) {
+                $output .= '
+        <table class="table table-bordered table-striped">
+         <tr>
+          <td>' . $row->id_berita . '</td>
+          <td>' . $row->judul . '</td>
+          <td>' . $row->isi . '</td>
+          <td>' . $row->gambar . '</td>
+          <td>' . $row->datetime  . '</td>
+         </tr>
+       ';
+            }
+        } else {
+            $output .= '<tr>
+          <td colspan="5">No Data Found</td>
+         </tr>';
+        }
+        $output .= '</table>';
+        echo $output;
     }
 }
