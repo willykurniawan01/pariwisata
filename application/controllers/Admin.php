@@ -259,11 +259,61 @@ class Admin extends CI_Controller
         redirect('admin/slider');
     }
 
-    public function editBerita($id)
+    public function editBerita($id, $gambar = '')
     {
-        $data['berita'] = $this->db->get_where('berita', ['id_berita' => $id])->row_array();
-        $data['error'] = '';
-        $data['judul'] = "Berita";
-        $this->tampilan('editberita', $data);
+        
+
+        $this->form_validation->set_rules('judul', 'Judul Berita', 'required|trim');
+        $this->form_validation->set_rules('isi', 'Isi Berita', 'required|trim');
+
+        $config['upload_path'] = './assets/home/assets/img/berita/';
+        $config['allowed_types'] = 'jpg|jpeg|png|gif';
+        $config['max_size'] = '1000000';
+        $config['file_name'] = 'berita';
+
+        $this->load->library('upload', $config, 'gambar');
+        $this->gambar->initialize($config);
+
+        $berita = $this->db->get_where('berita', ['id_berita' => $id])->row_array();
+        // $cek_gambar = $this->input->post('cek');
+        if ($this->form_validation->run() == FALSE) {
+            $data['ubahgambar'] = $gambar;
+            $data['berita'] = $berita;
+            $data['error'] = '';
+            $data['judul'] = "Berita";
+            $this->tampilan('editberita', $data);
+        } else {
+            if($gambar){
+                if ($this->gambar->do_upload('gambar')) {
+                    $link = "./assets/home/assets/img/berita/";
+                    unlink($link . $berita['gambar']);
+
+                    $data = [
+                        'judul' => $this->input->post('judul'),
+                        'isi' => $this->input->post('isi'),
+                        'gambar' => $this->gambar->data('file_name')
+                    ];
+    
+                    $this->db->update('berita', $data, ['id_berita' => $id]);
+                    $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil mengedit Berita!</div>');
+                    redirect('admin/berita');
+                } else {
+                    $data['error'] = $this->gambar->display_errors();
+                    $data['ubahgambar'] = $gambar;
+                    $data['berita'] = $this->db->get_where('berita', ['id_berita' => $id])->row_array();
+                    $data['judul'] = "Berita";
+                    $this->tampilan('editberita', $data);
+                }
+            }else {
+                $data = [
+                    'judul' => $this->input->post('judul'),
+                    'isi' => $this->input->post('isi')
+                ];
+
+                $this->db->update('berita', $data, ['id_berita' => $id]);
+                $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil mengedit Berita!</div>');
+                redirect('admin/berita');
+            }
+        }
     }
 }

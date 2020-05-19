@@ -26,11 +26,20 @@
     </div>
     <div class="row mt-5 justify-content-between">
         <div class="col-md-5 border">
-            <div class="form-group">
-                <label for="gambar berita">Upload gambar</label>
-                <input type="file" class="form-control-file" name="gambar">
-                <small id="error" class="form-text text-danger"><?= $error ?></small>
-            </div>
+            <?php
+            if (!$ubahgambar) :
+            ?>
+                <div class="row justify-content-center">
+                    <img class="img-fluid rounded" src="<?= base_url('assets/home/assets/img/berita/') . $berita['gambar'] ?>">
+                    <a href="<?= base_url('admin/editberita/') . $berita['id_berita'] . "/1" ?>" class="btn btn-danger mt-3">Ubah Gambar</a>
+                </div>
+            <?php else : ?>
+                <div class="form-group">
+                    <label for="gambar berita">Upload gambar</label>
+                    <input type="file" class="form-control-file" name="gambar">
+                    <small id="error" class="form-text text-danger"><?= $error ?></small>
+                </div>
+            <?php endif; ?>
         </div>
         <div class="col-md-3 text-right">
             <button class="btn btn-primary mt-3 btn-lg" type="submit">Upload Berita</button>
