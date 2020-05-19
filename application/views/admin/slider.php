@@ -16,7 +16,7 @@
                 <table class="table table-bordered">
                     <thead>
                         <tr>
-                            <th width="80%">Gambar Slider</th>
+                            <th>Gambar Slider</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -33,23 +33,21 @@
                         ?>
                             <tr>
                                 <td>
-                                    <img class="img-fluid" src="<?= base_url('assets/admin/img/sliders/') . $s['gambar'] ?>" alt="<?= $s['judul'] ?>">
+                                    <img class="img-fluid" src="<?= base_url('assets/admin/img/sliders/') . $s['gambar'] ?>" alt="<?= $s['judul'] ?>" style="overflow: hidden; height: 240px;">
                                 </td>
                                 <td class="align-middle">
-                                    <div class="row">
-                                        <a href="<?= base_url('admin/editslider/') . $s['id_slider'] ?>" class="btn ml-2 btn-warning btn-icon-split">
-                                            <span class="icon text-white-50">
-                                                <i class="fas fa-info-circle"></i>
-                                            </span>
-                                            <span class="text">Edit Slider</span>
-                                        </a>
-                                        <a href="<?= base_url('admin/deleteslider/') . $s['id_slider'] ?>" class="btn ml-2 btn-danger btn-icon-split mt-3">
-                                            <span class="icon text-white-50">
-                                                <i class="fas fa-trash"></i>
-                                            </span>
-                                            <span class="text">Delete Slider</span>
-                                        </a>
-                                    </div>
+                                    <a href="<?= base_url('admin/editslider/') . $s['id_slider'] ?>" class="btn ml-2 btn-warning btn-icon-split">
+                                        <span class="icon text-white-50">
+                                            <i class="fas fa-info-circle"></i>
+                                        </span>
+                                        <span class="text">Edit Slider</span>
+                                    </a>
+                                    <a href="<?= base_url('admin/deleteslider/') . $s['id_slider'] ?>" class="btn ml-2 btn-danger btn-icon-split">
+                                        <span class="icon text-white-50">
+                                            <i class="fas fa-trash"></i>
+                                        </span>
+                                        <span class="text">Delete Slider</span>
+                                    </a>
                                 </td>
 
                             </tr>

@@ -13,130 +13,36 @@
                 <div class="col-lg-12">
                     <ul id="portfolio-flters">
                         <li data-filter="*" class="filter-active">All</li>
-                        <li data-filter=".filter-app">Prestasi</li>
+                        <?php
+                        $kategori = $this->db->get('kategori_galeri')->result_array();
+                        foreach ($kategori as $k) :
+                        ?>
+                            <li data-filter=".<?= $k['nama_kategori'] ?>"><?= $k['nama_kategori'] ?></li>
+                        <?php endforeach; ?>
                     </ul>
                 </div>
             </div>
 
             <div class="row portfolio-container">
-                <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp">
-                    <div class="portfolio-wrap">
-                        <figure>
-                            <img src="<?= base_url('assets/home/') ?>assets/img/gallery/1.jpeg" class="img-fluid" alt="">
-                            <a href="<?= base_url('assets/home/') ?>assets/img/gallery/1.jpeg" class="link-preview venobox" data-gall="portfolioGallery" title="Web 3"><i class="ion ion-eye"></i></a>
-                        </figure>
+                <?php
+                $gambar = $this->db->get('galeri')->result_array();
+                foreach ($gambar as $g) :
+                ?>
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp">
+                        <div class="portfolio-wrap">
+                            <figure>
+                                <img src="<?= base_url('assets/home/assets/img/galeri/') . $g['gambar'] ?>" class="img-fluid" alt="">
+                                <a href="<?= base_url('assets/home/assets/img/galeri/') . $g['gambar'] ?>" class="link-preview venobox" data-gall="portfolioGallery" title="Web 3"><i class="ion ion-eye"></i></a>
+                            </figure>
 
-                        <div class="portfolio-info">
-                            <h4>App 1</h4>
-                            <p>App</p>
+                            <div class="portfolio-info">
+                                <h4><?= $g['judul'] ?></h4>
+                                <p><?= $g['subjudul'] ?></p>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="col-lg-4 col-md-6 portfolio-item filter-web wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="portfolio-wrap">
-                        <figure>
-                            <img src="<?= base_url('assets/home/') ?>assets/img/gallery/2.jpeg" class="img-fluid" alt="">
-                            <a href="<?= base_url('assets/home/') ?>assets/img/gallery/2.jpeg" class="link-preview venobox" data-gall="portfolioGallery" title="Web 3"><i class="ion ion-eye"></i></a>
-                        </figure>
-
-                        <div class="portfolio-info">
-                            <h4>Web 3</h4>
-                            <p>Web</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp" data-wow-delay="0.2s">
-                    <div class="portfolio-wrap">
-                        <figure>
-                            <img src="<?= base_url('assets/home/') ?>assets/img/gallery/3.jpeg" class="img-fluid" alt="">
-                            <a href="<?= base_url('assets/home/') ?>assets/img/gallery/3.jpeg" class="link-preview venobox" data-gall="portfolioGallery" title="App 2"><i class="ion ion-eye"></i></a>
-                        </figure>
-
-                        <div class="portfolio-info">
-                            <h4>App 2</h4>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-card wow fadeInUp">
-                    <div class="portfolio-wrap">
-                        <figure>
-                            <img src="<?= base_url('assets/home/') ?>assets/img/gallery/4.jpeg" class="img-fluid" alt="">
-                            <a href="<?= base_url('assets/home/') ?>assets/img/gallery/4.jpeg" class="link-preview venobox" data-gall="portfolioGallery" title="App 2"><i class="ion ion-eye"></i></a>
-                        </figure>
-
-                        <div class="portfolio-info">
-                            <h4>App 2</h4>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-web wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="portfolio-wrap">
-                        <figure>
-                            <img src="<?= base_url('assets/home/') ?>assets/img/gallery/5.jpeg" class="img-fluid" alt="">
-                            <a href="<?= base_url('assets/home/') ?>assets/img/gallery/5.jpeg" class="link-preview venobox" data-gall="portfolioGallery" title="App 2"><i class="ion ion-eye"></i></a>
-                        </figure>
-
-                        <div class="portfolio-info">
-                            <h4>App 2</h4>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp" data-wow-delay="0.2s">
-                    <div class="portfolio-wrap">
-                        <figure>
-                            <img src="<?= base_url('assets/home/') ?>assets/img/gallery/6.jpeg" class="img-fluid" alt="">
-                            <a href="<?= base_url('assets/home/') ?>assets/img/gallery/6.jpeg" class="link-preview venobox" data-gall="portfolioGallery" title="App 2"><i class="ion ion-eye"></i></a>
-                        </figure>
-
-                        <div class="portfolio-info">
-                            <h4>App 2</h4>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-card wow fadeInUp">
-                    <div class="portfolio-wrap">
-                        <figure>
-                            <img src="<?= base_url('assets/home/') ?>assets/img/gallery/7.jpeg" class="img-fluid" alt="">
-                            <a href="<?= base_url('assets/home/') ?>assets/img/gallery/7.jpeg" class="link-preview venobox" data-gall="portfolioGallery" title="App 2"><i class="ion ion-eye"></i></a>
-                        </figure>
-
-                        <div class="portfolio-info">
-                            <h4>App 2</h4>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-card wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="portfolio-wrap">
-                        <figure>
-                            <img src="<?= base_url('assets/home/') ?>assets/img/gallery/8.jpeg" class="img-fluid" alt="">
-                            <a href="<?= base_url('assets/home/') ?>assets/img/gallery/8.jpeg" class="link-preview venobox" data-gall="portfolioGallery" title="App 2"><i class="ion ion-eye"></i></a>
-                        </figure>
-
-                        <div class="portfolio-info">
-                            <h4>App 2</h4>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-web wow fadeInUp" data-wow-delay="0.2s">
-                    <div class="portfolio-wrap">
-                        <figure>
-                            <img src="<?= base_url('assets/home/') ?>assets/img/gallery/9.jpeg" class="img-fluid" alt="">
-                            <a href="<?= base_url('assets/home/') ?>assets/img/gallery/9.jpeg" class="link-preview venobox" data-gall="portfolioGallery" title="App 2"><i class="ion ion-eye"></i></a>
-                        </figure>
-
-                        <div class="portfolio-info">
-                            <h4>App 2</h4>
-                        </div>
-                    </div>
-                </div>
+                <?php endforeach; ?>
 
             </div>
         </div>
