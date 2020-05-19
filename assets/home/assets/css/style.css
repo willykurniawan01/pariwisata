@@ -768,6 +768,13 @@ body.mobile-nav-active #mobile-nav-toggle {
   margin-bottom: 20px;
 }
 
+#about .about-cols  .search-col .search-box{ 
+  position: -webkit-sticky;
+  position: sticky;
+  top:100px;
+  z-index:99;
+}
+
 #about .about-col .img{
   overflow: hidden;
 }
@@ -791,6 +798,14 @@ body.mobile-nav-active #mobile-nav-toggle {
   height: 300px;
   width: 100%;
 }
+
+#about .about-cols .img img.img-berita {
+  border-radius: 4px 4px 0 0;
+  height: 350px;
+  width: 100%;
+}
+
+
 
 #about .about-col i {
   font-size: 36px;
