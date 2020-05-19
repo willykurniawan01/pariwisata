@@ -59,6 +59,11 @@
 
     <!-- Template Main JS File -->
     <script src="<?= base_url('assets/home/') ?>assets/js/main.js"></script>
+
+    <?php if ($judul == 'Berita') : ?>
+        <script src="<?= base_url('assets/home/') ?>assets/js/ajax.js"></script>
+    <?php endif; ?>
+
     <script>
         AOS.init();
     </script>

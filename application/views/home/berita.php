@@ -7,59 +7,34 @@
                 <h3>Berita</h3>
             </header>
 
-            <div class="row my-3 d-md-none">
-                <div class="col">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Cari berita...">
-                        <span class="input-group-btn">
-                            <button class="btn btn-success" type="button">Cari!</button>
-                        </span>
-                    </div>
+            <div class="row my-3 justify-content-center">
+                <div class="col-6">
+                    <input type="text" name="search_text" id="search_text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
                 </div>
             </div>
 
-            <div class="row about-cols">
-                <div class="col-12 col-md-8">
-                    <?php
+            <div id="result" class="row about-cols">
 
-                    foreach ($berita as $b) :
-                    ?>
-                        <div class="row">
-                            <div class="col-md-12 wow" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
-                                <div class="about-col">
-                                    <a href="<?= base_url('berita/detail/') . $b['id_berita'] ?>">
-                                        <div class="img">
-                                            <img src="<?= base_url('assets/home/assets/img/berita/') . $b['gambar'] ?>" alt="<?= $b['judul'] ?>" class="img-fluid img-berita">
-                                            <h4 class="date"><?= date("j F Y ", strtotime($b['datetime'])) ?></h4>
-                                        </div>
-                                    </a>
-                                    <h2 class="title"><a href="<?= base_url('berita/detail/') . $b['id_berita'] ?>"><?= $b['judul'] ?></a></h2>
-                                    <p>
-                                        <?= substr($b['isi'], 0, 400) . '...' ?>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
 
-                    <?php endforeach; ?>
-                </div>
-                <div class="col-md-4 search-col sticky-top d-none d-sm-block">
-                    <div class="card search-box">
-                        <h5 class="card-header">Search</h5>
-                        <div class="card-body">
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Cari berita...">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-success" type="button">Cari!</button>
-                                </span>
-                            </div>
+
+            </div>
+            <div class="col-md-4 search-col sticky-top d-none d-sm-block">
+                <div class="card search-box">
+                    <h5 class="card-header">Search</h5>
+                    <div class="card-body">
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="search_text" id="search_text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="Cari berita...">
+                            <span class="input-group-btn">
+                                <button class="btn btn-success" type="button">Cari!</button>
+                            </span>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
 
 
-            <?= $this->pagination->create_links(); ?>
+        <?= $this->pagination->create_links(); ?>
         </div>
     </section>
     <!-- End Sekolah Section -->
@@ -113,3 +88,20 @@
 
 </main>
 <!-- End #main -->
+
+<div class="row">
+    <div class="col-md-12 wow" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+        <div class="about-col">
+            <a href="<?= base_url('berita/detail/') . $b['id_berita'] ?>">
+                <div class="img">
+                    <img src="<?= base_url('assets/home/assets/img/berita/') . $b['gambar'] ?>" alt="<?= $b['judul'] ?>" class="img-fluid img-berita">
+                    <h4 class="date"><?= date("j F Y ", strtotime($b['datetime'])) ?></h4>
+                </div>
+            </a>
+            <h2 class="title"><a href="<?= base_url('berita/detail/') . $b['id_berita'] ?>"><?= $b['judul'] ?></a></h2>
+            <p>
+                <?= substr($b['isi'], 0, 400) . '...' ?>
+            </p>
+        </div>
+    </div>
+</div>
