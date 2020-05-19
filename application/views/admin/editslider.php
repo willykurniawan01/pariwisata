@@ -45,7 +45,7 @@
 
                                 <?php else : ?>
                                     <img class="img-fluid rounded" src="<?= base_url('assets/admin/img/sliders/') . $slider['gambar'] ?>">
-                                    <a href="<?= base_url('admin/editslider/') . $slider['id_slider'] . '/gantigambar' ?>" class="btn btn-danger mt-3">Ubah Foto</a>
+                                    <a href="<?= base_url('admin/editslider/') . $slider['id_slider'] . '/gantigambar' ?>" class="btn btn-danger mt-3">Ubah Gambar</a>
                                 <?php endif; ?>
                             </div>
                         </div>

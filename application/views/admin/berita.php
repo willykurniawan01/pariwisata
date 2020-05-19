@@ -35,7 +35,7 @@
                                             <?= $b['judul'] ?>
                                         </td>
                                         <td class="align-middle">
-                                            <a href="#" class="btn btn-sm btn-warning">
+                                            <a href="<?= base_url('admin/editberita/') . $b['id_berita'] ?>" class="btn btn-sm btn-warning">
                                                 <span class="text">Edit</span>
                                             </a>
                                             <a href="#" class="btn btn-sm btn-danger">

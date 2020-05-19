@@ -259,5 +259,11 @@ class Admin extends CI_Controller
         redirect('admin/slider');
     }
 
-
+    public function editBerita($id)
+    {
+        $data['berita'] = $this->db->get_where('berita', ['id_berita' => $id])->row_array();
+        $data['error'] = '';
+        $data['judul'] = "Berita";
+        $this->tampilan('editberita', $data);
+    }
 }
