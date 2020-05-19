@@ -31,6 +31,7 @@ class Admin extends CI_Controller
 
     public function pengaturanAkun($foto = '')
     {
+        $this->form_validation->set_rules('username', 'Username', 'required|trim');
         $this->form_validation->set_rules('password1', 'Password', 'required|trim');
         $this->form_validation->set_rules('password2', 'Konfirmasi Password', 'required|trim|matches[password1]');
 
@@ -41,9 +42,10 @@ class Admin extends CI_Controller
         } else {
             $id = $this->input->post('id');
             $password = $this->input->post('password1');
+            $data['username'] = $this->input->post('username');
             $data['password'] = password_hash($password, PASSWORD_DEFAULT);
             $this->db->update('admin', $data, ['id' => $id]);
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Berhasil mengubah password!</div>');
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Berhasil mengubah akun!</div>');
             redirect('admin/pengaturanakun');
         }
     }
@@ -151,7 +153,6 @@ class Admin extends CI_Controller
     
     public function deleteKategoriGaleri($id)
     {
-        $this->db->delete('rel_kategori_galeri', ['id_kategori' => $id]);
         $this->db->delete('kategori_galeri', ['id_kategori' => $id]);
         $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil menghapus kategori!</div>');
         redirect('admin/galeri');
@@ -216,30 +217,6 @@ class Admin extends CI_Controller
         }
         $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil menambah kategori berita!</div>');
         redirect('admin/berita');
-    }
-
-    public function tambahKategoriGambar($id)
-    {
-        if($this->input->post('submit')){
-            // $id_galeri = $this->input->post('id_galeri');
-            $kategori = $this->input->post('kategori');
-    
-            $this->db->delete('rel_kategori_galeri', ['id_galeri' => $id_galeri]);
-            foreach ($kategori as $k) {
-                $data = [
-                    'id_galeri' => $id,
-                    'id_kategori' => $k
-                ];
-                $this->db->insert('rel_kategori_galeri', $data);
-            }
-            $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil menambah kategori galeri!</div>');
-            redirect('admin/galeri');
-        }else{
-            $data['id_galeri'] = $id;
-            $data['kategori'] = $this->db->get('kategori_galeri')->result_array();
-            $data['judul'] = "Galeri";
-            $this->tampilan('kategorigaleri', $data);
-        }
     }
 
     public function editSlider($id, $foto = '')
@@ -384,6 +361,7 @@ class Admin extends CI_Controller
 
         $judul = $this->input->post('judul');
         $subjudul = $this->input->post('subjudul');
+        $kategori = $this->input->post('kategori');
 
         $config['upload_path'] = './assets/home/assets/img/galeri/';
         $config['allowed_types'] = 'jpg|jpeg|png|gif';
@@ -402,7 +380,8 @@ class Admin extends CI_Controller
                 $data = [
                     'gambar' => $this->gambar->data('file_name'),
                     'judul' => $judul,
-                    'subjudul' => $subjudul
+                    'subjudul' => $subjudul,
+                    'kategori' => $kategori
                 ];
                 $this->db->insert('galeri', $data);
                 $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil menambah galeri!</div>');
@@ -415,5 +394,77 @@ class Admin extends CI_Controller
                 $this->tampilan('galeri', $data);
             }
         }
+    }
+
+    public function editGaleri($id, $foto='')
+    {
+        $judul = $this->input->post('judul');
+        $subjudul = $this->input->post('subjudul');
+        $kategori = $this->input->post('kategori');
+
+        $galeri = $this->db->get_where('galeri', ['id_galeri' => $id])->row_array();
+        $list_kategori = $this->db->get('kategori_galeri')->result_array();
+
+        $this->form_validation->set_rules('judul', 'Judul', 'required|trim');
+        $this->form_validation->set_rules('subjudul', 'SubJudul', 'required|trim');
+
+        if ($this->form_validation->run() == FALSE) {
+            $data['galeri'] = $galeri;
+            $data['kategori'] = $list_kategori;
+            $data['foto'] = $foto;
+            $data['id_galeri'] = $id;
+            $data['judul'] = "Galeri";
+            $this->tampilan('editgaleri', $data);
+        } else {
+            $data = [
+                'judul' => $judul,
+                'subjudul' => $subjudul,
+                'kategori' => $kategori
+            ];
+            if ($foto) {
+                $config['upload_path'] = './assets/home/assets/img/galeri/';
+                $config['allowed_types'] = 'jpg|jpeg|png|gif';
+                $config['max_size'] = '1000000';
+                $config['file_name'] = 'galeri';
+
+                $this->load->library('upload', $config, 'gambar');
+                $this->gambar->initialize($config);
+                if ($this->gambar->do_upload('gambar')) {
+                    $link = "./assets/home/assets/img/galeri/";
+                    unlink($link . $galeri['gambar']);
+
+                    $data = [
+                        'gambar' => $this->gambar->data('file_name'),
+                        'judul' => $judul,
+                        'subjudul' => $subjudul,
+                        'kategori' => $kategori
+                    ];
+                    $this->db->update('galeri', $data, ['id_galeri' => $id]);
+                    $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil mengubah gambar!</div>');
+                    redirect('admin/galeri');
+                } else {
+                    $this->session->set_flashdata('message', '<div class="alert alert-danger mt-4" role="alert">Gagal menambah galeri!</div>');
+                    $data['error'] = $this->gambar->display_errors();
+                    $data['galeri'] = $galeri;
+                    $data['kategori'] = $list_kategori;
+                    $data['foto'] = $foto;
+                    $data['judul'] = "Galeri";
+                    $this->tampilan('editgaleri', $data);
+                }
+            }
+            $this->db->update('galeri', $data, ['id_galeri' => $id]);
+            $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil mengubah galeri!</div>');
+            redirect('admin/galeri');
+        }
+    }
+
+    public function deleteGaleri($id)
+    {
+        $galeri = $this->db->get_where('galeri', ['id_galeri' => $id])->row_array();
+        $link = "./assets/home/assets/img/galeri/";
+        unlink($link . $galeri['gambar']);
+        $this->db->delete('galeri', ['id_galeri' => $id]);
+        $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil menghapus galeri!</div>');
+        redirect('admin/galeri');
     }
 }

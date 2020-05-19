@@ -19,9 +19,8 @@
                             <div class="card-body text-center">
                                 <h5 class="card-title"><?= $g['judul'] ?></h5>
                                 <p class="card-text mb-0"><?= $g['subjudul'] ?></p>
-                                <a href="<?= base_url('admin/tambahkategorigambar/').$g['id_galeri'] ?>" class="btn btn-sm btn-info mt-2">Tambah Kategori</a>
-                                <a href="" class="btn btn-sm btn-warning mt-2">Edit Gambar</a>
-                                <a href="" class="btn btn-sm btn-danger mt-2">Delete Gambar</a>
+                                <a href="<?= base_url('admin/editgaleri/') . $g['id_galeri'] ?>" class="btn btn-sm btn-warning mt-2">Edit Gambar</a>
+                                <a href="<?= base_url('admin/deletegaleri/') . $g['id_galeri'] ?>" class="btn btn-sm btn-danger mt-2">Delete Gambar</a>
 
                             </div>
                         </div>
@@ -127,6 +126,16 @@
                     <label for="subjudul">Subjudul</label>
                     <input type="text" class="form-control" id="subjudul" name="subjudul">
                     <small id="error" class="form-text text-danger"><?= form_error('subjudul') ?></small>
+                </div>
+                <div class="form-group">
+                    <label for="kategori">Kategori</label>
+                    <select class="form-control" name="kategori">
+                        <option>Pilih Kategori</option>
+                        <?php foreach ($kategori as $k) : ?>
+                            <option value="<?= $k['id_kategori'] ?>"><?= $k['nama_kategori'] ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                    <small id="error" class="form-text text-danger"><?= form_error('kategori') ?></small>
                 </div>
             </div>
 

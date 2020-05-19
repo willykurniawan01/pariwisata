@@ -17,7 +17,7 @@
                         $kategori = $this->db->get('kategori_galeri')->result_array();
                         foreach ($kategori as $k) :
                         ?>
-                            <li data-filter=".<?= $k['nama_kategori'] ?>"><?= $k['nama_kategori'] ?></li>
+                            <li data-filter=".<?= $k['id_kategori'] ?>"><?= $k['nama_kategori'] ?></li>
                         <?php endforeach; ?>
                     </ul>
                 </div>
@@ -28,7 +28,7 @@
                 $gambar = $this->db->get('galeri')->result_array();
                 foreach ($gambar as $g) :
                 ?>
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp">
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-app 1 wow fadeInUp <?= $g['kategori'] ?>">
                         <div class="portfolio-wrap">
                             <figure>
                                 <img src="<?= base_url('assets/home/assets/img/galeri/') . $g['gambar'] ?>" class="img-fluid" alt="">

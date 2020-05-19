@@ -22,7 +22,7 @@
                                 <div class="form-group">
                                     <label>Username</label>
                                     <input type="hidden" class="form-control" name="id" value="<?= $admin['id'] ?>">
-                                    <input type="text" class="form-control" name="username" value="<?= $admin['username'] ?>" readonly>
+                                    <input type="text" class="form-control" name="username" value="<?= $admin['username'] ?>">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Ubah Password</label>
