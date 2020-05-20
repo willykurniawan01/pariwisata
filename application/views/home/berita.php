@@ -48,12 +48,14 @@
                     <div class="card search-box">
                         <h5 class="card-header">Search</h5>
                         <div class="card-body">
-                            <div class="input-group">
-                                <input type="text" class="form-control" name="search_text" id="search_text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="Cari berita...">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-success" type="button">Cari!</button>
-                                </span>
-                            </div>
+                            <form action="">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="cari" id="search_text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="Cari berita..." value="<?= $cari ?>">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-success" type="submit">Cari!</button>
+                                    </span>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>

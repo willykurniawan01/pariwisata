@@ -49,13 +49,15 @@ class Berita extends CI_Controller
         $this->pagination->initialize($config);
         //end custom pagination
 
-
+        $cari = $this->input->get('cari');
         $data['start'] = $this->uri->segment(3);
         $this->db->order_by('id_berita', 'DESC');
+        $this->db->like('judul', $cari);
         $berita = $this->db->get('berita', $config['per_page'], $data['start'])->result_array();
         $data['berita'] = $berita;
         $data['judul'] = "Berita";
-
+        $data['cari'] = $cari;
+        
         $this->load->view('home/template/header', $data);
         $this->load->view('home/template/navbar', $data);
         $this->load->view('home/berita', $data);
@@ -75,5 +77,4 @@ class Berita extends CI_Controller
         $this->load->view('home/single-berita', $data);
         $this->load->view('home/template/footer');
     }
-
 }
