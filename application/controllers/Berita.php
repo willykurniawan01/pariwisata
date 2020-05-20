@@ -89,28 +89,39 @@ class Berita extends CI_Controller
         if ($data->num_rows() > 0) {
             foreach ($data->result() as $row) {
                 $output .= '
-                <div class="col-md-6 wow" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
-                    <div class="about-col">
-                        <a href="'. base_url('berita/detail/') . $row->id_berita .'">
-                            <div class="img">
-                                <img src="'. base_url('assets/home/assets/img/berita/') . $row->gambar .'" alt="'. $row->judul. '" class="img-fluid">
-                                <h4 class="date">'.date("j F Y ", strtotime($row->datetime)). '</h4>
-                            </div>
-                        </a>
-                        <h2 class="title"><a href="'. base_url('berita/detail/') . $row->id_berita .'">' .$row->judul .'</a></h2>
-                        <p>
-                            '. substr($row->isi, 0, 400) . "..." .'
-                        </p>
+                <div class="row">
+                    <div class="col-md-12 wow">
+                        <div class="about-col">
+                            <a href="' . base_url('berita/detail/') . $row->id_berita . '">
+                                <div class="img">
+                                    <img src="' . base_url('assets/home/assets/img/berita/') . $row->gambar . '" alt="' . $row->judul . '" class="img-fluid img-berita">
+                                    <h4 class="date">' . date("j F Y ", strtotime($row->datetime)) . '</h4>
+                                </div>
+                            </a>
+                            <h2 class="title"><a href="' . base_url('berita/detail/') . $row->id_berita . '">' . $row->judul . '</a></h2>
+                            <p>
+                                ' . substr($row->isi, 0, 400) . '...' . '
+                            </p>
+                        </div>
                     </div>
                 </div>
                 ';
             }
         } else {
-            $output .= '<tr>
-          <td colspan="5">No Data Found</td>
-         </tr>';
-        }
-        $output .= '</table>';
+            $output .= '
+            <div class="row">
+                <div class="col-md-12">
+                    Berita tidak ada.
+                </div>
+            </div>
+            ';
+        };
         echo $output;
     }
 }
+?>
+<div class="row">
+    <div class="col-md-12">
+
+    </div>
+</div>
