@@ -19,8 +19,29 @@
             </div>
 
             <div class="row about-cols">
-                <div class="col-12 col-md-8" id="result">
+                <div class="col-12 col-md-8">
+                    <?php
 
+                    foreach ($berita as $b) :
+                    ?>
+                        <div class="row">
+                            <div class="col-md-12 wow" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+                                <div class="about-col">
+                                    <a href="<?= base_url('berita/detail/') . $b['id_berita'] ?>">
+                                        <div class="img">
+                                            <img src="<?= base_url('assets/home/assets/img/berita/') . $b['gambar'] ?>" alt="<?= $b['judul'] ?>" class="img-fluid img-berita">
+                                            <h4 class="date"><?= date("j F Y ", strtotime($b['datetime'])) ?></h4>
+                                        </div>
+                                    </a>
+                                    <h2 class="title"><a href="<?= base_url('berita/detail/') . $b['id_berita'] ?>"><?= $b['judul'] ?></a></h2>
+                                    <p>
+                                        <?= substr($b['isi'], 0, 400) . '...' ?>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                    <?php endforeach; ?>
                 </div>
 
                 <div class="col-md-4 search-col sticky-top d-none d-sm-block">
