@@ -60,7 +60,7 @@
                                     <div class="col-lg-6">
                                         <ul class="list-unstyled mb-0">
                                             <li>
-                                                <a href="#"><?= $k['nama_kategori'] ?></a>
+                                                <a href="<?= base_url('berita?kategori='). $k['nama_kategori'] ?>"><?= $k['nama_kategori'] ?></a>
                                             </li>
                                         </ul>
                                     </div>

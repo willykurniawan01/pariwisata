@@ -3,8 +3,8 @@
 
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-        <div class="sidebar-brand-icon rotate-n-15">
-            <i class="fas fa-laugh-wink"></i>
+        <div class="sidebar-brand-icon">
+            <i class="fas fa-fw fa-school"></i>
         </div>
         <div class="sidebar-brand-text mx-3">Dashboard SMP Masmur</div>
     </a>
@@ -28,7 +28,7 @@
     </div>
     <li class="nav-item <?= ($judul == 'Pengaturan Akun') ? 'active' : '' ?>">
         <a class="nav-link" href="<?= base_url('admin/pengaturanakun') ?>">
-            <i class="fas fa-fw fa-chart-area"></i>
+            <i class="fas fa-fw fa-user-cog"></i>
             <span>Pengaturan Akun</span>
         </a>
     </li>
@@ -50,28 +50,28 @@
     <!-- Nav Item - Charts -->
     <li class="nav-item <?= ($judul == 'Slider') ? 'active' : '' ?>">
         <a class="nav-link" href="<?= base_url('admin/slider') ?>">
-            <i class="fas fa-fw fa-chart-area"></i>
+            <i class="fab fa-fw fa-slideshare"></i>
             <span>Slider</span>
         </a>
     </li>
     <li class="nav-item <?= ($judul == 'Galeri') ? 'active' : '' ?>">
         <a class="nav-link" href="<?= base_url('admin/galeri') ?>">
-            <i class="fas fa-fw fa-chart-area"></i>
+            <i class="fas fa-fw fa-images"></i>
             <span>galeri</span>
         </a>
     </li>
     <li class="nav-item <?= ($judul == 'Berita') ? 'active' : '' ?>">
         <a class="nav-link" href="<?= base_url('admin/berita') ?>">
-            <i class="fas fa-fw fa-chart-area"></i>
+            <i class="fas fa-fw fa-newspaper"></i>
             <span>Berita</span>
         </a>
     </li>
-    
+
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
     <li class="nav-item">
         <a class="nav-link" href="<?= base_url('auth/logout') ?>">
-            <i class="fas fa-fw fa-chart-area"></i>
+            <i class="fas fa-fw fa-sign-out-alt"></i>
             <span>Logout</span>
         </a>
     </li>

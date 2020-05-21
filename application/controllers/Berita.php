@@ -50,14 +50,16 @@ class Berita extends CI_Controller
         //end custom pagination
 
         $cari = $this->input->get('cari');
+        // $kategori = $this->input->get('kategori');
         $data['start'] = $this->uri->segment(3);
         $this->db->order_by('id_berita', 'DESC');
         $this->db->like('judul', $cari);
+        // $this->db->like('kategori', $cari);
         $berita = $this->db->get('berita', $config['per_page'], $data['start'])->result_array();
         $data['berita'] = $berita;
         $data['judul'] = "Berita";
         $data['cari'] = $cari;
-        
+
         $this->load->view('home/template/header', $data);
         $this->load->view('home/template/navbar', $data);
         $this->load->view('home/berita', $data);
