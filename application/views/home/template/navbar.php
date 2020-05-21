@@ -11,8 +11,8 @@
 
             <nav id="nav-menu-container">
                 <ul class="nav-menu">
-                    <li class="menu-active"><a href="<?= base_url('home') ?>">Home</a></li>
-                    <li class="menu-has-children"><a href="">Profil</a>
+                    <li class="<?= ($navbar == "Home") ? 'menu-active' : '' ?>"><a href="<?= base_url('home') ?>">Home</a></li>
+                    <li class="menu-has-children <?= ($navbar == "Profil") ? 'menu-active' : '' ?>"><a href="">Profil</a>
                         <ul>
                             <li><a href="<?= base_url('home/sekolah') ?>">Sekolah</a></li>
                             <li><a href="<?= base_url('home/visimisi') ?>">Visi dan Misi</a></li>
@@ -20,14 +20,14 @@
 
                         </ul>
                     </li>
-                    <li class="menu-has-children"><a href="">Info</a>
+                    <li class="menu-has-children <?= ($navbar == "Info") ? 'menu-active' : '' ?>"><a href="">Info</a>
                         <ul>
                             <li><a href="<?= base_url('home/pendaftaran') ?>">Pendaftaran</a></li>
                             <li><a href="<?= base_url('home/fasilitas') ?>">Fasilitas</a></li>
                         </ul>
                     </li>
-                    <li><a href="<?= base_url('berita') ?>">Berita</a></li>
-                    <li><a href="<?= base_url('home/galeri') ?>">Galeri</a></li>
+                    <li class="<?= ($navbar == "Berita") ? 'menu-active' : '' ?>"><a href="<?= base_url('berita') ?>">Berita</a></li>
+                    <li class="<?= ($navbar == "Galeri") ? 'menu-active' : '' ?>"><a href="<?= base_url('home/galeri') ?>">Galeri</a></li>
                     <li><a href="#contact">Kontak</a></li>
                 </ul>
             </nav>

@@ -59,6 +59,7 @@ class Berita extends CI_Controller
         $data['berita'] = $berita;
         $data['judul'] = "Berita";
         $data['cari'] = $cari;
+        $data['navbar'] = "Berita";
 
         $this->load->view('home/template/header', $data);
         $this->load->view('home/template/navbar', $data);
@@ -69,6 +70,7 @@ class Berita extends CI_Controller
 
     public function detail($id) //menerima parameter id dari post
     {
+        $data['navbar'] = "Berita";
         // $detail = $this->berita->getDetail($id);
         // $data['detail'] = $detail;
         $data['kategori'] = $this->db->get('kategori')->result_array();

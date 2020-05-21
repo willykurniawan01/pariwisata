@@ -5,6 +5,7 @@ class Home extends CI_Controller
 {
     public function index()
     {
+        $data['navbar'] = "Home";
         $data['judul'] = "Homepage";
         $this->db->order_by('id_berita', 'DESC');
         $this->db->limit(4);
@@ -16,6 +17,7 @@ class Home extends CI_Controller
     }
     public function visiMisi()
     {
+        $data['navbar'] = "Profil";
         $data['judul'] = "Visi dan Misi";
         $this->load->view('home/template/header', $data);
         $this->load->view('home/template/navbar', $data);
@@ -24,6 +26,7 @@ class Home extends CI_Controller
     }
     public function kepalaSekolah()
     {
+        $data['navbar'] = "Profil";
         $data['judul'] = "Kepala Sekolah";
         $this->load->view('home/template/header', $data);
         $this->load->view('home/template/navbar', $data);
@@ -32,6 +35,7 @@ class Home extends CI_Controller
     }
     public function galeri()
     {
+        $data['navbar'] = "Galeri";
         $data['judul'] = "Galeri";
         $this->load->view('home/template/header', $data);
         $this->load->view('home/template/navbar', $data);
@@ -41,6 +45,7 @@ class Home extends CI_Controller
 
     public function sekolah()
     {
+        $data['navbar'] = "Profil";
         $data['judul'] = "Sekolah";
         $this->load->view('home/template/header', $data);
         $this->load->view('home/template/navbar', $data);
@@ -51,6 +56,7 @@ class Home extends CI_Controller
 
     public function fasilitas()
     {
+        $data['navbar'] = "Info";
         $data['judul'] = "Fasilitas";
         $this->load->view('home/template/header', $data);
         $this->load->view('home/template/navbar', $data);
@@ -60,6 +66,7 @@ class Home extends CI_Controller
 
     public function pendaftaran()
     {
+        $data['navbar'] = "Info";
         $data['judul'] = "Pendaftaran";
         $this->load->view('home/template/header', $data);
         $this->load->view('home/template/navbar', $data);
