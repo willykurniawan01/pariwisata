@@ -25,6 +25,8 @@ class Admin extends CI_Controller
 
     public function index()
     {
+        $data['berita'] = $this->db->get('berita')->num_rows();
+        $data['galeri'] = $this->db->get('galeri')->num_rows();
         $data['judul'] = "Dashboard";
         $this->tampilan('dashboard', $data);
     }
