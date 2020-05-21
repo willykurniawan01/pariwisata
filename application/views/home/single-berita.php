@@ -39,17 +39,19 @@
                     <div class="card my-4">
                         <h5 class="card-header">Search</h5>
                         <div class="card-body">
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Cari berita...">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-success" type="button">Cari!</button>
-                                </span>
-                            </div>
+                            <form action="<?= base_url('berita') ?>">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="cari" id="search_text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="Cari berita..." value="<?= $cari ?>">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-success" type="submit">Cari!</button>
+                                    </span>
+                                </div>
+                            </form>
                         </div>
                     </div>
 
                     <!-- Categories Widget -->
-                    <div class="card my-4">
+                    <!-- <div class="card my-4">
                         <h5 class="card-header">Categories</h5>
                         <div class="card-body">
                             <div class="row">
@@ -60,14 +62,14 @@
                                     <div class="col-lg-6">
                                         <ul class="list-unstyled mb-0">
                                             <li>
-                                                <a href="<?= base_url('berita?kategori='). $k['nama_kategori'] ?>"><?= $k['nama_kategori'] ?></a>
+                                                <a href="#"><?= $k['nama_kategori'] ?></a>
                                             </li>
                                         </ul>
                                     </div>
                                 <?php endforeach; ?>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
                 </div>
 

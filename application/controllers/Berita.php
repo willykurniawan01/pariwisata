@@ -70,6 +70,8 @@ class Berita extends CI_Controller
 
     public function detail($id) //menerima parameter id dari post
     {
+        $cari = $this->input->get('cari');
+        $data['cari'] = $cari;
         $data['navbar'] = "Berita";
         // $detail = $this->berita->getDetail($id);
         // $data['detail'] = $detail;
