@@ -132,13 +132,7 @@ class Admin extends CI_Controller
         $this->tampilan('wisata', $data);
     }
 
-    public function tambahKategori()
-    {
-        $data['nama_kategori'] = $this->input->post('nama_kategori');
-        $this->db->insert('kategori', $data);
-        $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil menambah kategori!</div>');
-        redirect('admin/berita');
-    }
+
 
     public function deleteKategoriBerita($id)
     {
@@ -303,32 +297,32 @@ class Admin extends CI_Controller
         redirect('admin/slider');
     }
 
-    public function editBerita($id, $gambar = '')
+    public function editwisata($id, $gambar = '')
     {
-        $this->form_validation->set_rules('judul', 'Judul Berita', 'required|trim');
-        $this->form_validation->set_rules('isi', 'Isi Berita', 'required|trim');
+        $this->form_validation->set_rules('nama_wisata', 'Nama wisata', 'required|trim');
+        $this->form_validation->set_rules('deskripsi', 'Deskripsi Wisata', 'required|trim');
 
-        $config['upload_path'] = './assets/home/assets/img/berita/';
+        $config['upload_path'] = './assets/home/assets/img/wisata/';
         $config['allowed_types'] = 'jpg|jpeg|png|gif';
         $config['max_size'] = '1000000';
-        $config['file_name'] = 'berita';
+        $config['file_name'] = 'wisata';
 
         $this->load->library('upload', $config, 'gambar');
         $this->gambar->initialize($config);
 
-        $berita = $this->db->get_where('berita', ['id_berita' => $id])->row_array();
+        $wisata = $this->db->get_where('wisata', ['id_wisata' => $id])->row_array();
         // $cek_gambar = $this->input->post('cek');
         if ($this->form_validation->run() == FALSE) {
             $data['ubahgambar'] = $gambar;
-            $data['berita'] = $berita;
+            $data['wisata'] = $wisata;
             $data['error'] = '';
-            $data['judul'] = "Berita";
-            $this->tampilan('editberita', $data);
+            $data['judul'] = "wisata";
+            $this->tampilan('editwisata', $data);
         } else {
             if ($gambar) {
                 if ($this->gambar->do_upload('gambar')) {
-                    $link = "./assets/home/assets/img/berita/";
-                    unlink($link . $berita['gambar']);
+                    $link = "./assets/home/assets/img/wisata/";
+                    unlink($link . $wisata['gambar']);
 
                     $data = [
                         'judul' => $this->input->post('judul'),
@@ -336,15 +330,15 @@ class Admin extends CI_Controller
                         'gambar' => $this->gambar->data('file_name')
                     ];
 
-                    $this->db->update('berita', $data, ['id_berita' => $id]);
-                    $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil mengedit Berita!</div>');
-                    redirect('admin/berita');
+                    $this->db->update('wisata', $data, ['id_wisata' => $id]);
+                    $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil mengedit wisata!</div>');
+                    redirect('admin/wisata');
                 } else {
                     $data['error'] = $this->gambar->display_errors();
                     $data['ubahgambar'] = $gambar;
-                    $data['berita'] = $this->db->get_where('berita', ['id_berita' => $id])->row_array();
-                    $data['judul'] = "Berita";
-                    $this->tampilan('editberita', $data);
+                    $data['wisata'] = $this->db->get_where('wisata', ['id_wisata' => $id])->row_array();
+                    $data['judul'] = "wisata";
+                    $this->tampilan('editwisata', $data);
                 }
             } else {
                 $data = [
@@ -352,21 +346,21 @@ class Admin extends CI_Controller
                     'isi' => $this->input->post('isi')
                 ];
 
-                $this->db->update('berita', $data, ['id_berita' => $id]);
-                $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil mengedit Berita!</div>');
-                redirect('admin/berita');
+                $this->db->update('wisata', $data, ['id_wisata' => $id]);
+                $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil mengedit wisata!</div>');
+                redirect('admin/wisata');
             }
         }
     }
 
-    public function deleteBerita($id)
+    public function deletewisata($id)
     {
-        $berita = $this->db->get_where('berita', ['id_berita' => $id])->row_array();
-        $link = "./assets/home/assets/img/berita/";
-        unlink($link . $berita['gambar']);
-        $this->db->delete('berita', ['id_berita' => $id]);
-        $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil menghapus berita!</div>');
-        redirect('admin/berita');
+        $wisata = $this->db->get_where('wisata', ['id_wisata' => $id])->row_array();
+        $link = "./assets/home/assets/img/wisata/";
+        unlink($link . $wisata['gambar']);
+        $this->db->delete('wisata', ['id_wisata' => $id]);
+        $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil menghapus wisata!</div>');
+        redirect('admin/wisata');
     }
 
     public function galeri()

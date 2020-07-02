@@ -6,8 +6,8 @@
     <?= $this->session->flashdata('message'); ?>
 
     <!-- DataTales Example -->
-    <div class="row justify-content-between">
-        <div class="col-md-9">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
             <div class="card shadow mb-4 mt-3">
                 <div class="card-header bg-primary">
                     <h1 class="h3 text-light"><?= $judul ?></h1>
@@ -27,23 +27,21 @@
 
                                 <?php
                                 $i = 1;
-                                foreach ($berita as $b) :
+                                foreach ($wisata as $b) :
                                 ?>
                                     <tr>
                                         <td><?= $i ?></td>
                                         <td>
-                                            <?= $b['judul'] ?>
+                                            <?= $b['nama_wisata'] ?>
                                         </td>
                                         <td class="align-middle">
-                                            <a href="<?= base_url('admin/editberita/') . $b['id_berita'] ?>" class="btn btn-sm btn-warning">
+                                            <a href="<?= base_url('admin/editwisata/') . $b['id_wisata'] ?>" class="btn btn-sm btn-warning">
                                                 <span class="text">Edit</span>
                                             </a>
-                                            <a href="<?= base_url('admin/deleteberita/') . $b['id_berita'] ?>" class="btn btn-sm btn-danger">
+                                            <a href="<?= base_url('admin/deletewisata/') . $b['id_wisata'] ?>" class="btn btn-sm btn-danger">
                                                 <span class="text">Delete</span>
                                             </a>
-                                            <a href="<?= base_url('admin/kategoriberita/') . $b['id_berita'] ?>" class="btn btn-sm btn-info">
-                                                <span class="text">Tambah Kategori</span>
-                                            </a>
+
 
                                         </td>
 
@@ -58,46 +56,7 @@
             </div>
         </div>
 
-        <div class="col-md-3">
-            <div class="card shadow mb-4 mt-3">
-                <!-- <div class="card-header bg-primary">
-                    <h1 class="h3 text-light"><?= $judul ?></h1>
-                </div> -->
-                <div class="card-body">
-                    <a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#kategori">Tambah Kategori</a>
-                    <div class="table-responsive">
-                        <h6 class="h5">List Kategori</h6>
-                        <table class="table table-bordered table-sm" id="dataTables">
-                            <thead>
-                                <tr>
-                                    <th width="80%">Nama Kategori</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
 
-                                <?php
-                                foreach ($kategori as $k) :
-                                ?>
-                                    <tr>
-                                        <td>
-                                            <?= $k['nama_kategori'] ?>
-                                        </td>
-                                        <td>
-                                            <a href="#" class="badge badge-danger">
-                                                <span class="text">Delete</span>
-                                            </a>
-                                        </td>
-
-                                    </tr>
-                                <?php endforeach; ?>
-
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 
 </div>
