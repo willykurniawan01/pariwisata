@@ -120,10 +120,15 @@ class Admin extends CI_Controller
         }
     }
 
+    //method untuk menampilkan halaman wisata admin
     public function wisata()
     {
+        //judul pada halaman 
         $data['judul'] = "Wisata";
+
+        //query data wisata
         $data['wisata'] = $this->db->get('wisata')->result_array();
+        //menampilkan view input data wisata
         $this->tampilan('wisata', $data);
     }
 
@@ -159,41 +164,53 @@ class Admin extends CI_Controller
         redirect('admin/galeri');
     }
 
-    public function tambahBerita()
-    {
-        $this->form_validation->set_rules('judul', 'Judul Berita', 'required|trim');
-        $this->form_validation->set_rules('isi', 'Isi Berita', 'required|trim');
 
-        $config['upload_path'] = './assets/home/assets/img/berita/';
+    //method untuk menambahkan data wisata
+    public function tambahWisata()
+    {
+
+        //validasi input data wisata
+        $this->form_validation->set_rules('nama_wisata', 'Nama Wisata', 'required|trim');
+        $this->form_validation->set_rules('alamat', 'Alamat', 'required|trim');
+        $this->form_validation->set_rules('deskripsi', 'Deskripsi', 'required|trim');
+
+
+        //konfigurasi upload gambar
+        $config['upload_path'] = './assets/home/assets/img/wisata/';
         $config['allowed_types'] = 'jpg|jpeg|png|gif';
         $config['max_size'] = '1000000';
-        $config['file_name'] = 'berita';
+        $config['file_name'] = 'wisata';
 
+        //load library upload
         $this->load->library('upload', $config, 'gambar');
+        //inisialiasi konfigurasi
         $this->gambar->initialize($config);
 
         if ($this->form_validation->run() == FALSE) {
             $data['error'] = '';
-            $data['judul'] = "Berita";
-            $this->tampilan('tambahberita', $data);
+            $data['judul'] = "wisata";
+            $this->tampilan('tambahwisata', $data);
         } else {
             if ($this->gambar->do_upload('gambar')) {
                 $data = [
-                    'judul' => $this->input->post('judul'),
-                    'isi' => $this->input->post('isi'),
+                    'nama_wisata' => $this->input->post('nama_wisata'),
+                    'deskripsi' => $this->input->post('deskripsi'),
+                    'alamat' => $this->input->post('alamat'),
                     'gambar' => $this->gambar->data('file_name')
                 ];
 
-                $this->db->insert('berita', $data);
-                $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil mengupload Berita!</div>');
-                redirect('admin/berita');
+                $this->db->insert('wisata', $data);
+                $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil mengupload wisata!</div>');
+                redirect('admin/wisata');
             } else {
                 $data['error'] = $this->gambar->display_errors();
-                $data['judul'] = "Berita";
-                $this->tampilan('tambahberita', $data);
+                $data['judul'] = "wisata";
+                $this->tampilan('tambahwisata', $data);
             }
         }
     }
+
+
 
     public function kategoriBerita($id)
     {
