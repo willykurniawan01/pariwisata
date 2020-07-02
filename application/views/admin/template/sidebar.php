@@ -6,7 +6,7 @@
         <div class="sidebar-brand-icon">
             <i class="fas fa-fw fa-school"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">Dashboard SMP Masmur</div>
+        <div class="sidebar-brand-text mx-3">Dashboard Pariwisata</div>
     </a>
 
     <!-- Divider -->
@@ -60,10 +60,10 @@
             <span>galeri</span>
         </a>
     </li>
-    <li class="nav-item <?= ($judul == 'Berita') ? 'active' : '' ?>">
-        <a class="nav-link" href="<?= base_url('admin/berita') ?>">
+    <li class="nav-item <?= ($judul == 'Wisata') ? 'active' : '' ?>">
+        <a class="nav-link" href="<?= base_url('admin/wisata') ?>">
             <i class="fas fa-fw fa-newspaper"></i>
-            <span>Berita</span>
+            <span>Wisata</span>
         </a>
     </li>
 

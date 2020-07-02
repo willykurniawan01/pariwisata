@@ -120,12 +120,11 @@ class Admin extends CI_Controller
         }
     }
 
-    public function berita()
+    public function wisata()
     {
-        $data['judul'] = "Berita";
-        $data['kategori'] = $this->db->get('kategori')->result_array();
-        $data['berita'] = $this->db->get('berita')->result_array();
-        $this->tampilan('berita', $data);
+        $data['judul'] = "Wisata";
+        $data['wisata'] = $this->db->get('wisata')->result_array();
+        $this->tampilan('wisata', $data);
     }
 
     public function tambahKategori()
@@ -152,7 +151,7 @@ class Admin extends CI_Controller
         redirect('admin/galeri');
     }
 
-    
+
     public function deleteKategoriGaleri($id)
     {
         $this->db->delete('kategori_galeri', ['id_kategori' => $id]);
@@ -309,7 +308,7 @@ class Admin extends CI_Controller
             $data['judul'] = "Berita";
             $this->tampilan('editberita', $data);
         } else {
-            if($gambar){
+            if ($gambar) {
                 if ($this->gambar->do_upload('gambar')) {
                     $link = "./assets/home/assets/img/berita/";
                     unlink($link . $berita['gambar']);
@@ -319,7 +318,7 @@ class Admin extends CI_Controller
                         'isi' => $this->input->post('isi'),
                         'gambar' => $this->gambar->data('file_name')
                     ];
-    
+
                     $this->db->update('berita', $data, ['id_berita' => $id]);
                     $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil mengedit Berita!</div>');
                     redirect('admin/berita');
@@ -330,7 +329,7 @@ class Admin extends CI_Controller
                     $data['judul'] = "Berita";
                     $this->tampilan('editberita', $data);
                 }
-            }else {
+            } else {
                 $data = [
                     'judul' => $this->input->post('judul'),
                     'isi' => $this->input->post('isi')
@@ -374,9 +373,9 @@ class Admin extends CI_Controller
         $this->gambar->initialize($config);
 
         if ($this->form_validation->run() == FALSE) {
-        $data['error'] = '';
-        $data['judul'] = "Galeri";
-        $this->tampilan('galeri', $data);
+            $data['error'] = '';
+            $data['judul'] = "Galeri";
+            $this->tampilan('galeri', $data);
         } else {
             if ($this->gambar->do_upload('gambar')) {
                 $data = [
@@ -398,7 +397,7 @@ class Admin extends CI_Controller
         }
     }
 
-    public function editGaleri($id, $foto='')
+    public function editGaleri($id, $foto = '')
     {
         $judul = $this->input->post('judul');
         $subjudul = $this->input->post('subjudul');
