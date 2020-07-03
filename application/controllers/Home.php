@@ -15,15 +15,4 @@ class Home extends CI_Controller
         $this->load->view('home/index', $data);
         $this->load->view('home/template/footer');
     }
-
-
-    public function galeri()
-    {
-        $data['navbar'] = "Galeri";
-        $data['judul'] = "Galeri";
-        $this->load->view('home/template/header', $data);
-        $this->load->view('home/template/navbar', $data);
-        $this->load->view('home/galeri', $data);
-        $this->load->view('home/template/footer');
-    }
 }
