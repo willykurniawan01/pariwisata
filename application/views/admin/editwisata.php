@@ -9,15 +9,27 @@
         <div class="col-md-12">
             <div class="input-group input-group-lg">
                 <div class="input-group-prepend">
-                    <span class="input-group-text" id="Nama Wisata">Nama</span>
+                    <span class="input-group-text" id="Nama Wisata">Nama Wisata</span>
                 </div>
                 <input type="text" class="form-control" name="nama_wisata" value="<?= $wisata['nama_wisata'] ?>">
             </div>
-            <small id="error" class="form-text text-danger"><?= form_error('nama') ?></small>
+            <small id="error" class="form-text text-danger"><?= form_error('nama_wisata') ?></small>
         </div>
     </div>
     <div class="row mt-4">
         <div class="col-md-12">
+            <div class="input-group input-group-lg">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="alamat">Alamat</span>
+                </div>
+                <input type="text" class="form-control" name="alamat" value="<?= $wisata['alamat'] ?>">
+            </div>
+            <small id="error" class="form-text text-danger"><?= form_error('alamat') ?></small>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-md-12">
+            <label for="editor">Deskripsi</label>
             <textarea name="deskripsi" id="editor">
                 <?= $wisata['deskripsi'] ?>
                 </textarea>

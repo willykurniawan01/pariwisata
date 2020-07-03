@@ -57,7 +57,7 @@
     <li class="nav-item <?= ($judul == 'Galeri') ? 'active' : '' ?>">
         <a class="nav-link" href="<?= base_url('admin/galeri') ?>">
             <i class="fas fa-fw fa-images"></i>
-            <span>galeri</span>
+            <span>Galeri</span>
         </a>
     </li>
     <li class="nav-item <?= ($judul == 'Wisata') ? 'active' : '' ?>">

@@ -3,8 +3,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Admin extends CI_Controller
 {
+    //method constructor 
     public function __construct()
     {
+        //melakukan pengecekan session 
         parent::__construct();
         if ($this->session->userdata('status') != "login") {
             if ($this->session->userdata('role') != 1) {
@@ -13,6 +15,7 @@ class Admin extends CI_Controller
         }
     }
 
+    //method untuk menampilkan
     public function tampilan($tampilan, $data)
     {
         $data['admin'] = $this->db->get_where('admin', ['id' => $this->session->userdata('id')])->row_array();
@@ -23,14 +26,16 @@ class Admin extends CI_Controller
         $this->load->view('admin/template/footer');
     }
 
+    //method untuk menampilkan halaman awal dashboard
     public function index()
     {
-        $data['berita'] = $this->db->get('berita')->num_rows();
+        $data['wisata'] = $this->db->get('wisata')->num_rows();
         $data['galeri'] = $this->db->get('galeri')->num_rows();
         $data['judul'] = "Dashboard";
         $this->tampilan('dashboard', $data);
     }
 
+    //method untuk mengatur akun admin
     public function pengaturanAkun($foto = '')
     {
         $this->form_validation->set_rules('username', 'Username', 'required|trim');
@@ -52,6 +57,7 @@ class Admin extends CI_Controller
         }
     }
 
+    //method untuk mengganti foto profile admin
     public function gantiFoto($id)
     {
         $admin = $this->db->get_where('admin', ['id' => $this->session->userdata('id')])->row_array();
@@ -79,6 +85,7 @@ class Admin extends CI_Controller
         }
     }
 
+    //Method untuk menampilkan data slider 
     public function Slider()
     {
         $this->form_validation->set_rules('judul', 'Judul', 'required|trim');
@@ -120,117 +127,7 @@ class Admin extends CI_Controller
         }
     }
 
-    //method untuk menampilkan halaman wisata admin
-    public function wisata()
-    {
-        //judul pada halaman 
-        $data['judul'] = "Wisata";
-
-        //query data wisata
-        $data['wisata'] = $this->db->get('wisata')->result_array();
-        //menampilkan view input data wisata
-        $this->tampilan('wisata', $data);
-    }
-
-
-
-    public function deleteKategoriBerita($id)
-    {
-        $this->db->delete('rel_kategori_berita', ['id_kategori' => $id]);
-        $this->db->delete('kategori_berita', ['id_kategori' => $id]);
-        $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil menghapus kategori!</div>');
-        redirect('admin/berita');
-    }
-
-    public function tambahKategoriGaleri()
-    {
-        $data['nama_kategori'] = $this->input->post('nama_kategori');
-        $this->db->insert('kategori_galeri', $data);
-        $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil menambah kategori!</div>');
-        redirect('admin/galeri');
-    }
-
-
-    public function deleteKategoriGaleri($id)
-    {
-        $this->db->delete('kategori_galeri', ['id_kategori' => $id]);
-        $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil menghapus kategori!</div>');
-        redirect('admin/galeri');
-    }
-
-
-    //method untuk menambahkan data wisata
-    public function tambahWisata()
-    {
-
-        //validasi input data wisata
-        $this->form_validation->set_rules('nama_wisata', 'Nama Wisata', 'required|trim');
-        $this->form_validation->set_rules('alamat', 'Alamat', 'required|trim');
-        $this->form_validation->set_rules('deskripsi', 'Deskripsi', 'required|trim');
-
-
-        //konfigurasi upload gambar
-        $config['upload_path'] = './assets/home/assets/img/wisata/';
-        $config['allowed_types'] = 'jpg|jpeg|png|gif';
-        $config['max_size'] = '1000000';
-        $config['file_name'] = 'wisata';
-
-        //load library upload
-        $this->load->library('upload', $config, 'gambar');
-        //inisialiasi konfigurasi
-        $this->gambar->initialize($config);
-
-        if ($this->form_validation->run() == FALSE) {
-            $data['error'] = '';
-            $data['judul'] = "wisata";
-            $this->tampilan('tambahwisata', $data);
-        } else {
-            if ($this->gambar->do_upload('gambar')) {
-                $data = [
-                    'nama_wisata' => $this->input->post('nama_wisata'),
-                    'deskripsi' => $this->input->post('deskripsi'),
-                    'alamat' => $this->input->post('alamat'),
-                    'gambar' => $this->gambar->data('file_name')
-                ];
-
-                $this->db->insert('wisata', $data);
-                $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil mengupload wisata!</div>');
-                redirect('admin/wisata');
-            } else {
-                $data['error'] = $this->gambar->display_errors();
-                $data['judul'] = "wisata";
-                $this->tampilan('tambahwisata', $data);
-            }
-        }
-    }
-
-
-
-    public function kategoriBerita($id)
-    {
-        $data['id_berita'] = $id;
-        $data['kategori'] = $this->db->get('kategori')->result_array();
-        $data['judul'] = "Berita";
-        $this->tampilan('kategoriberita', $data);
-    }
-
-    public function tambahKategoriBerita()
-    {
-        $id_berita = $this->input->post('id_berita');
-        $kategori = $this->input->post('kategori');
-
-        $this->db->delete('rel_kategori_berita', ['id_berita' => $id_berita]);
-        foreach ($kategori as $k) {
-            $data = [
-                'id_berita' => $id_berita,
-                'id_kategori' => $k
-            ];
-            $this->db->insert('rel_kategori_berita', $data);
-        }
-        $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil menambah kategori berita!</div>');
-        redirect('admin/berita');
-    }
-
+    //Method untuk mengedit data slider
     public function editSlider($id, $foto = '')
     {
         $judul = $this->input->post('judul');
@@ -287,6 +184,7 @@ class Admin extends CI_Controller
         }
     }
 
+    //Method untuk menghapus data slider
     public function deleteSlider($id)
     {
         $slider = $this->db->get_where('slider', ['id_slider' => $id])->row_array();
@@ -297,10 +195,130 @@ class Admin extends CI_Controller
         redirect('admin/slider');
     }
 
+
+    //method untuk menampilkan halaman wisata admin
+    public function wisata()
+    {
+        //judul pada halaman 
+        $data['judul'] = "Wisata";
+
+        //query data wisata
+        $data['wisata'] = $this->db->get('wisata')->result_array();
+
+        //query menampilkan data kategori
+        $data['kategori'] = $this->db->get('kategori')->result_array();
+
+        //menampilkan view input data wisata
+        $this->tampilan('wisata', $data);
+    }
+
+
+    //Method untuk menambah kategori galeri
+    public function tambahKategoriGaleri()
+    {
+        $data['nama_kategori'] = $this->input->post('nama_kategori');
+        $this->db->insert('kategori_galeri', $data);
+        $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil menambah kategori!</div>');
+        redirect('admin/galeri');
+    }
+
+    //Method untuk  menghapus kategori galeri
+    public function deleteKategoriGaleri($id)
+    {
+        $this->db->delete('kategori_galeri', ['id_kategori' => $id]);
+        $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil menghapus kategori!</div>');
+        redirect('admin/galeri');
+    }
+
+
+    //method untuk menambahkan data wisata
+    public function tambahWisata()
+    {
+        //validasi input data wisata
+        $this->form_validation->set_rules('nama_wisata', 'Nama Wisata', 'required|trim');
+        $this->form_validation->set_rules('alamat', 'Alamat', 'required|trim');
+        $this->form_validation->set_rules('deskripsi', 'Deskripsi', 'required|trim');
+
+
+        //konfigurasi upload gambar
+        $config['upload_path'] = './assets/home/assets/img/wisata/';
+        $config['allowed_types'] = 'jpg|jpeg|png|gif';
+        $config['max_size'] = '1000000';
+        $config['file_name'] = 'wisata';
+
+        //load library upload
+        $this->load->library('upload', $config, 'gambar');
+        //inisialiasi konfigurasi
+        $this->gambar->initialize($config);
+
+        if ($this->form_validation->run() == FALSE) {
+            $data['error'] = '';
+            $data['judul'] = "wisata";
+            $this->tampilan('tambahwisata', $data);
+        } else {
+            if ($this->gambar->do_upload('gambar')) {
+                $data = [
+                    'nama_wisata' => $this->input->post('nama_wisata'),
+                    'deskripsi' => $this->input->post('deskripsi'),
+                    'alamat' => $this->input->post('alamat'),
+                    'gambar' => $this->gambar->data('file_name')
+                ];
+
+                $this->db->insert('wisata', $data);
+                $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil mengupload wisata!</div>');
+                redirect('admin/wisata');
+            } else {
+                $data['error'] = $this->gambar->display_errors();
+                $data['judul'] = "wisata";
+                $this->tampilan('tambahwisata', $data);
+            }
+        }
+    }
+
+
+    //method menampilkan kategori wisata
+    public function tambahKategori()
+    {
+        $data['nama_kategori'] = $this->input->post('nama_kategori');
+        $this->db->insert('kategori', $data);
+        $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil menambah kategori!</div>');
+        redirect('admin/wisata');
+    }
+
+    //method menghapus kategori wisata
+    public function deleteKategoriWisata($id)
+    {
+        $this->db->delete('rel_kategori_wisata', ['id_kategori' => $id]);
+        $this->db->delete('kategori_wisata', ['id_kategori' => $id]);
+        $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil menghapus kategori!</div>');
+        redirect('admin/wisata');
+    }
+
+    //method untuk menambahkan kategori wisata
+    public function tambahKategoriWisata()
+    {
+        $id_wisata = $this->input->post('id_wisata');
+        $kategori = $this->input->post('kategori');
+
+        $this->db->delete('rel_kategori_wisata', ['id_wisata' => $id_wisata]);
+        foreach ($kategori as $k) {
+            $data = [
+                'id_wisata' => $id_wisata,
+                'id_kategori' => $k
+            ];
+            $this->db->insert('rel_kategori_wisata', $data);
+        }
+        $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil menambah kategori wisata!</div>');
+        redirect('admin/wisata');
+    }
+
+
+    //method mengedit data wisata
     public function editwisata($id, $gambar = '')
     {
         $this->form_validation->set_rules('nama_wisata', 'Nama wisata', 'required|trim');
         $this->form_validation->set_rules('deskripsi', 'Deskripsi Wisata', 'required|trim');
+        $this->form_validation->set_rules('alamat', 'Alamat Wisata', 'required|trim');
 
         $config['upload_path'] = './assets/home/assets/img/wisata/';
         $config['allowed_types'] = 'jpg|jpeg|png|gif';
@@ -311,12 +329,11 @@ class Admin extends CI_Controller
         $this->gambar->initialize($config);
 
         $wisata = $this->db->get_where('wisata', ['id_wisata' => $id])->row_array();
-        // $cek_gambar = $this->input->post('cek');
         if ($this->form_validation->run() == FALSE) {
             $data['ubahgambar'] = $gambar;
             $data['wisata'] = $wisata;
             $data['error'] = '';
-            $data['judul'] = "wisata";
+            $data['judul'] = "Wisata";
             $this->tampilan('editwisata', $data);
         } else {
             if ($gambar) {
@@ -325,8 +342,9 @@ class Admin extends CI_Controller
                     unlink($link . $wisata['gambar']);
 
                     $data = [
-                        'judul' => $this->input->post('judul'),
-                        'isi' => $this->input->post('isi'),
+                        'nama_wisata' => $this->input->post('nama_wisata'),
+                        'deskripsi' => $this->input->post('deskripsi'),
+                        'alamat' => $this->input->post('alamat'),
                         'gambar' => $this->gambar->data('file_name')
                     ];
 
@@ -342,8 +360,9 @@ class Admin extends CI_Controller
                 }
             } else {
                 $data = [
-                    'judul' => $this->input->post('judul'),
-                    'isi' => $this->input->post('isi')
+                    'nama_wisata' => $this->input->post('nama_wisata'),
+                    'deskripsi' => $this->input->post('deskripsi'),
+                    'alamat' => $this->input->post('alamat'),
                 ];
 
                 $this->db->update('wisata', $data, ['id_wisata' => $id]);
@@ -353,6 +372,7 @@ class Admin extends CI_Controller
         }
     }
 
+    //method menghapus data wisata
     public function deletewisata($id)
     {
         $wisata = $this->db->get_where('wisata', ['id_wisata' => $id])->row_array();
@@ -363,6 +383,8 @@ class Admin extends CI_Controller
         redirect('admin/wisata');
     }
 
+
+    //Method untuk menampilkan dan menambah galeri
     public function galeri()
     {
         $this->form_validation->set_rules('judul', 'Judul', 'required|trim');
@@ -408,6 +430,8 @@ class Admin extends CI_Controller
         }
     }
 
+
+    //Method untuk mengedit data galeri
     public function editGaleri($id, $foto = '')
     {
         $judul = $this->input->post('judul');
@@ -470,6 +494,7 @@ class Admin extends CI_Controller
         }
     }
 
+    //Method untuk menghapus data galeri
     public function deleteGaleri($id)
     {
         $galeri = $this->db->get_where('galeri', ['id_galeri' => $id])->row_array();
