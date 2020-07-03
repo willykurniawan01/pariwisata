@@ -19,7 +19,7 @@
                             <thead>
                                 <tr>
                                     <th width="8%">No</th>
-                                    <th width="59%">Nama Wisata</th>
+                                    <th width="40%">Nama Wisata</th>
                                     <th>Gambar</th>
                                     <th>Action</th>
                                 </tr>
@@ -44,6 +44,9 @@
                                             </a>
                                             <a href="<?= base_url('admin/deletewisata/') . $b['id_wisata'] ?>" class="btn btn-sm btn-danger">
                                                 <span class="text">Delete</span>
+                                            </a>
+                                            <a href="<?= base_url('admin/kategoriwisata/') . $b['id_wisata'] ?>" class="btn btn-sm btn-info">
+                                                <span class="text">Tambah Kategori</span>
                                             </a>
 
 
@@ -88,7 +91,7 @@
                                             <?= $k['nama_kategori'] ?>
                                         </td>
                                         <td>
-                                            <a href="#" class="badge badge-danger">
+                                            <a href="<?= base_url('admin/deletekategoriwisata/') . $k['id_kategori'] ?>" class="badge badge-danger">
                                                 <span class="text">Delete</span>
                                             </a>
                                         </td>

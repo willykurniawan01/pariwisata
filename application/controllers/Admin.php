@@ -276,7 +276,7 @@ class Admin extends CI_Controller
     }
 
 
-    //method menampilkan kategori wisata
+    //method menambahkan kategori 
     public function tambahKategori()
     {
         $data['nama_kategori'] = $this->input->post('nama_kategori');
@@ -285,11 +285,20 @@ class Admin extends CI_Controller
         redirect('admin/wisata');
     }
 
+    //method menambahkan kategori ke wisata
+    public function kategoriwisata($id)
+    {
+        $data['id_wisata'] = $id;
+        $data['kategori'] = $this->db->get('kategori')->result_array();
+        $data['judul'] = "wisata";
+        $this->tampilan('kategoriwisata', $data);
+    }
+
     //method menghapus kategori wisata
     public function deleteKategoriWisata($id)
     {
         $this->db->delete('rel_kategori_wisata', ['id_kategori' => $id]);
-        $this->db->delete('kategori_wisata', ['id_kategori' => $id]);
+        $this->db->delete('kategori', ['id_kategori' => $id]);
         $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil menghapus kategori!</div>');
         redirect('admin/wisata');
     }

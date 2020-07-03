@@ -16,11 +16,11 @@
                     <h6 class="m-0 font-weight-bold text-primary">Kategori Berita</h6>
                 </div>
                 <div class="card-body">
-                    <form action="<?= base_url('admin/tambahkategoriberita') ?>" method="POST">
-                        <input type="hidden" value="<?= $id_berita ?>" name="id_berita">
+                    <form action="<?= base_url('admin/tambahkategoriwisata') ?>" method="POST">
+                        <input type="hidden" value="<?= $id_wisata ?>" name="id_wisata">
                         <?php
                         foreach ($kategori as $k) :
-                            $check = $this->db->get_where('rel_kategori_berita', ['id_berita' => $id_berita, 'id_kategori' => $k['id_kategori']])->row_array();
+                            $check = $this->db->get_where('rel_kategori_wisata', ['id_wisata' => $id_wisata, 'id_kategori' => $k['id_kategori']])->row_array();
                         ?>
 
                             <div class="custom-control custom-checkbox">
