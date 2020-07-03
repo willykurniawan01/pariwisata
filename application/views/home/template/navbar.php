@@ -1,37 +1,56 @@
-<body>
+<!-- header-start -->
+<header>
+    <div class="header-area ">
+        <div id="sticky-header" class="main-header-area">
+            <div class="container-fluid">
+                <div class="header_bottom_border">
+                    <div class="row align-items-center">
+                        <div class="col-xl-2 col-lg-2">
+                            <div class="logo">
+                                <a href="index.html">
+                                    <img src="img/logo.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6">
+                            <div class="main-menu  d-none d-lg-block">
+                                <nav>
+                                    <ul id="navigation">
+                                        <li><a class="active" href="index.html">home</a></li>
 
-    <!-- ======= Header ======= -->
-    <header <?= ($judul == "Homepage") ?  "id='header'" : "id='headers' class='header-scrolled'" ?>>
-        <div class="container-fluid">
+                                        <li><a class="" href="travel_destination.html">Destination</a></l /li> <li><a href="contact.html">Contact</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 d-none d-lg-block">
+                            <div class="social_wrap d-flex align-items-center justify-content-end">
+                                <div class="number">
+                                    <p> <i class="fa fa-phone"></i> 10(256)-928 256</p>
+                                </div>
+                                <div class="social_links d-none d-xl-block">
+                                    <ul>
+                                        <li><a href="#"> <i class="fa fa-instagram"></i> </a></li>
+                                        <li><a href="#"> <i class="fa fa-linkedin"></i> </a></li>
+                                        <li><a href="#"> <i class="fa fa-facebook"></i> </a></li>
+                                        <li><a href="#"> <i class="fa fa-google-plus"></i> </a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="seach_icon">
+                            <a data-toggle="modal" data-target="#exampleModalCenter" href="#">
+                                <i class="fa fa-search"></i>
+                            </a>
+                        </div>
+                        <div class="col-12">
+                            <div class="mobile_menu d-block d-lg-none"></div>
+                        </div>
+                    </div>
+                </div>
 
-            <div id="logo" class="pull-left">
-                <img src="<?= base_url('assets/home/') ?>assets/img/logo/logo-small.png" alt="">
-                <h1><a href="#intro" class="scrollto d-inline">SMP Masmur Pekanbaru</a></h1>
             </div>
-
-            <nav id="nav-menu-container">
-                <ul class="nav-menu">
-                    <li class="<?= ($navbar == "Home") ? 'menu-active' : '' ?>"><a href="<?= base_url('home') ?>">Home</a></li>
-                    <li class="menu-has-children <?= ($navbar == "Profil") ? 'menu-active' : '' ?>"><a href="">Profil</a>
-                        <ul>
-                            <li><a href="<?= base_url('home/sekolah') ?>">Sekolah</a></li>
-                            <li><a href="<?= base_url('home/visimisi') ?>">Visi dan Misi</a></li>
-                            <li><a href="<?= base_url('home/kepalasekolah') ?>">Kepala Sekolah</a></li>
-
-                        </ul>
-                    </li>
-                    <li class="menu-has-children <?= ($navbar == "Info") ? 'menu-active' : '' ?>"><a href="">Info</a>
-                        <ul>
-                            <li><a href="<?= base_url('home/pendaftaran') ?>">Pendaftaran</a></li>
-                            <li><a href="<?= base_url('home/fasilitas') ?>">Fasilitas</a></li>
-                        </ul>
-                    </li>
-                    <li class="<?= ($navbar == "Berita") ? 'menu-active' : '' ?>"><a href="<?= base_url('berita') ?>">Berita</a></li>
-                    <li class="<?= ($navbar == "Galeri") ? 'menu-active' : '' ?>"><a href="<?= base_url('home/galeri') ?>">Galeri</a></li>
-                    <li><a href="#contact">Kontak</a></li>
-                </ul>
-            </nav>
-            <!-- #nav-menu-container -->
         </div>
-    </header>
-    <!-- End Header -->
+    </div>
+</header>
+<!-- header-end -->
