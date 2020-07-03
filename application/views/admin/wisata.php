@@ -18,8 +18,8 @@
                         <table class="table table-sm table-bordered" id="dataTable">
                             <thead>
                                 <tr>
-                                    <th width="8%">No</th>
-                                    <th width="40%">Nama Wisata</th>
+                                    <th width="5%">No</th>
+                                    <th width="30%">Nama Wisata</th>
                                     <th>Gambar</th>
                                     <th>Action</th>
                                 </tr>
@@ -39,16 +39,23 @@
                                             <img style="width: 100px; height:100px;" src="<?= base_url('assets/home/assets/img/wisata/') . $b['gambar'] ?>" alt="">
                                         </td>
                                         <td class="align-middle">
-                                            <a href="<?= base_url('admin/editwisata/') . $b['id_wisata'] ?>" class="btn btn-sm btn-warning">
-                                                <span class="text">Edit</span>
-                                            </a>
-                                            <a href="<?= base_url('admin/deletewisata/') . $b['id_wisata'] ?>" class="btn btn-sm btn-danger">
-                                                <span class="text">Delete</span>
-                                            </a>
-                                            <a href="<?= base_url('admin/kategoriwisata/') . $b['id_wisata'] ?>" class="btn btn-sm btn-info">
-                                                <span class="text">Tambah Kategori</span>
-                                            </a>
 
+                                            <ul>
+                                                <li class="nav-link"> <a href="<?= base_url('admin/editwisata/') . $b['id_wisata'] ?>" class="btn btn-sm btn-warning">
+                                                        <span class="text">Edit</span>
+                                                    </a>
+                                                    <a href="<?= base_url('admin/deletewisata/') . $b['id_wisata'] ?>" class="btn btn-sm btn-danger">
+                                                        <span class="text">Delete</span>
+                                                    </a></li>
+
+                                                <li class="nav-link"> <a href="<?= base_url('admin/tambahwisatapopuler/') . $b['id_wisata'] ?>" class="btn btn-sm btn-success">
+                                                        <span class="text">Tambah ke Populer</span>
+                                                    </a>
+                                                    <a href="<?= base_url('admin/kategoriwisata/') . $b['id_wisata'] ?>" class="btn btn-sm btn-info">
+                                                        <span class="text">Tambah Kategori</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
 
                                         </td>
 
@@ -92,6 +99,45 @@
                                         </td>
                                         <td>
                                             <a href="<?= base_url('admin/deletekategoriwisata/') . $k['id_kategori'] ?>" class="badge badge-danger">
+                                                <span class="text">Delete</span>
+                                            </a>
+                                        </td>
+
+                                    </tr>
+                                <?php endforeach; ?>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="card shadow mb-4 mt-3">
+                <!-- <div class="card-header bg-primary">
+                    <h1 class="h3 text-light"><?= $judul ?></h1>
+                </div> -->
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <h6 class="h5">List Wisata Populer</h6>
+                        <table class="table table-bordered table-sm" id="dataTables">
+                            <thead>
+                                <tr>
+                                    <th width="80%">Nama Kategori</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <?php
+                                foreach ($populer as $k) :
+                                ?>
+                                    <tr>
+                                        <td>
+                                            <?= $k['nama_wisata'] ?>
+                                        </td>
+                                        <td>
+                                            <a href="<?= base_url('admin/deletewisatapopuler/') . $k['id_wisata'] ?>" class="badge badge-danger">
                                                 <span class="text">Delete</span>
                                             </a>
                                         </td>

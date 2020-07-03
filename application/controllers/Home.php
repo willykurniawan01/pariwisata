@@ -9,6 +9,9 @@ class Home extends CI_Controller
         $data['judul'] = "Homepage";
         $this->db->order_by('id_wisata', 'DESC');
         $this->db->limit(4);
+
+        //menampilkan data wisata populer     
+        $this->db->where('is_populer', '1');
         $data['wisata'] = $this->db->get('wisata')->result_array();
         $this->load->view('home/template/header', $data);
         $this->load->view('home/template/navbar', $data);

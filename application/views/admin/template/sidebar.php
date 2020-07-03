@@ -62,8 +62,15 @@
     </li>
     <li class="nav-item <?= ($judul == 'Wisata') ? 'active' : '' ?>">
         <a class="nav-link" href="<?= base_url('admin/wisata') ?>">
-            <i class="fas fa-fw fa-newspaper"></i>
+            <i class="fas fa-map-marker-alt"></i>
             <span>Wisata</span>
+        </a>
+    </li>
+
+    <li class="nav-item <?= ($judul == 'Restoran') ? 'active' : '' ?>">
+        <a class="nav-link" href="<?= base_url('admin/restoran') ?>">
+            <i class="fas fa-fw fa-utensils"></i>
+            <span>Restoran</span>
         </a>
     </li>
 

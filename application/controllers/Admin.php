@@ -205,8 +205,15 @@ class Admin extends CI_Controller
         //query data wisata
         $data['wisata'] = $this->db->get('wisata')->result_array();
 
-        //query menampilkan data kategori
+        //menampilkan data ketegori
         $data['kategori'] = $this->db->get('kategori')->result_array();
+
+        //query menampilkan data wisata populer
+        $this->db->from('wisata');
+        $this->db->where('is_populer', '1');
+        $data['populer'] = $this->db->get()->result_array();
+
+
 
         //menampilkan view input data wisata
         $this->tampilan('wisata', $data);
@@ -273,6 +280,29 @@ class Admin extends CI_Controller
                 $this->tampilan('tambahwisata', $data);
             }
         }
+    }
+
+    //menambahkan wisata ke populer
+    public function tambahWisataPopuler($id)
+    {
+        $this->db->where('id_wisata', $id);
+        $this->db->set('is_populer', '1');
+        $this->db->update('wisata');
+
+        $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil menambah ke populer!</div>');
+        redirect('admin/wisata');
+    }
+
+    //menghapus wisata dari populer
+    public function deleteWisataPopuler($id)
+    {
+
+        $this->db->where('id_wisata', $id);
+        $this->db->set('is_populer', '0');
+        $this->db->update('wisata');
+
+        $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil menghapus dari populer!</div>');
+        redirect('admin/wisata');
     }
 
 
@@ -512,5 +542,135 @@ class Admin extends CI_Controller
         $this->db->delete('galeri', ['id_galeri' => $id]);
         $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil menghapus galeri!</div>');
         redirect('admin/galeri');
+    }
+
+
+    //method untuk menampilkan halaman restoran admin
+    public function restoran()
+    {
+        //judul pada halaman 
+        $data['judul'] = "Restoran";
+
+        //query data restoran
+        $data['restoran'] = $this->db->get('restoran')->result_array();
+
+
+        //menampilkan view input data restoran
+        $this->tampilan('restoran', $data);
+    }
+
+
+    //method tambah data restoran
+    public function tambahRestoran()
+    {
+        //validasi input data restoran
+        $this->form_validation->set_rules('nama_restoran', 'Nama restoran', 'required|trim');
+        $this->form_validation->set_rules('alamat', 'Alamat', 'required|trim');
+        $this->form_validation->set_rules('deskripsi', 'Deskripsi', 'required|trim');
+
+
+        //konfigurasi upload gambar
+        $config['upload_path'] = './assets/home/assets/img/restoran/';
+        $config['allowed_types'] = 'jpg|jpeg|png|gif';
+        $config['max_size'] = '1000000';
+        $config['file_name'] = 'restoran';
+
+        //load library upload
+        $this->load->library('upload', $config, 'gambar');
+        //inisialiasi konfigurasi
+        $this->gambar->initialize($config);
+
+        if ($this->form_validation->run() == FALSE) {
+            $data['error'] = '';
+            $data['judul'] = "restoran";
+            $this->tampilan('tambahrestoran', $data);
+        } else {
+            if ($this->gambar->do_upload('gambar')) {
+                $data = [
+                    'nama_restoran' => $this->input->post('nama_restoran'),
+                    'deskripsi' => $this->input->post('deskripsi'),
+                    'alamat' => $this->input->post('alamat'),
+                    'gambar' => $this->gambar->data('file_name')
+                ];
+
+                $this->db->insert('restoran', $data);
+                $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil mengupload restoran!</div>');
+                redirect('admin/restoran');
+            } else {
+                $data['error'] = $this->gambar->display_errors();
+                $data['judul'] = "restoran";
+                $this->tampilan('tambahrestoran', $data);
+            }
+        }
+    }
+
+    //method untuk menghapus data restoran
+    public function deleteRestoran($id)
+    {
+        $restoran = $this->db->get_where('restoran', ['id_restoran' => $id])->row_array();
+        $link = "./assets/home/assets/img/restoran/";
+        unlink($link . $restoran['gambar']);
+        $this->db->delete('restoran', ['id_restoran' => $id]);
+        $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil menghapus restoran!</div>');
+        redirect('admin/restoran');
+    }
+
+    //method mengedit data wisata
+    public function editRestoran($id, $gambar = '')
+    {
+        $this->form_validation->set_rules('nama_restoran', 'Nama restoran', 'required|trim');
+        $this->form_validation->set_rules('deskripsi', 'Deskripsi restoran', 'required|trim');
+        $this->form_validation->set_rules('alamat', 'Alamat restoran', 'required|trim');
+
+        $config['upload_path'] = './assets/home/assets/img/restoran/';
+        $config['allowed_types'] = 'jpg|jpeg|png|gif';
+        $config['max_size'] = '1000000';
+        $config['file_name'] = 'restoran';
+
+        $this->load->library('upload', $config, 'gambar');
+        $this->gambar->initialize($config);
+
+        $restoran = $this->db->get_where('restoran', ['id_restoran' => $id])->row_array();
+        if ($this->form_validation->run() == FALSE) {
+            $data['ubahgambar'] = $gambar;
+            $data['restoran'] = $restoran;
+            $data['error'] = '';
+            $data['judul'] = "restoran";
+            $this->tampilan('editrestoran', $data);
+        } else {
+            if ($gambar) {
+                if ($this->gambar->do_upload('gambar')) {
+                    $link = "./assets/home/assets/img/restoran/";
+                    unlink($link . $restoran['gambar']);
+
+                    $data = [
+                        'nama_restoran' => $this->input->post('nama_restoran'),
+                        'deskripsi' => $this->input->post('deskripsi'),
+                        'alamat' => $this->input->post('alamat'),
+                        'gambar' => $this->gambar->data('file_name')
+                    ];
+
+                    $this->db->update('restoran', $data, ['id_restoran' => $id]);
+                    $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil mengedit restoran!</div>');
+                    redirect('admin/restoran');
+                } else {
+                    $data['error'] = $this->gambar->display_errors();
+                    $data['ubahgambar'] = $gambar;
+                    $data['restoran'] = $this->db->get_where('restoran', ['id_restoran' => $id])->row_array();
+                    $data['judul'] = "restoran";
+                    $this->tampilan('editrestoran', $data);
+                }
+            } else {
+                $data = [
+                    'nama_restoran' => $this->input->post('nama_restoran'),
+                    'deskripsi' => $this->input->post('deskripsi'),
+                    'alamat' => $this->input->post('alamat'),
+                ];
+
+                $this->db->update('restoran', $data, ['id_restoran' => $id]);
+                $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil mengedit restoran!</div>');
+                redirect('admin/restoran');
+            }
+        }
     }
 }
