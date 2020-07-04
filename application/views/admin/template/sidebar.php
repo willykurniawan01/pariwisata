@@ -44,34 +44,57 @@
 
     <!-- Heading -->
     <div class="sidebar-heading">
-        Website
+        Pengelolaan
     </div>
 
-    <!-- Nav Item - Charts -->
-    <li class="nav-item <?= ($judul == 'Slider') ? 'active' : '' ?>">
-        <a class="nav-link" href="<?= base_url('admin/slider') ?>">
-            <i class="fab fa-fw fa-slideshare"></i>
-            <span>Slider</span>
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            <i class="fas fa-file-alt"></i>
+            <span>Website</span>
         </a>
-    </li>
-    <li class="nav-item <?= ($judul == 'Galeri') ? 'active' : '' ?>">
-        <a class="nav-link" href="<?= base_url('admin/galeri') ?>">
-            <i class="fas fa-fw fa-images"></i>
-            <span>Galeri</span>
-        </a>
-    </li>
-    <li class="nav-item <?= ($judul == 'Wisata') ? 'active' : '' ?>">
-        <a class="nav-link" href="<?= base_url('admin/wisata') ?>">
-            <i class="fas fa-map-marker-alt"></i>
-            <span>Wisata</span>
-        </a>
+        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Website :</h6>
+                <a class="collapse-item" href="<?= base_url('admin/slider') ?>">
+                    <i class="fab fa-fw fa-slideshare"></i>
+                    <span>Slider</span>
+                </a>
+                <a class="collapse-item" href="<?= base_url('admin/galeri') ?>">
+                    <i class="fas fa-fw fa-images"></i>
+                    <span>Galeri</span>
+                </a>
+            </div>
+        </div>
     </li>
 
-    <li class="nav-item <?= ($judul == 'Restoran') ? 'active' : '' ?>">
-        <a class="nav-link" href="<?= base_url('admin/restoran') ?>">
-            <i class="fas fa-fw fa-utensils"></i>
-            <span>Restoran</span>
+
+
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fas fa-file-alt"></i>
+            <span>Data</span>
         </a>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Data :</h6>
+                <a class="collapse-item" href="<?= base_url('admin/wisata') ?>">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Wisata</span>
+                </a>
+                <a class="collapse-item" href="<?= base_url('admin/agenda') ?>">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>Agenda</span>
+                </a>
+                <a class="collapse-item" href="<?= base_url('admin/restoran') ?>">
+                    <i class="fas fa-fw fa-utensils"></i>
+                    <span>Restoran</span>
+                </a>
+                <a class="collapse-item" href="<?= base_url('admin/akomodasi') ?>">
+                    <i class="fas fa-hotel"></i>
+                    <span>Akomodasi</span>
+                </a>
+            </div>
+        </div>
     </li>
 
     <!-- Divider -->
