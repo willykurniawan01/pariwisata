@@ -55,7 +55,7 @@
                             <li><a href="<?= base_url('akomodasi') ?>">Akomodasi</a></li>
                             <li><a href="<?= base_url('restoran') ?>"> Restoran</a></li>
                             <li><a href="<?= base_url('galeri') ?>"> Galeri</a></li>
-                            <li><a href="<?= base_url('kontak') ?>"> Contact</a></li>
+                            <li><a href="<?= base_url('kontak') ?>"> Kontak</a></li>
                         </ul>
                     </div>
                 </div>

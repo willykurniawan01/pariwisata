@@ -32,6 +32,8 @@ class Admin extends CI_Controller
         $data['wisata'] = $this->db->get('wisata')->num_rows();
         $data['galeri'] = $this->db->get('galeri')->num_rows();
         $data['restoran'] = $this->db->get('restoran')->num_rows();
+        $data['agenda'] = $this->db->get('agenda')->num_rows();
+        $data['akomodasi'] = $this->db->get('akomodasi')->num_rows();
         $data['judul'] = "Dashboard";
         $this->tampilan('dashboard', $data);
     }
@@ -250,7 +252,7 @@ class Admin extends CI_Controller
 
         //konfigurasi upload gambar
         $config['upload_path'] = './assets/home/assets/img/wisata/';
-        $config['allowed_types'] = 'jpg|jpeg|png|gif';
+        $config['allowed_types'] = 'jpg|jpeg|png|gif|jfif';
         $config['max_size'] = '1000000';
         $config['file_name'] = 'wisata';
 

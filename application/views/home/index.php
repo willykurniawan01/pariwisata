@@ -49,7 +49,7 @@
                             <img style="height: 300px; width:100%;" src="<?= base_url('assets/home/assets/img/wisata/') . $w['gambar'] ?>" alt="">
                         </div>
                         <div class="content">
-                            <p class="d-flex align-items-center"><?= $w['nama_wisata'] ?> <a href="<?= base_url('wisata/detail/') . $w['id_wisata'] ?>"> Unggulan</a>
+                            <p class="d-flex align-items-center"><?= $w['nama_wisata'] ?>
                             </p>
                         </div>
                     </div>
