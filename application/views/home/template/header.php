@@ -25,7 +25,8 @@
     <link rel="stylesheet" href="<?= base_url('assets/home/assets/') ?>css/slick.css">
     <link rel="stylesheet" href="<?= base_url('assets/home/assets/') ?>css/slicknav.css">
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css">
-    <link href="<?= base_url('assets/home/assets/') ?>/vendor/venobox/venobox.css" rel="stylesheet">
+    <link href="<?= base_url('assets/home/assets/') ?>vendor/venobox/venobox.css" rel="stylesheet">
+    <link href="<?= base_url('assets/home/assets/') ?>vendor/ionicons/css/ionicons.min.css" rel="stylesheet">
 
     <link rel="stylesheet" href="<?= base_url('assets/home/assets/') ?>css/style.css">
     <!-- <link rel="stylesheet" href="css/responsive.css"> -->

@@ -6707,7 +6707,7 @@ h6 {
 
 #portfolio #portfolio-flters li:hover,
 #portfolio #portfolio-flters li.filter-active {
-  background: #18d26e;
+  background: #FF4A52;
   color: #fff;
 }
 
@@ -6765,7 +6765,7 @@ h6 {
 }
 
 #portfolio .portfolio-item figure .link-preview:hover {
-  background: #18d26e;
+  background: #FF4A52;
 }
 
 #portfolio .portfolio-item figure .link-preview:hover i {
@@ -6804,7 +6804,7 @@ h6 {
 }
 
 #portfolio .portfolio-item .portfolio-info h4 a:hover {
-  color: #18d26e;
+  color: #FF4A52;
 }
 
 #portfolio .portfolio-item .portfolio-info p {
