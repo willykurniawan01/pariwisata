@@ -18,7 +18,7 @@
                                     <ul id="navigation">
                                         <li><a class="active" href="<?= base_url('home') ?>">Home</a></li>
 
-                                        <li><a href="#">pages <i class="ti-angle-down"></i></a>
+                                        <li><a href="#">Halaman <i class="ti-angle-down"></i></a>
                                             <ul class="submenu">
                                                 <li><a href="<?= base_url('/wisata') ?>">Wisata</a>
                                                 </li>
@@ -31,7 +31,7 @@
 
                                         <li><a href="<?= base_url('/galeri') ?>">Galeri</a>
                                         </li>
-                                        <li><a href="contact.html">Contact</a>
+                                        <li><a href="contact.html">Kontak</a>
                                         </li>
                                     </ul>
                                 </nav>

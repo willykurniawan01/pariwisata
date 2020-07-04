@@ -48,13 +48,14 @@
                 <div class="col-xl-2 col-md-6 col-lg-2">
                     <div class="footer_widget">
                         <h3 class="footer_title">
-                            Company
+                            Menu
                         </h3>
                         <ul class="links">
-                            <li><a href="#">Pricing</a></li>
-                            <li><a href="#">About</a></li>
-                            <li><a href="#"> Gallery</a></li>
-                            <li><a href="#"> Contact</a></li>
+                            <li><a href="<?= base_url('wisata') ?>">Wisata</a></li>
+                            <li><a href="<?= base_url('akomodasi') ?>">Akomodasi</a></li>
+                            <li><a href="<?= base_url('restoran') ?>"> Restoran</a></li>
+                            <li><a href="<?= base_url('galeri') ?>"> Galeri</a></li>
+                            <li><a href="<?= base_url('kontak') ?>"> Contact</a></li>
                         </ul>
                     </div>
                 </div>
@@ -72,45 +73,6 @@
                                 <li><a href="<?= base_url('wisata/detail/') . $p['id_wisata'] ?>"><?= $p['nama_wisata'] ?></a></li>
                             <?php endforeach; ?>
                         </ul>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-md-6 col-lg-3">
-                    <div class="footer_widget">
-                        <h3 class="footer_title">
-                            Instagram
-                        </h3>
-                        <div class="instagram_feed">
-                            <div class="single_insta">
-                                <a href="#">
-                                    <img src="img/instagram/1.png" alt="">
-                                </a>
-                            </div>
-                            <div class="single_insta">
-                                <a href="#">
-                                    <img src="img/instagram/2.png" alt="">
-                                </a>
-                            </div>
-                            <div class="single_insta">
-                                <a href="#">
-                                    <img src="img/instagram/3.png" alt="">
-                                </a>
-                            </div>
-                            <div class="single_insta">
-                                <a href="#">
-                                    <img src="img/instagram/4.png" alt="">
-                                </a>
-                            </div>
-                            <div class="single_insta">
-                                <a href="#">
-                                    <img src="img/instagram/5.png" alt="">
-                                </a>
-                            </div>
-                            <div class="single_insta">
-                                <a href="#">
-                                    <img src="img/instagram/6.png" alt="">
-                                </a>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
