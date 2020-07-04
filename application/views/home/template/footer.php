@@ -62,13 +62,13 @@
                 <div class="col-xl-3 col-md-6 col-lg-3">
                     <div class="footer_widget">
                         <h3 class="footer_title">
-                            Wisata Populer
+                            Wisata Unggulan
                         </h3>
                         <ul class="links double_links">
                             <?php
-                            $this->db->where('is_populer', '1');
-                            $populer = $this->db->get('wisata')->result_array();
-                            foreach ($populer as $p) :
+                            $this->db->where('unggulan', '1');
+                            $unggulan = $this->db->get('wisata')->result_array();
+                            foreach ($unggulan as $p) :
                             ?>
                                 <li><a href="<?= base_url('wisata/detail/') . $p['id_wisata'] ?>"><?= $p['nama_wisata'] ?></a></li>
                             <?php endforeach; ?>

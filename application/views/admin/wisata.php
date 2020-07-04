@@ -48,8 +48,8 @@
                                                         <span class="text">Delete</span>
                                                     </a></li>
 
-                                                <li class="nav-link"> <a href="<?= base_url('admin/tambahwisatapopuler/') . $b['id_wisata'] ?>" class="btn btn-sm btn-success">
-                                                        <span class="text">Tambah ke Populer</span>
+                                                <li class="nav-link"> <a href="<?= base_url('admin/tambahwisataunggulan/') . $b['id_wisata'] ?>" class="btn btn-sm btn-success">
+                                                        <span class="text">Tambah ke Unggulan</span>
                                                     </a>
                                                     <a href="<?= base_url('admin/kategoriwisata/') . $b['id_wisata'] ?>" class="btn btn-sm btn-info">
                                                         <span class="text">Tambah Kategori</span>
@@ -119,7 +119,7 @@
                 </div> -->
                 <div class="card-body">
                     <div class="table-responsive">
-                        <h6 class="h5">List Wisata Populer</h6>
+                        <h6 class="h5">List Wisata Unggulan</h6>
                         <table class="table table-bordered table-sm" id="dataTables">
                             <thead>
                                 <tr>
@@ -130,14 +130,14 @@
                             <tbody>
 
                                 <?php
-                                foreach ($populer as $k) :
+                                foreach ($unggulan as $k) :
                                 ?>
                                     <tr>
                                         <td>
                                             <?= $k['nama_wisata'] ?>
                                         </td>
                                         <td>
-                                            <a href="<?= base_url('admin/deletewisatapopuler/') . $k['id_wisata'] ?>" class="badge badge-danger">
+                                            <a href="<?= base_url('admin/deletewisataunggulan/') . $k['id_wisata'] ?>" class="badge badge-danger">
                                                 <span class="text">Delete</span>
                                             </a>
                                         </td>

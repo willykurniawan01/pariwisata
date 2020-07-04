@@ -36,8 +36,8 @@
         <div class="row justify-content-center">
             <div class="col-lg-6">
                 <div class="section_title text-center mb_70">
-                    <h3>Wisata Populer</h3>
-                    <p>Berikut ini beberapa destinasi wisata populer.</p>
+                    <h3>Wisata Unggulan</h3>
+                    <p>Berikut ini beberapa destinasi wisata unggulan.</p>
                 </div>
             </div>
         </div>
@@ -49,7 +49,7 @@
                             <img style="height: 300px; width:100%;" src="<?= base_url('assets/home/assets/img/wisata/') . $w['gambar'] ?>" alt="">
                         </div>
                         <div class="content">
-                            <p class="d-flex align-items-center"><?= $w['nama_wisata'] ?> <a href="<?= base_url('wisata/detail/') . $w['id_wisata'] ?>"> Popular</a>
+                            <p class="d-flex align-items-center"><?= $w['nama_wisata'] ?> <a href="<?= base_url('wisata/detail/') . $w['id_wisata'] ?>"> Unggulan</a>
                             </p>
                         </div>
                     </div>

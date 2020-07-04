@@ -31,7 +31,7 @@
 
                                         <li><a href="<?= base_url('/galeri') ?>">Galeri</a>
                                         </li>
-                                        <li><a href="contact.html">Kontak</a>
+                                        <li><a href="<?= base_url('/kontak') ?>">Kontak</a>
                                         </li>
                                     </ul>
                                 </nav>

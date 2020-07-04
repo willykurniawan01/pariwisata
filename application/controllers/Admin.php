@@ -209,10 +209,10 @@ class Admin extends CI_Controller
         //menampilkan data ketegori
         $data['kategori'] = $this->db->get('kategori')->result_array();
 
-        //query menampilkan data wisata populer
+        //query menampilkan data wisata unggulan
         $this->db->from('wisata');
-        $this->db->where('is_populer', '1');
-        $data['populer'] = $this->db->get()->result_array();
+        $this->db->where('unggulan', '1');
+        $data['unggulan'] = $this->db->get()->result_array();
 
 
 
@@ -283,26 +283,26 @@ class Admin extends CI_Controller
         }
     }
 
-    //menambahkan wisata ke populer
-    public function tambahWisataPopuler($id)
+    //menambahkan wisata ke unggulan
+    public function tambahWisataUnggulan($id)
     {
         $this->db->where('id_wisata', $id);
-        $this->db->set('is_populer', '1');
+        $this->db->set('unggulan', '1');
         $this->db->update('wisata');
 
-        $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil menambah ke populer!</div>');
+        $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil menambah ke unggulan!</div>');
         redirect('admin/wisata');
     }
 
-    //menghapus wisata dari populer
-    public function deleteWisataPopuler($id)
+    //menghapus wisata dari unggulan
+    public function deleteWisataUnggulan($id)
     {
 
         $this->db->where('id_wisata', $id);
-        $this->db->set('is_populer', '0');
+        $this->db->set('unggulan', '0');
         $this->db->update('wisata');
 
-        $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil menghapus dari populer!</div>');
+        $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil menghapus dari unggulan!</div>');
         redirect('admin/wisata');
     }
 
@@ -672,6 +672,86 @@ class Admin extends CI_Controller
                 $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil mengedit restoran!</div>');
                 redirect('admin/restoran');
             }
+        }
+    }
+
+
+
+
+    //method untuk menampilkan halaman restoran admin
+    public function agenda()
+    {
+        //judul pada halaman 
+        $data['judul'] = "Agenda";
+
+        //query data agenda
+        $data['agenda'] = $this->db->get('agenda')->result_array();
+
+
+        //menampilkan view input data agenda
+        $this->tampilan('agenda', $data);
+    }
+
+
+    //method untuk menambahkan data agenda
+    public function tambahAgenda()
+    {
+        //validasi input data agenda
+        $this->form_validation->set_rules('nama_agenda', 'Nama agenda', 'required|trim');
+        $this->form_validation->set_rules('isi_agenda', 'Isi Agenda', 'required|trim');
+        $this->form_validation->set_rules('tanggal_agenda', 'Tanggal Agenda', 'required|trim');
+
+        if ($this->form_validation->run() == FALSE) {
+            $data['error'] = '';
+            $data['judul'] = "Agenda";
+            $this->tampilan('tambahagenda', $data);
+        } else {
+            $agenda = [
+                'nama_agenda' => $this->input->post('nama_agenda'),
+                'isi_agenda' => $this->input->post('isi_agenda'),
+                'tanggal_agenda' => $this->input->post('tanggal_agenda')
+            ];
+
+            $this->db->insert('agenda', $agenda);
+            $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil menambahkan agenda!</div>');
+            redirect('admin/agenda');
+        }
+    }
+
+    //method untuk menghapus agenda
+    public function deleteAgenda($id)
+    {
+        $this->db->where('id_agenda', $id);
+        $this->db->delete('agenda');
+
+        $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil menghapus agenda!</div>');
+        redirect('admin/agenda');
+    }
+
+    //method untuk mengedit agenda
+    public function editAgenda($id)
+    {
+        //validasi input data agenda
+        $this->form_validation->set_rules('nama_agenda', 'Nama agenda', 'required|trim');
+        $this->form_validation->set_rules('isi_agenda', 'Isi Agenda', 'required|trim');
+        $this->form_validation->set_rules('tanggal_agenda', 'Tanggal Agenda', 'required|trim');
+
+        if ($this->form_validation->run() == FALSE) {
+            $data['error'] = '';
+            $data['judul'] = "Agenda";
+            $agenda = $this->db->get_where('agenda', ['id_agenda' => $id])->row_array();
+            $data['agenda'] = $agenda;
+            $this->tampilan('editagenda', $data);
+        } else {
+            $agenda = [
+                'nama_agenda' => $this->input->post('nama_agenda'),
+                'isi_agenda' => $this->input->post('isi_agenda'),
+                'tanggal_agenda' => $this->input->post('tanggal_agenda')
+            ];
+
+            $this->db->update('agenda', $agenda);
+            $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil mengupdate agenda!</div>');
+            redirect('admin/agenda');
         }
     }
 }
