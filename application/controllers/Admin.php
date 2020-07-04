@@ -248,6 +248,8 @@ class Admin extends CI_Controller
         $this->form_validation->set_rules('nama_wisata', 'Nama Wisata', 'required|trim');
         $this->form_validation->set_rules('alamat', 'Alamat', 'required|trim');
         $this->form_validation->set_rules('deskripsi', 'Deskripsi', 'required|trim');
+        $this->form_validation->set_rules('garis_bujur', 'garis_bujur', 'required|trim');
+        $this->form_validation->set_rules('garis_lintang', 'garis_lintang', 'required|trim');
 
 
         //konfigurasi upload gambar
@@ -271,7 +273,9 @@ class Admin extends CI_Controller
                     'nama_wisata' => $this->input->post('nama_wisata'),
                     'deskripsi' => $this->input->post('deskripsi'),
                     'alamat' => $this->input->post('alamat'),
-                    'gambar' => $this->gambar->data('file_name')
+                    'gambar' => $this->gambar->data('file_name'),
+                    'garis_bujur' => $this->input->post('garis_bujur'),
+                    'garis_lintang' => $this->input->post('garis_lintang')
                 ];
 
                 $this->db->insert('wisata', $data);
@@ -361,6 +365,8 @@ class Admin extends CI_Controller
         $this->form_validation->set_rules('nama_wisata', 'Nama wisata', 'required|trim');
         $this->form_validation->set_rules('deskripsi', 'Deskripsi Wisata', 'required|trim');
         $this->form_validation->set_rules('alamat', 'Alamat Wisata', 'required|trim');
+        $this->form_validation->set_rules('garis_bujur', 'garis_bujur', 'required|trim');
+        $this->form_validation->set_rules('garis_lintang', 'garis_lintang', 'required|trim');
 
         $config['upload_path'] = './assets/home/assets/img/wisata/';
         $config['allowed_types'] = 'jpg|jpeg|png|gif';
@@ -387,7 +393,9 @@ class Admin extends CI_Controller
                         'nama_wisata' => $this->input->post('nama_wisata'),
                         'deskripsi' => $this->input->post('deskripsi'),
                         'alamat' => $this->input->post('alamat'),
-                        'gambar' => $this->gambar->data('file_name')
+                        'gambar' => $this->gambar->data('file_name'),
+                        'garis_bujur' => $this->input->post('garis_bujur'),
+                        'garis_lintang' => $this->input->post('garis_lintang')
                     ];
 
                     $this->db->update('wisata', $data, ['id_wisata' => $id]);
@@ -405,6 +413,8 @@ class Admin extends CI_Controller
                     'nama_wisata' => $this->input->post('nama_wisata'),
                     'deskripsi' => $this->input->post('deskripsi'),
                     'alamat' => $this->input->post('alamat'),
+                    'garis_bujur' => $this->input->post('garis_bujur'),
+                    'garis_lintang' => $this->input->post('garis_lintang')
                 ];
 
                 $this->db->update('wisata', $data, ['id_wisata' => $id]);
