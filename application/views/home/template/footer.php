@@ -61,17 +61,16 @@
                 <div class="col-xl-3 col-md-6 col-lg-3">
                     <div class="footer_widget">
                         <h3 class="footer_title">
-                            Popular destination
+                            Wisata Populer
                         </h3>
                         <ul class="links double_links">
-                            <li><a href="#">Indonesia</a></li>
-                            <li><a href="#">America</a></li>
-                            <li><a href="#">India</a></li>
-                            <li><a href="#">Switzerland</a></li>
-                            <li><a href="#">Italy</a></li>
-                            <li><a href="#">Canada</a></li>
-                            <li><a href="#">Franch</a></li>
-                            <li><a href="#">England</a></li>
+                            <?php
+                            $this->db->where('is_populer', '1');
+                            $populer = $this->db->get('wisata')->result_array();
+                            foreach ($populer as $p) :
+                            ?>
+                                <li><a href="<?= base_url('wisata/detail/') . $p['id_wisata'] ?>"><?= $p['nama_wisata'] ?></a></li>
+                            <?php endforeach; ?>
                         </ul>
                     </div>
                 </div>
