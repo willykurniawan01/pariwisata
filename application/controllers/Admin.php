@@ -616,7 +616,7 @@ class Admin extends CI_Controller
         redirect('admin/restoran');
     }
 
-    //method mengedit data wisata
+    //method mengedit data restoran
     public function editRestoran($id, $gambar = '')
     {
         $this->form_validation->set_rules('nama_restoran', 'Nama restoran', 'required|trim');
@@ -752,6 +752,136 @@ class Admin extends CI_Controller
             $this->db->update('agenda', $agenda);
             $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil mengupdate agenda!</div>');
             redirect('admin/agenda');
+        }
+    }
+
+
+
+    //method untuk menampilkan halaman akomodasi
+    public function akomodasi()
+    {
+        //judul pada halaman 
+        $data['judul'] = "Akomodasi";
+
+        //query data akomodasi
+        $data['akomodasi'] = $this->db->get('akomodasi')->result_array();
+
+
+        //menampilkan view input data akomodasi
+        $this->tampilan('akomodasi', $data);
+    }
+
+    //method tambah data akomodasi
+    public function tambahAkomodasi()
+    {
+        //validasi input data akomodasi
+        $this->form_validation->set_rules('nama_akomodasi', 'Nama akomodasi', 'required|trim');
+        $this->form_validation->set_rules('alamat', 'Alamat', 'required|trim');
+        $this->form_validation->set_rules('deskripsi', 'Deskripsi', 'required|trim');
+
+
+        //konfigurasi upload gambar
+        $config['upload_path'] = './assets/home/assets/img/akomodasi/';
+        $config['allowed_types'] = 'jpg|jpeg|png|gif';
+        $config['max_size'] = '1000000';
+        $config['file_name'] = 'akomodasi';
+
+        //load library upload
+        $this->load->library('upload', $config, 'gambar');
+        //inisialiasi konfigurasi
+        $this->gambar->initialize($config);
+
+        if ($this->form_validation->run() == FALSE) {
+            $data['error'] = '';
+            $data['judul'] = "akomodasi";
+            $this->tampilan('tambahakomodasi', $data);
+        } else {
+            if ($this->gambar->do_upload('gambar')) {
+                $data = [
+                    'nama_akomodasi' => $this->input->post('nama_akomodasi'),
+                    'deskripsi' => $this->input->post('deskripsi'),
+                    'alamat' => $this->input->post('alamat'),
+                    'gambar' => $this->gambar->data('file_name')
+                ];
+
+                $this->db->insert('akomodasi', $data);
+                $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil mengupload akomodasi!</div>');
+                redirect('admin/akomodasi');
+            } else {
+                $data['error'] = $this->gambar->display_errors();
+                $data['judul'] = "akomodasi";
+                $this->tampilan('tambahakomodasi', $data);
+            }
+        }
+    }
+
+    //method untuk menghapus data akomodasi
+    public function deleteakomodasi($id)
+    {
+        $akomodasi = $this->db->get_where('akomodasi', ['id_akomodasi' => $id])->row_array();
+        $link = "./assets/home/assets/img/akomodasi/";
+        unlink($link . $akomodasi['gambar']);
+        $this->db->delete('akomodasi', ['id_akomodasi' => $id]);
+        $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil menghapus akomodasi!</div>');
+        redirect('admin/akomodasi');
+    }
+
+    //method mengedit data akomodasi
+    public function editakomodasi($id, $gambar = '')
+    {
+        $this->form_validation->set_rules('nama_akomodasi', 'Nama akomodasi', 'required|trim');
+        $this->form_validation->set_rules('deskripsi', 'Deskripsi akomodasi', 'required|trim');
+        $this->form_validation->set_rules('alamat', 'Alamat akomodasi', 'required|trim');
+
+        $config['upload_path'] = './assets/home/assets/img/akomodasi/';
+        $config['allowed_types'] = 'jpg|jpeg|png|gif';
+        $config['max_size'] = '1000000';
+        $config['file_name'] = 'akomodasi';
+
+        $this->load->library('upload', $config, 'gambar');
+        $this->gambar->initialize($config);
+
+        $akomodasi = $this->db->get_where('akomodasi', ['id_akomodasi' => $id])->row_array();
+        if ($this->form_validation->run() == FALSE) {
+            $data['ubahgambar'] = $gambar;
+            $data['akomodasi'] = $akomodasi;
+            $data['error'] = '';
+            $data['judul'] = "akomodasi";
+            $this->tampilan('editakomodasi', $data);
+        } else {
+            if ($gambar) {
+                if ($this->gambar->do_upload('gambar')) {
+                    $link = "./assets/home/assets/img/akomodasi/";
+                    unlink($link . $akomodasi['gambar']);
+
+                    $data = [
+                        'nama_akomodasi' => $this->input->post('nama_akomodasi'),
+                        'deskripsi' => $this->input->post('deskripsi'),
+                        'alamat' => $this->input->post('alamat'),
+                        'gambar' => $this->gambar->data('file_name')
+                    ];
+
+                    $this->db->update('akomodasi', $data, ['id_akomodasi' => $id]);
+                    $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil mengedit akomodasi!</div>');
+                    redirect('admin/akomodasi');
+                } else {
+                    $data['error'] = $this->gambar->display_errors();
+                    $data['ubahgambar'] = $gambar;
+                    $data['akomodasi'] = $this->db->get_where('akomodasi', ['id_akomodasi' => $id])->row_array();
+                    $data['judul'] = "akomodasi";
+                    $this->tampilan('editakomodasi', $data);
+                }
+            } else {
+                $data = [
+                    'nama_akomodasi' => $this->input->post('nama_akomodasi'),
+                    'deskripsi' => $this->input->post('deskripsi'),
+                    'alamat' => $this->input->post('alamat'),
+                ];
+
+                $this->db->update('akomodasi', $data, ['id_akomodasi' => $id]);
+                $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil mengedit akomodasi!</div>');
+                redirect('admin/akomodasi');
+            }
         }
     }
 }
