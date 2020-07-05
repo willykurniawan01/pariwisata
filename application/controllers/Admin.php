@@ -580,6 +580,9 @@ class Admin extends CI_Controller
         $this->form_validation->set_rules('nama_restoran', 'Nama restoran', 'required|trim');
         $this->form_validation->set_rules('alamat', 'Alamat', 'required|trim');
         $this->form_validation->set_rules('deskripsi', 'Deskripsi', 'required|trim');
+        $this->form_validation->set_rules('garis_bujur', 'garis_bujur', 'required|trim');
+        $this->form_validation->set_rules('garis_lintang', 'garis_lintang', 'required|trim');
+
 
 
         //konfigurasi upload gambar
@@ -603,7 +606,9 @@ class Admin extends CI_Controller
                     'nama_restoran' => $this->input->post('nama_restoran'),
                     'deskripsi' => $this->input->post('deskripsi'),
                     'alamat' => $this->input->post('alamat'),
-                    'gambar' => $this->gambar->data('file_name')
+                    'gambar' => $this->gambar->data('file_name'),
+                    'garis_bujur' => $this->input->post('garis_bujur'),
+                    'garis_lintang' => $this->input->post('garis_lintang')
                 ];
 
                 $this->db->insert('restoran', $data);
@@ -634,6 +639,10 @@ class Admin extends CI_Controller
         $this->form_validation->set_rules('nama_restoran', 'Nama restoran', 'required|trim');
         $this->form_validation->set_rules('deskripsi', 'Deskripsi restoran', 'required|trim');
         $this->form_validation->set_rules('alamat', 'Alamat restoran', 'required|trim');
+        $this->form_validation->set_rules('garis_bujur', 'garis_bujur', 'required|trim');
+        $this->form_validation->set_rules('garis_lintang', 'garis_lintang', 'required|trim');
+
+
 
         $config['upload_path'] = './assets/home/assets/img/restoran/';
         $config['allowed_types'] = 'jpg|jpeg|png|gif';
@@ -660,7 +669,9 @@ class Admin extends CI_Controller
                         'nama_restoran' => $this->input->post('nama_restoran'),
                         'deskripsi' => $this->input->post('deskripsi'),
                         'alamat' => $this->input->post('alamat'),
-                        'gambar' => $this->gambar->data('file_name')
+                        'gambar' => $this->gambar->data('file_name'),
+                        'garis_bujur' => $this->input->post('garis_bujur'),
+                        'garis_lintang' => $this->input->post('garis_lintang')
                     ];
 
                     $this->db->update('restoran', $data, ['id_restoran' => $id]);
@@ -678,6 +689,8 @@ class Admin extends CI_Controller
                     'nama_restoran' => $this->input->post('nama_restoran'),
                     'deskripsi' => $this->input->post('deskripsi'),
                     'alamat' => $this->input->post('alamat'),
+                    'garis_bujur' => $this->input->post('garis_bujur'),
+                    'garis_lintang' => $this->input->post('garis_lintang')
                 ];
 
                 $this->db->update('restoran', $data, ['id_restoran' => $id]);
@@ -790,6 +803,8 @@ class Admin extends CI_Controller
         $this->form_validation->set_rules('nama_akomodasi', 'Nama akomodasi', 'required|trim');
         $this->form_validation->set_rules('alamat', 'Alamat', 'required|trim');
         $this->form_validation->set_rules('deskripsi', 'Deskripsi', 'required|trim');
+        $this->form_validation->set_rules('garis_bujur', 'garis_bujur', 'required|trim');
+        $this->form_validation->set_rules('garis_lintang', 'garis_lintang', 'required|trim');
 
 
         //konfigurasi upload gambar
@@ -813,7 +828,9 @@ class Admin extends CI_Controller
                     'nama_akomodasi' => $this->input->post('nama_akomodasi'),
                     'deskripsi' => $this->input->post('deskripsi'),
                     'alamat' => $this->input->post('alamat'),
-                    'gambar' => $this->gambar->data('file_name')
+                    'gambar' => $this->gambar->data('file_name'),
+                    'garis_bujur' => $this->input->post('garis_bujur'),
+                    'garis_lintang' => $this->input->post('garis_lintang')
                 ];
 
                 $this->db->insert('akomodasi', $data);
@@ -844,6 +861,8 @@ class Admin extends CI_Controller
         $this->form_validation->set_rules('nama_akomodasi', 'Nama akomodasi', 'required|trim');
         $this->form_validation->set_rules('deskripsi', 'Deskripsi akomodasi', 'required|trim');
         $this->form_validation->set_rules('alamat', 'Alamat akomodasi', 'required|trim');
+        $this->form_validation->set_rules('garis_bujur', 'garis_bujur', 'required|trim');
+        $this->form_validation->set_rules('garis_lintang', 'garis_lintang', 'required|trim');
 
         $config['upload_path'] = './assets/home/assets/img/akomodasi/';
         $config['allowed_types'] = 'jpg|jpeg|png|gif';
@@ -858,7 +877,7 @@ class Admin extends CI_Controller
             $data['ubahgambar'] = $gambar;
             $data['akomodasi'] = $akomodasi;
             $data['error'] = '';
-            $data['judul'] = "akomodasi";
+            $data['judul'] = "Akomodasi";
             $this->tampilan('editakomodasi', $data);
         } else {
             if ($gambar) {
@@ -870,7 +889,9 @@ class Admin extends CI_Controller
                         'nama_akomodasi' => $this->input->post('nama_akomodasi'),
                         'deskripsi' => $this->input->post('deskripsi'),
                         'alamat' => $this->input->post('alamat'),
-                        'gambar' => $this->gambar->data('file_name')
+                        'gambar' => $this->gambar->data('file_name'),
+                        'garis_bujur' => $this->input->post('garis_bujur'),
+                        'garis_lintang' => $this->input->post('garis_lintang')
                     ];
 
                     $this->db->update('akomodasi', $data, ['id_akomodasi' => $id]);
@@ -888,6 +909,8 @@ class Admin extends CI_Controller
                     'nama_akomodasi' => $this->input->post('nama_akomodasi'),
                     'deskripsi' => $this->input->post('deskripsi'),
                     'alamat' => $this->input->post('alamat'),
+                    'garis_bujur' => $this->input->post('garis_bujur'),
+                    'garis_lintang' => $this->input->post('garis_lintang')
                 ];
 
                 $this->db->update('akomodasi', $data, ['id_akomodasi' => $id]);
