@@ -49,10 +49,10 @@
                                                     </a></li>
 
                                                 <li class="nav-link"> <a href="<?= base_url('admin/tambahwisataunggulan/') . $b['id_wisata'] ?>" class="btn btn-sm btn-success">
-                                                        <span class="text">Tambah ke Unggulan</span>
+                                                        <span class="text"><i class="fas fa-plus"></i> Unggulan</span>
                                                     </a>
                                                     <a href="<?= base_url('admin/kategoriwisata/') . $b['id_wisata'] ?>" class="btn btn-sm btn-info">
-                                                        <span class="text">Tambah Kategori</span>
+                                                        <span class="text"><i class="fas fa-plus"></i> Kategori</span>
                                                     </a>
                                                 </li>
                                             </ul>
