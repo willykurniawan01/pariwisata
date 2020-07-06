@@ -14,7 +14,7 @@
                             <div class="slider_text text-center">
                                 <h3><?= $s['judul'] ?></h3>
                                 <p><?= $s['subjudul'] ?></p>
-                                <a href="<?= base_url('/wisata') ?>" class="boxed-btn3">Explore Now</a>
+                                <a href="<?= base_url('/wisata') ?>" class="boxed-btn3">Jelajahi Sekarang</a>
                             </div>
                         </div>
                     </div>

@@ -26,8 +26,15 @@
                         <h2><?= $wisata['nama_wisata'] ?>
                         </h2>
                         <ul class="blog-info-link mt-3 mb-4">
-                            <li><a href="#"><i class="fa fa-user"></i><?php $this->db->where('id_kategori') ?></a></li>
-                            <li><a href="#"><i class="fa fa-comments"></i> 03 Comments</a></li>
+                            <li><a href="#"><i class="fa fa-user"></i>Admin</a></li>
+                            <li>
+                                <a href="#"><i class="fa fa-comments"></i>
+                                    <?php
+                                    $this->db->where('id_wisata', $wisata['id_wisata']);
+                                    echo $this->db->get('komentar')->num_rows() . ' komentar';
+                                    ?>
+                                </a>
+                            </li>
                         </ul>
                         <p class="excert">
                             <?= $wisata['deskripsi'] ?>
@@ -83,7 +90,7 @@
                         </form>
                     </aside>
                     <aside class="single_sidebar_widget post_category_widget">
-                        <h4 class="widget_title">Category</h4>
+                        <h4 class="widget_title">Kategori</h4>
                         <ul class="list cat-list">
                             <?php foreach ($kategori as $k) : ?>
                                 <li>
@@ -107,6 +114,20 @@
 </section>
 <!--================ Blog Area end =================-->
 
+<!-- modal -->
+<div id="success-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <p>Terima Kasih Sudah Berkomentar!</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
@@ -125,7 +146,7 @@
                     for (i = 0; i < data.length; i++) {
                         html +=
                             '<div class="comment-list">' +
-                            '<div class="single-comment justify-content-between d-flex bg-light">' +
+                            '<div class="single-comment justify-content-between d-flex">' +
                             '<div class="user justify-content-between d-flex">' +
                             '<div class="thumb">' +
                             '<img class="img-fluid" src="<?= base_url('assets/home/assets/img/user.png') ?>" alt="">' +
@@ -154,7 +175,7 @@
                     $('#result').html(html);
                 },
                 error: function() {
-                    alert('Could not get Data from Database');
+                    alert('Tidak Dapat Menampilkan Data!');
                 }
             });
         }
@@ -172,6 +193,7 @@
                     if (response.success) {
                         $('#commentForm')[0].reset();
                         tampilkomentar();
+                        $('#success-modal').modal('show');
                     }
                 }
             });

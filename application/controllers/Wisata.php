@@ -16,7 +16,7 @@ class Wisata extends CI_Controller
         $config['base_url'] = 'http://localhost/pariwisata/wisata/index';
 
         $config['total_rows'] = $this->db->get('wisata')->num_rows();
-        $config['per_page'] = 4;
+        $config['per_page'] = 6;
 
 
         //custom pagination

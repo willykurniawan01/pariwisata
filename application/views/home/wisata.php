@@ -19,20 +19,25 @@
          <div class="row align-items-center">
              <div class="col-lg-3">
                  <div class="form_area">
-                     <h3>Where you want to go?</h3>
+                     <h3>Kemana Kamu Mau Pergi?</h3>
                  </div>
              </div>
              <div class="col-lg-9">
                  <div class="search_wrap">
                      <form class="search_form" action="#">
                          <div class="input_field">
-                             <input type="text" placeholder="Where to go?">
+                             <input type="text" placeholder="Mau Pergi ke Mana?">
                          </div>
 
                          <div class="input_field">
                              <select>
                                  <option data-display="Pilih Kategori">Pilih Kategori</option>
-                                 <option value="1"></option>
+                                 <?php
+                                    $kategori = $this->db->get('kategori')->result_array();
+                                    foreach ($kategori as $k) :
+                                    ?>
+                                     <option value="<?= $k['id_kategori'] ?>"><?= $k['nama_kategori'] ?></option>
+                                 <?php endforeach; ?>
                              </select>
                          </div>
                          <div class="search_btn">
@@ -50,40 +55,13 @@
  <div class="popular_places_area">
      <div class="container">
          <div class="row">
-             <div class="col-lg-4">
-                 <div class="filter_result_wrap">
-                     <h3>Filter</h3>
-                     <div class="filter_bordered">
-                         <div class="filter_inner">
-                             <div class="row">
-                                 <div class="col-lg-12">
-                                     <div class="single_select">
-                                         <select>
-                                             <option data-display="Pilih Kategori">Pilih Kategori</option>
-                                             <option value="1">Africa</option>
-                                             <option value="2">canada</option>
-                                             <option value="4">USA</option>
-                                         </select>
-                                     </div>
-                                 </div>
-                             </div>
-
-
-                         </div>
-
-                         <div class="reset_btn">
-                             <button class="boxed-btn4" type="submit">Filter</button>
-                         </div>
-                     </div>
-                 </div>
-             </div>
-             <div class="col-lg-8">
+             <div class="col-lg-12">
                  <div class="row">
                      <?php foreach ($wisata as $w) : ?>
-                         <div class="col-lg-6 col-md-6">
+                         <div class="col-lg-4 col-md-4">
                              <div class="single_place">
                                  <div class="thumb">
-                                     <img style="width: 400px; height:300px;" src="<?= base_url('assets/home/assets/img/wisata/') . $w['gambar'] ?>" alt="">
+                                     <img style="width: 100%; height:300px;" src="<?= base_url('assets/home/assets/img/wisata/') . $w['gambar'] ?>" alt="">
                                  </div>
                                  <div class="place_info">
                                      <a href="<?= base_url('wisata/detail/') . $w['id_wisata'] ?>">
