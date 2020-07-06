@@ -7,7 +7,7 @@
                     <div class="row align-items-center">
                         <div class="col-xl-2 col-lg-2">
                             <div class="logo">
-                                <a href="index.html">
+                                <a href="<?= base_url('home') ?>">
                                     <img src="<?= base_url('assets/home/assets/') ?>img/logo.png" alt="">
                                 </a>
                             </div>
@@ -18,7 +18,7 @@
                                     <ul id="navigation">
                                         <li><a class="active" href="<?= base_url('home') ?>">Home</a></li>
 
-                                        <li><a href="#">Halaman <i class="ti-angle-down"></i></a>
+                                        <li><a href="#">Menu <i class="ti-angle-down"></i></a>
                                             <ul class="submenu">
                                                 <li><a href="<?= base_url('/wisata') ?>">Wisata</a>
                                                 </li>

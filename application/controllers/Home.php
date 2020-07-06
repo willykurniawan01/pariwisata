@@ -8,7 +8,7 @@ class Home extends CI_Controller
         $data['navbar'] = "Home";
         $data['judul'] = "Homepage";
         $this->db->order_by('id_wisata', 'DESC');
-        $this->db->limit(4);
+        $this->db->get('wisata');
 
         //menampilkan data wisata populer     
         $this->db->where('unggulan', '1');

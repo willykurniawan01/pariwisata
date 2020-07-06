@@ -44,15 +44,17 @@
         <div class="row">
             <?php foreach ($wisata as $w) : ?>
                 <div class="col-lg-4">
-                    <div class="single_destination">
-                        <div class="thumb">
-                            <img style="height: 300px; width:100%;" src="<?= base_url('assets/home/assets/img/wisata/') . $w['gambar'] ?>" alt="">
+                    <a href="<?= base_url('wisata/detail/') . $w['id_wisata'] ?>">
+                        <div class="single_destination">
+                            <div class="thumb">
+                                <img style="height: 300px; width:100%;" src="<?= base_url('assets/home/assets/img/wisata/') . $w['gambar'] ?>" alt="">
+                            </div>
+                            <div class="content">
+                                <p class="d-flex align-items-center"><?= $w['nama_wisata'] ?>
+                                </p>
+                            </div>
                         </div>
-                        <div class="content">
-                            <p class="d-flex align-items-center"><?= $w['nama_wisata'] ?>
-                            </p>
-                        </div>
-                    </div>
+                    </a>
                 </div>
             <?php endforeach; ?>
         </div>

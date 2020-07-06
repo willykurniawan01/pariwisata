@@ -28,14 +28,11 @@
                          <div class="input_field">
                              <input type="text" placeholder="Where to go?">
                          </div>
-                         <div class="input_field">
-                             <input id="datepicker" placeholder="Date">
-                         </div>
+
                          <div class="input_field">
                              <select>
-                                 <option data-display="Travel type">Travel type</option>
-                                 <option value="1">Some option</option>
-                                 <option value="2">Another option</option>
+                                 <option data-display="Pilih Kategori">Pilih Kategori</option>
+                                 <option value="1"></option>
                              </select>
                          </div>
                          <div class="search_btn">
@@ -89,7 +86,7 @@
                                      <img style="width: 400px; height:300px;" src="<?= base_url('assets/home/assets/img/wisata/') . $w['gambar'] ?>" alt="">
                                  </div>
                                  <div class="place_info">
-                                     <a href="destination_details.html">
+                                     <a href="<?= base_url('wisata/detail/') . $w['id_wisata'] ?>">
                                          <h3><?= $w['nama_wisata'] ?></h3>
                                      </a>
                                      <p><?= $w['alamat'] ?></p>
@@ -109,9 +106,10 @@
                      <?php endforeach; ?>
                  </div>
                  <div class="row mb-5">
-                     <div class="col-lg-12">
+                     <div class="col-lg-12  d-flex justify-content-center">
                          <div class="more_place_btn text-center">
-                             <a class="boxed-btn4" href="#">More Places</a>
+                             <!-- <a class="boxed-btn4" href="#">More Places</a> -->
+                             <?= $this->pagination->create_links(); ?>
                          </div>
                      </div>
                  </div>

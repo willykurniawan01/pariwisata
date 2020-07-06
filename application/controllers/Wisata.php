@@ -39,13 +39,13 @@ class Wisata extends CI_Controller
         $config['prev_tag_open'] = '<li class="page-item">';
         $config['prev_tag_close'] = '</li>';
 
-        $config['cur_tag_open'] = '<li class="page-item"> <a class="page-link bg-success text-white">';
+        $config['cur_tag_open'] = '<li class="page-item"> <a class="page-link bg-danger text-white">';
         $config['cur_tag_close'] = '</a></li>';
 
         $config['num_tag_open'] = '<li class="page-item">';
         $config['num_tag_close'] = '</li>';
 
-        $config['attributes'] = array('class' => 'page-link text-success');
+        $config['attributes'] = array('class' => 'page-link text-danger');
         $this->pagination->initialize($config);
         //end custom pagination
 
@@ -76,10 +76,33 @@ class Wisata extends CI_Controller
 
         $data['kategori'] = $this->db->get('kategori')->result_array();
         $data['wisata'] = $this->db->get_where('wisata', ['id_wisata' => $id])->row_array();
-        $data['judul'] = "wisata";
+        $data['judul'] = "Wisata - Detail";
         $this->load->view('home/template/header', $data);
         $this->load->view('home/template/navbar', $data);
         $this->load->view('home/single-wisata', $data);
         $this->load->view('home/template/footer');
+    }
+
+    public function tambahKomentar($id)
+    {
+        $data = [
+            'nama' => $this->input->post('nama'),
+            'email' => $this->input->post('email'),
+            'komentar' => $this->input->post('komentar'),
+            'id_wisata' => $id
+        ];
+
+        $result = $this->db->insert('komentar', $data);
+        if ($result) {
+            $msg['success'] = true;
+        }
+        echo json_encode($msg);
+    }
+
+    public function tampilKomentar($id)
+    {
+        $this->db->where('id_wisata', $id);
+        $komentar = $this->db->get('komentar')->result_array();
+        echo json_encode($komentar);
     }
 }
