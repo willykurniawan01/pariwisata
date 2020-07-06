@@ -6,7 +6,7 @@
                     <div class="footer_widget">
                         <div class="footer_logo">
                             <a href="#">
-                                <img src="img/footer_logo.png" alt="">
+                                <img style="width: 80px; height:100px;" src="<?= base_url('assets/home/assets/img/logo.png') ?>" alt="">
                             </a>
                         </div>
                         <p>5th flora, 700/D kings road, green <br> lane New York-1782 <br>
