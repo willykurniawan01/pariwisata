@@ -7,8 +7,9 @@
                     <div class="row align-items-center">
                         <div class="col-xl-2 col-lg-2">
                             <div class="logo">
-                                <a href="<?= base_url('home') ?>">
-                                    <img src="<?= base_url('assets/home/assets/') ?>img/logo.png" alt="">
+                                <a class="d-flex" href="<?= base_url('home') ?>">
+                                    <img style="width: 50px; height:60px;" src="<?= base_url('assets/home/assets/') ?>img/logo.png" alt="">
+                                    <h3 class="ml-2 align-self-center">Kampar</h3>
                                 </a>
                             </div>
                         </div>

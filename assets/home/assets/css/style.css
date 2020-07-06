@@ -6815,3 +6815,8 @@ h6 {
   font-size: 14px;
   text-transform: uppercase;
 }
+
+.logo a h3{
+  font-family: "Nothing You Could Do", cursive !important;
+  font-weight: 700;
+}
