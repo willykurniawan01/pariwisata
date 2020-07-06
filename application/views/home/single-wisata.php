@@ -42,6 +42,7 @@
 
                     </div>
                 </div>
+                <div id="mymap" style="width: 100%; height: 400px;"></div>
 
 
                 <div class="comments-area" id="result">
@@ -200,4 +201,31 @@
         });
 
     });
+</script>
+
+<script>
+    navigator.geolocation.getCurrentPosition(function(location) {
+        var latlng = new L.LatLng(location.coords.latitude, location.coords.longitude);
+        L.marker([location.coords.latitude, location.coords.longitude]).addTo(map);
+
+        L.Routing.control({
+            waypoints: [
+                L.latLng(location.coords.latitude, location.coords.longitude),
+                L.latLng(<?= $wisata['garis_lintang'] ?>, <?= $wisata['garis_bujur'] ?>)
+            ],
+            routeWhileDragging: true
+        }).addTo(map);
+
+    });
+    var map = L.map('mymap').setView([0.5554599, 101.5060433], 9);
+    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+        maxZoom: 18,
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+            '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+            'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+        id: 'mapbox/streets-v11',
+        tileSize: 512,
+        zoomOffset: -1
+    }).addTo(map);
+    var tujuan = L.marker([<?= $wisata['garis_lintang'] ?>, <?= $wisata['garis_bujur'] ?>]).addTo(map);
 </script>
