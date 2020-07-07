@@ -6,7 +6,7 @@ class Home extends CI_Controller
     public function index()
     {
         $data['navbar'] = "Home";
-        $data['judul'] = "Homepage";
+        $data['judul'] = "Home";
         $this->db->order_by('id_wisata', 'DESC');
         $this->db->get('wisata');
 

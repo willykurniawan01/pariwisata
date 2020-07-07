@@ -32,6 +32,8 @@
 
                                         <li><a href="<?= base_url('/galeri') ?>">Galeri</a>
                                         </li>
+                                        <li><a href="<?= base_url('/agenda') ?>">Agenda</a>
+                                        </li>
                                         <li><a href="<?= base_url('/kontak') ?>">Kontak</a>
                                         </li>
                                     </ul>

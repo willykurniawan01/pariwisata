@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <link rel="icon" href="<?= base_url('assets/home/assets/img/logo.png') ?>">
-    <title>Wisata Kabupaten Kampar</title>
+    <title>Wisata - <?= $judul ?></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 

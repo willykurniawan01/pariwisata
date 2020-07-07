@@ -57,7 +57,7 @@ class Wisata extends CI_Controller
 
         $wisata = $this->db->get('wisata', $config['per_page'], $data['start'])->result_array();
         $data['wisata'] = $wisata;
-        $data['judul'] = "wisata";
+        $data['judul'] = "Wisata";
         $data['cari'] = $cari;
         $data['navbar'] = "wisata";
 
@@ -76,7 +76,7 @@ class Wisata extends CI_Controller
 
         $data['kategori'] = $this->db->get('kategori')->result_array();
         $data['wisata'] = $this->db->get_where('wisata', ['id_wisata' => $id])->row_array();
-        $data['judul'] = "Wisata - Detail";
+        $data['judul'] = "Detail";
         $this->load->view('home/template/header', $data);
         $this->load->view('home/template/navbar', $data);
         $this->load->view('home/single-wisata', $data);

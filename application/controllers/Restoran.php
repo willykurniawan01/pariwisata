@@ -57,7 +57,7 @@ class restoran extends CI_Controller
 
         $restoran = $this->db->get('restoran', $config['per_page'], $data['start'])->result_array();
         $data['restoran'] = $restoran;
-        $data['judul'] = "restoran";
+        $data['judul'] = "Restoran";
         $data['cari'] = $cari;
         $data['navbar'] = "restoran";
 
