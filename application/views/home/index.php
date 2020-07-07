@@ -61,3 +61,15 @@
     </div>
 </div>
 <!-- popular_destination_area_end  -->
+
+<div class=" video_area overlay" style="background-image:url(<?= base_url('assets/home/assets/img/parallax.jpg') ?>);">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="video_wrap text-center">
+                    <h3>Enjoy Video</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
