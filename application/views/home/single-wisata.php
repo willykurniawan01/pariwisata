@@ -1,11 +1,10 @@
 <!-- bradcam_area  -->
-<div class="bradcam_area" style="background-image: url('');">
+<div class="bradcam_area" style="background-image: url('<?= base_url('assets/home/assets/img/parallax.jpg') ?>');">
     <div class="container">
         <div class="row">
             <div class="col-xl-12">
                 <div class="bradcam_text text-center">
-                    <h3>Single blog</h3>
-                    <p>Pixel perfect design with awesome contents</p>
+                    <h3>Detail Wisata</h3>
                 </div>
             </div>
         </div>
@@ -215,6 +214,11 @@
             ],
             routeWhileDragging: true
         }).addTo(map);
+
+        var popup = L.popup()
+            .setLatLng([<?= $wisata['garis_lintang'] ?>, <?= $wisata['garis_bujur'] ?>])
+            .setContent('<a class="btn btn-outline-primary" href="https://www.google.com/maps/dir/?api=1&origin=0.463471,101.460231&destination=<?= $wisata['garis_lintang'] ?>, <?= $wisata['garis_bujur'] ?>">Navigasi</a>')
+            .openOn(map);
 
     });
     var map = L.map('mymap').setView([0.5554599, 101.5060433], 9);
