@@ -8,8 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="">
-    <title><?= $judul ?></title>
+    <link rel="icon" href="<?= base_url('assets/home/assets/img/logo.png') ?>">
+    <title>Admin - <?= $judul ?></title>
 
     <!-- Custom fonts for this template-->
     <link href="<?= base_url('assets/admin/') ?>vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">

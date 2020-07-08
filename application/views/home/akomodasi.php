@@ -1,5 +1,5 @@
 <!-- bradcam_area  -->
-<div class="bradcam_area bradcam_bg_2">
+<div class="bradcam_area" style="background-image: url(<?= base_url('assets/home/assets/img/hotel.jpg') ?>);">
     <div class="container">
         <div class="row">
             <div class="col-xl-12">
