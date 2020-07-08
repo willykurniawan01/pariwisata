@@ -217,7 +217,7 @@
 
         var popup = L.popup()
             .setLatLng([<?= $wisata['garis_lintang'] ?>, <?= $wisata['garis_bujur'] ?>])
-            .setContent('<a class="btn btn-outline-primary" href="https://www.google.com/maps/dir/?api=1&origin=0.463471,101.460231&destination=<?= $wisata['garis_lintang'] ?>, <?= $wisata['garis_bujur'] ?>">Navigasi</a>')
+            .setContent('<a class="btn btn-outline-primary" href="https://www.google.com/maps/dir/?api=1&origin=' + location.coords.latitude + ',' + location.coords.longitude + '&destination=<?= $wisata['garis_lintang'] ?>, <?= $wisata['garis_bujur'] ?>">Navigasi</a>')
             .openOn(map);
 
     });

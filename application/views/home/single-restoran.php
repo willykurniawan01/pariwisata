@@ -198,6 +198,11 @@
             routeWhileDragging: true
         }).addTo(map);
 
+        var popup = L.popup()
+            .setLatLng([<?= $restoran['garis_lintang'] ?>, <?= $restoran['garis_bujur'] ?>])
+            .setContent('<a class="btn btn-outline-primary" href="https://www.google.com/maps/dir/?api=1&origin=' + location.coords.latitude + ',' + location.coords.longitude + '&destination=<?= $restoran['garis_lintang'] ?>, <?= $restoran['garis_bujur'] ?>">Navigasi</a>')
+            .openOn(map);
+
     });
     var map = L.map('mymap').setView([0.5554599, 101.5060433], 9);
     L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
