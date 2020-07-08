@@ -20,24 +20,24 @@
             <div class="col-lg-8 posts-list">
                 <div class="single-post">
                     <div class="feature-img">
-                        <img style="width: 700px; height:500px;" src="<?= base_url('assets/home/assets/img/wisata/') . $wisata['gambar'] ?>" alt="">
+                        <img style="width: 700px; height:500px;" src="<?= base_url('assets/home/assets/img/akomodasi/') . $akomodasi['gambar'] ?>" alt="">
                     </div>
                     <div class="blog_details">
-                        <h2><?= $wisata['nama_wisata'] ?>
+                        <h2><?= $akomodasi['nama_akomodasi'] ?>
                         </h2>
                         <ul class="blog-info-link mt-3 mb-4">
                             <li><a href="#"><i class="fa fa-user"></i>Admin</a></li>
                             <li>
                                 <a href="#"><i class="fa fa-comments"></i>
                                     <?php
-                                    $this->db->where('id_wisata', $wisata['id_wisata']);
-                                    echo $this->db->get('komentar_wisata')->num_rows() . ' komentar';
+                                    $this->db->where('id_akomodasi', $akomodasi['id_akomodasi']);
+                                    echo $this->db->get('komentar_akomodasi')->num_rows() . ' komentar';
                                     ?>
                                 </a>
                             </li>
                         </ul>
                         <p class="excert">
-                            <?= $wisata['deskripsi'] ?>
+                            <?= $akomodasi['deskripsi'] ?>
                         </p>
 
                     </div>
@@ -90,24 +90,6 @@
                             <button class="button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn" type="submit">Search</button>
                         </form>
                     </aside>
-                    <aside class="single_sidebar_widget post_category_widget">
-                        <h4 class="widget_title">Kategori</h4>
-                        <ul class="list cat-list">
-                            <?php foreach ($kategori as $k) : ?>
-                                <li>
-                                    <a href="#" class="d-flex">
-                                        <p><?= $k['nama_kategori'] ?></p>
-                                        <p>
-                                            (<?php $this->db->where('id_kategori', $k['id_kategori']);
-                                                $jumlah = $this->db->get('rel_kategori_wisata')->num_rows();
-                                                echo $jumlah;
-                                                ?>)
-                                        </p>
-                                    </a>
-                                </li>
-                            <?php endforeach; ?>
-                        </ul>
-                    </aside>
                 </div>
             </div>
         </div>
@@ -138,7 +120,7 @@
         function tampilkomentar() {
             $.ajax({
                 type: 'ajax',
-                url: '<?= base_url('wisata/tampilkomentar/') . $wisata['id_wisata'] ?>',
+                url: '<?= base_url('akomodasi/tampilkomentar/') . $akomodasi['id_akomodasi'] ?>',
                 async: false,
                 dataType: 'json',
                 success: function(data) {
@@ -186,7 +168,7 @@
             $.ajax({
                 type: 'ajax',
                 method: 'post',
-                url: '<?= base_url('wisata/tambahkomentar/') . $wisata['id_wisata'] ?>',
+                url: '<?= base_url('akomodasi/tambahkomentar/') . $akomodasi['id_akomodasi'] ?>',
                 dataType: 'json',
                 async: 'false',
                 data: data,
@@ -211,7 +193,7 @@
         L.Routing.control({
             waypoints: [
                 L.latLng(location.coords.latitude, location.coords.longitude),
-                L.latLng(<?= $wisata['garis_lintang'] ?>, <?= $wisata['garis_bujur'] ?>)
+                L.latLng(<?= $akomodasi['garis_lintang'] ?>, <?= $akomodasi['garis_bujur'] ?>)
             ],
             routeWhileDragging: true
         }).addTo(map);
@@ -227,5 +209,5 @@
         tileSize: 512,
         zoomOffset: -1
     }).addTo(map);
-    var tujuan = L.marker([<?= $wisata['garis_lintang'] ?>, <?= $wisata['garis_bujur'] ?>]).addTo(map);
+    var tujuan = L.marker([<?= $akomodasi['garis_lintang'] ?>, <?= $akomodasi['garis_bujur'] ?>]).addTo(map);
 </script>

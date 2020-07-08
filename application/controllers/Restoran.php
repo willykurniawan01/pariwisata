@@ -92,7 +92,7 @@ class restoran extends CI_Controller
             'id_restoran' => $id
         ];
 
-        $result = $this->db->insert('komentar', $data);
+        $result = $this->db->insert('komentar_restoran', $data);
         if ($result) {
             $msg['success'] = true;
         }
@@ -102,7 +102,7 @@ class restoran extends CI_Controller
     public function tampilKomentar($id)
     {
         $this->db->where('id_restoran', $id);
-        $komentar = $this->db->get('komentar')->result_array();
+        $komentar = $this->db->get('komentar_restoran')->result_array();
         echo json_encode($komentar);
     }
 }

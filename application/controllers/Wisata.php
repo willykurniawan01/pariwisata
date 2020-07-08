@@ -92,7 +92,7 @@ class Wisata extends CI_Controller
             'id_wisata' => $id
         ];
 
-        $result = $this->db->insert('komentar', $data);
+        $result = $this->db->insert('komentar_wisata', $data);
         if ($result) {
             $msg['success'] = true;
         }
@@ -102,7 +102,7 @@ class Wisata extends CI_Controller
     public function tampilKomentar($id)
     {
         $this->db->where('id_wisata', $id);
-        $komentar = $this->db->get('komentar')->result_array();
+        $komentar = $this->db->get('komentar_wisata')->result_array();
         echo json_encode($komentar);
     }
 }

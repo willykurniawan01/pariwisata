@@ -92,7 +92,7 @@ class Akomodasi extends CI_Controller
             'id_akomodasi' => $id
         ];
 
-        $result = $this->db->insert('komentar', $data);
+        $result = $this->db->insert('komentar_akomodasi', $data);
         if ($result) {
             $msg['success'] = true;
         }
@@ -102,7 +102,7 @@ class Akomodasi extends CI_Controller
     public function tampilKomentar($id)
     {
         $this->db->where('id_akomodasi', $id);
-        $komentar = $this->db->get('komentar')->result_array();
+        $komentar = $this->db->get('komentar_akomodasi')->result_array();
         echo json_encode($komentar);
     }
 }
