@@ -18,4 +18,14 @@ class Home extends CI_Controller
         $this->load->view('home/index', $data);
         $this->load->view('home/template/footer');
     }
+
+    public function isiBukuTamu()
+    {
+        $data = [
+            'nama' => $this->input->post('nama'),
+            'email' => $this->input->post('email'),
+            'pesan' => $this->input->post('pesan'),
+        ];
+        $bukutamu = $this->db->insert('buku_tamu', $data);
+    }
 }

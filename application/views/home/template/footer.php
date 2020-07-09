@@ -111,6 +111,60 @@
 </div>
 <!-- link that opens popup -->
 
+<!-- Modal -->
+<div style="z-index: 9999999999;" class="modal fade" id="success" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Pesan</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Terima Kasih Telah Mengisi Buku Tamu
+            </div>
+            <div class="modal-footer">
+                <button id="tutupsuccess" type="button" class="btn btn-primary">Tutup</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div style="z-index: 9999999999;" class="modal fade" id="exampleModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Buku Tamu</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="<?= base_url('home/isibukutamu') ?>" method="post" id="formbukutamu">
+                    <div class="form-group">
+                        <label for="nama">Nama Pengunjung</label>
+                        <input type="text" name="nama" id="nama" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email </label>
+                        <input type="text" name="email" id="email" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="pesan">Pesan </label>
+                        <textarea class="form-control" id="pesan" name="pesan"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                <button type="button" id="submitbukutamu" class="btn btn-danger">Kirim</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-de7e2ef6bfefd24b79a3f68b414b87b8db5b08439cac3f1012092b2290c719cd.js"></script>
 
 <script src=" https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"> </script>
@@ -153,6 +207,25 @@
         icons: {
             rightIcon: '<span class="fa fa-caret-down"></span>'
         }
+    });
+</script>
+<script>
+    $(function() {
+        $("#submitbukutamu").click(function() {
+            let data = $('#formbukutamu').serialize();
+            $.ajax({
+                method: "POST",
+                url: "<?= base_url('home/isibukutamu') ?>",
+                data: data,
+                success: function() {
+                    $("#exampleModal").modal("hide");
+                    $("#success").modal("show");
+                    $("#tutupsuccess").click(function() {
+                        $("#success").modal("hide");
+                    });
+                }
+            });
+        });
     });
 </script>
 </body>

@@ -29,12 +29,17 @@
                                                 </li>
                                                 <li><a href="<?= base_url('/restoran') ?>">Restoran</a>
                                                 </li>
+                                                <li><a href="<?= base_url('/agenda') ?>">Agenda</a>
+                                                </li>
                                             </ul>
                                         </li>
 
                                         <li><a href="<?= base_url('/galeri') ?>">Galeri</a>
                                         </li>
-                                        <li><a href="<?= base_url('/agenda') ?>">Agenda</a>
+                                        <li>
+                                            <button type="button" class="btn btn-sm bg-transparent" data-toggle="modal" data-target="#exampleModal">
+                                                Buku Tamu
+                                            </button>
                                         </li>
                                         <li><a href="<?= base_url('/kontak') ?>">Kontak</a>
                                         </li>
