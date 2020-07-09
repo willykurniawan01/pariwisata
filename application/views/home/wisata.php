@@ -33,7 +33,7 @@
                             <select>
                                 <option data-display="Pilih Kategori">Pilih Kategori</option>
                                 <?php
-                                $kategori = $this->db->get('kategori')->result_array();
+                                $kategori = $this->db->get('kategori_wisata')->result_array();
                                 foreach ($kategori as $k) :
                                 ?>
                                     <option value="<?= $k['id_kategori'] ?>"><?= $k['nama_kategori'] ?></option>

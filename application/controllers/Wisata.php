@@ -4,11 +4,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class Wisata extends CI_Controller
 {
 
-    public function __construct()
-    {
-        parent::__construct();
-        // $this->load->model('nama model', 'berita');
-    }
 
     public function index()
     {
@@ -74,7 +69,7 @@ class Wisata extends CI_Controller
         $data['cari'] = $cari;
         $data['navbar'] = "wisata";
 
-        $data['kategori'] = $this->db->get('kategori')->result_array();
+        $data['kategori'] = $this->db->get('kategori_wisata')->result_array();
         $data['wisata'] = $this->db->get_where('wisata', ['id_wisata' => $id])->row_array();
         $data['judul'] = "Detail";
         $this->load->view('home/template/header', $data);

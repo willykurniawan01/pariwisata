@@ -169,7 +169,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <?php echo form_open_multipart('admin/tambahkategori'); ?>
+                <?php echo form_open_multipart('admin/inputkategoriwisata'); ?>
                 <div class="form-group">
                     <label for="nama kategori">Nama Kategori</label>
                     <input type="text" class="form-control" id="nama_kategori" name="nama_kategori">

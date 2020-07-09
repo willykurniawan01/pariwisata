@@ -290,6 +290,14 @@ class Admin extends CI_Controller
         }
     }
 
+    public function inputKategoriWisata()
+    {
+        $data['nama_kategori'] = $this->input->post('nama_kategori');
+        $this->db->insert('kategori_wisata', $data);
+        $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil menambah kategori!</div>');
+        redirect('admin/wisata');
+    }
+
     //menambahkan wisata ke unggulan
     public function tambahWisataUnggulan($id)
     {
@@ -318,8 +326,8 @@ class Admin extends CI_Controller
     public function kategoriwisata($id)
     {
         $data['id_wisata'] = $id;
-        $data['kategori'] = $this->db->get('kategori')->result_array();
-        $data['judul'] = "wisata";
+        $data['kategori'] = $this->db->get('kategori_wisata')->result_array();
+        $data['judul'] = "Wisata";
         $this->tampilan('kategoriwisata', $data);
     }
 
@@ -327,7 +335,7 @@ class Admin extends CI_Controller
     public function deleteKategoriWisata($id)
     {
         $this->db->delete('rel_kategori_wisata', ['id_kategori' => $id]);
-        $this->db->delete('kategori', ['id_kategori' => $id]);
+        $this->db->delete('kategori_wisata', ['id_kategori' => $id]);
         $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil menghapus kategori!</div>');
         redirect('admin/wisata');
     }
@@ -336,7 +344,7 @@ class Admin extends CI_Controller
     public function tambahKategoriWisata()
     {
         $id_wisata = $this->input->post('id_wisata');
-        $kategori = $this->input->post('kategori_wisata');
+        $kategori = $this->input->post('kategori');
 
         $this->db->delete('rel_kategori_wisata', ['id_wisata' => $id_wisata]);
         foreach ($kategori as $k) {
@@ -918,6 +926,14 @@ class Admin extends CI_Controller
         $data['kategori'] = $this->db->get('kategori_berita')->result_array();
         $data['berita'] = $this->db->get('berita')->result_array();
         $this->tampilan('berita', $data);
+    }
+
+    public function inputKategoriBerita()
+    {
+        $data['nama_kategori'] = $this->input->post('nama_kategori');
+        $this->db->insert('kategori_berita', $data);
+        $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil menambah kategori!</div>');
+        redirect('admin/berita');
     }
 
     public function tambahKategoriBerita()
