@@ -23,6 +23,8 @@
                                             <ul class="submenu">
                                                 <li><a href="<?= base_url('/wisata') ?>">Wisata</a>
                                                 </li>
+                                                <li><a href="<?= base_url('/berita') ?>">Berita</a>
+                                                </li>
                                                 <li><a href="<?= base_url('/akomodasi') ?>">akomodasi</a>
                                                 </li>
                                                 <li><a href="<?= base_url('/restoran') ?>">Restoran</a>

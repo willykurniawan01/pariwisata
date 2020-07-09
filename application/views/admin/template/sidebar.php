@@ -2,9 +2,9 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= base_url('admin') ?>">
         <div class="sidebar-brand-icon">
-            <i class="fas fa-fw fa-school"></i>
+            <img style="height: 50px; width:40px;" src="<?= base_url('assets/home/assets/img/logo.png') ?>" alt="">
         </div>
         <div class="sidebar-brand-text mx-3">Dashboard Pariwisata</div>
     </a>
@@ -92,6 +92,10 @@
                 <a class="collapse-item" href="<?= base_url('admin/akomodasi') ?>">
                     <i class="fas fa-hotel"></i>
                     <span>Akomodasi</span>
+                </a>
+                <a class="collapse-item" href="<?= base_url('admin/berita') ?>">
+                    <i class="fas fa-newspaper"></i>
+                    <span>Berita</span>
                 </a>
             </div>
         </div>
