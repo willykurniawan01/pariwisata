@@ -24,7 +24,7 @@
                     <?php foreach ($berita as $b) : ?>
                         <article class="blog_item">
                             <div class="blog_item_img">
-                                <img class="card-img rounded-0" src="img/blog/single_blog_1.png" alt="">
+                                <img class="card-img rounded-0" src="<?= base_url('assets/home/assets/img/berita/') . $b['gambar'] ?>" alt="">
                                 <a href="#" class="blog_item_date">
                                     <h3>15</h3>
                                     <p>Jan</p>
@@ -32,11 +32,10 @@
                             </div>
 
                             <div class="blog_details">
-                                <a class="d-inline-block" href="single-blog.html">
+                                <a class="d-inline-block" href="<?= base_url('berita/detail/') . $b['id_berita'] ?>">
                                     <h2><?= $b['judul'] ?></h2>
                                 </a>
-                                <p>That dominion stars lights dominion divide years for fourth have don't stars is that
-                                    he earth it first without heaven in place seed it second morning saying.</p>
+                                <p><?= substr($b['isi'], 0, 400) . '...' ?></p>
                                 <ul class="blog-info-link">
                                     <li><a href="#"><i class="fa fa-user"></i> Travel, Lifestyle</a></li>
                                     <li><a href="#"><i class="fa fa-comments"></i> 03 Comments</a></li>

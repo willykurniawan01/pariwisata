@@ -75,12 +75,35 @@ class Berita extends CI_Controller
         $data['navbar'] = "Berita";
         // $detail = $this->berita->getDetail($id);
         // $data['detail'] = $detail;
-        $data['kategori'] = $this->db->get('kategori')->result_array();
+        $data['kategori'] = $this->db->get('kategori_berita')->result_array();
         $data['berita'] = $this->db->get_where('berita', ['id_berita' => $id])->row_array();
         $data['judul'] = "Berita";
         $this->load->view('home/template/header', $data);
         $this->load->view('home/template/navbar', $data);
         $this->load->view('home/single-berita', $data);
         $this->load->view('home/template/footer');
+    }
+
+    public function tambahKomentar($id)
+    {
+        $data = [
+            'nama' => $this->input->post('nama'),
+            'email' => $this->input->post('email'),
+            'komentar' => $this->input->post('komentar'),
+            'id_berita' => $id
+        ];
+
+        $result = $this->db->insert('komentar_berita', $data);
+        if ($result) {
+            $msg['success'] = true;
+        }
+        echo json_encode($msg);
+    }
+
+    public function tampilKomentar($id)
+    {
+        $this->db->where('id_berita', $id);
+        $komentar = $this->db->get('komentar_berita')->result_array();
+        echo json_encode($komentar);
     }
 }
