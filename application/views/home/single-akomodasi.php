@@ -1,11 +1,11 @@
 <!-- bradcam_area  -->
-<div class="bradcam_area" style="background-image: url('');">
+<div class="bradcam_area" style="background-image: url(<?= base_url('assets/home/assets/img/hotel.jpg') ?>);">
     <div class="container">
         <div class="row">
             <div class="col-xl-12">
                 <div class="bradcam_text text-center">
-                    <h3>Single blog</h3>
-                    <p>Pixel perfect design with awesome contents</p>
+                    <h3>Detail Akomodasi</h3>
+                    <p>Informasi tentang akomodasi</p>
                 </div>
             </div>
         </div>

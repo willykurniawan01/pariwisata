@@ -1,5 +1,5 @@
 <!-- bradcam_area  -->
-<div class="bradcam_area bradcam_bg_4">
+<div class="bradcam_area" style="background-image: url('<?= base_url('assets/home/assets/img/parallax.jpg') ?>');">
     <div class="container">
         <div class="row">
             <div class="col-xl-12">
@@ -25,9 +25,9 @@
                         <article class="blog_item">
                             <div class="blog_item_img">
                                 <img class="card-img rounded-0" src="<?= base_url('assets/home/assets/img/berita/') . $b['gambar'] ?>" alt="">
-                                <a href="#" class="blog_item_date">
-                                    <h3>15</h3>
-                                    <p>Jan</p>
+                                <a href="<?= base_url('berita/detail/') . $b['id_berita'] ?>" class="blog_item_date">
+                                    <h3><?= date('d', strtotime($b['datetime'])); ?></h3>
+                                    <p><?= date('M', strtotime($b['datetime'])); ?></p>
                                 </a>
                             </div>
 
@@ -37,8 +37,11 @@
                                 </a>
                                 <p><?= substr($b['isi'], 0, 400) . '...' ?></p>
                                 <ul class="blog-info-link">
-                                    <li><a href="#"><i class="fa fa-user"></i> Travel, Lifestyle</a></li>
-                                    <li><a href="#"><i class="fa fa-comments"></i> 03 Comments</a></li>
+                                    <li><a href="<?= base_url('berita/detail/') . $b['id_berita'] ?>"><i class="fa fa-user"></i>Admin</a></li>
+                                    <li><a href="<?= base_url('berita/detail/') . $b['id_berita'] ?>"><i class="fa fa-comments"></i> <?php
+                                                                                                                                        $this->db->where('id_berita', $b['id_berita']);
+                                                                                                                                        echo $this->db->get('komentar_berita')->num_rows() . ' komentar';
+                                                                                                                                        ?></a></li>
                                 </ul>
                             </div>
                         </article>
@@ -46,24 +49,7 @@
 
 
                     <nav class="blog-pagination justify-content-center d-flex">
-                        <ul class="pagination">
-                            <li class="page-item">
-                                <a href="#" class="page-link" aria-label="Previous">
-                                    <i class="ti-angle-left"></i>
-                                </a>
-                            </li>
-                            <li class="page-item">
-                                <a href="#" class="page-link">1</a>
-                            </li>
-                            <li class="page-item active">
-                                <a href="#" class="page-link">2</a>
-                            </li>
-                            <li class="page-item">
-                                <a href="#" class="page-link" aria-label="Next">
-                                    <i class="ti-angle-right"></i>
-                                </a>
-                            </li>
-                        </ul>
+                        <?= $this->pagination->create_links(); ?>
                     </nav>
                 </div>
             </div>
@@ -83,59 +69,19 @@
                         </form>
                     </aside>
 
-                    <aside class="single_sidebar_widget post_category_widget">
-                        <h4 class="widget_title">Category</h4>
-                        <ul class="list cat-list">
-                            <li>
-                                <a href="#" class="d-flex">
-                                    <p>Resaurant food</p>
-                                    <p>(37)</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="d-flex">
-                                    <p>Travel news</p>
-                                    <p>(10)</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="d-flex">
-                                    <p>Modern technology</p>
-                                    <p>(03)</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="d-flex">
-                                    <p>Product</p>
-                                    <p>(11)</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="d-flex">
-                                    <p>Inspiration</p>
-                                    <p>21</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="d-flex">
-                                    <p>Health Care (21)</p>
-                                    <p>09</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </aside>
-
                     <aside class="single_sidebar_widget popular_post_widget">
                         <h3 class="widget_title">Recent Post</h3>
-                        <div class="media post_item">
-                            <img src="img/post/post_1.png" alt="post">
-                            <div class="media-body">
-                                <a href="single-blog.html">
-                                    <h3>From life was you fish...</h3>
-                                </a>
-                                <p>January 12, 2019</p>
+                        <?php foreach ($berita as $b) : ?>
+                            <div class="media post_item">
+                                <img style="width: 50px; height:50px;" src="<?= base_url('assets/home/assets/img/berita/') . $b['gambar'] ?>" alt="post">
+                                <div class="media-body">
+                                    <a href="<?= base_url('berita/detail/') . $b['id_berita'] ?>">
+                                        <h3><?= $b['judul'] ?></h3>
+                                    </a>
+                                    <p><?= date('D ,d F Y', strtotime($b['datetime'])); ?></p>
+                                </div>
                             </div>
-                        </div>
+                        <?php endforeach; ?>
                     </aside>
                 </div>
             </div>

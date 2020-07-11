@@ -74,7 +74,7 @@ class Akomodasi extends CI_Controller
         $data['cari'] = $cari;
         $data['navbar'] = "akomodasi";
 
-        $data['kategori'] = $this->db->get('kategori')->result_array();
+
         $data['akomodasi'] = $this->db->get_where('akomodasi', ['id_akomodasi' => $id])->row_array();
         $data['judul'] = "Detail Akomodasi";
         $this->load->view('home/template/header', $data);
