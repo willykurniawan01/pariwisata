@@ -97,6 +97,10 @@
                     <i class="fas fa-newspaper"></i>
                     <span>Berita</span>
                 </a>
+                <a class="collapse-item" href="<?= base_url('admin/bukutamu') ?>">
+                    <i class="fas fa-book"></i>
+                    <span>Buku Tamu</span>
+                </a>
             </div>
         </div>
     </li>

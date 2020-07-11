@@ -1070,4 +1070,26 @@ class Admin extends CI_Controller
         $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil menghapus berita!</div>');
         redirect('admin/berita');
     }
+
+
+    public function bukutamu()
+    {
+        //judul pada halaman 
+        $data['judul'] = "Buku Tamu";
+
+        //query data wisata
+        $data['buku_tamu'] = $this->db->get('buku_tamu')->result_array();
+
+        //menampilkan view input data wisata
+        $this->tampilan('bukutamu', $data);
+    }
+
+    public function deleteBukuTamu($id)
+    {
+        $this->db->where('id_bukutamu', $id);
+        $this->db->delete('buku_tamu');
+
+        $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil menghapus data buku tamu!</div>');
+        redirect('admin/bukutamu');
+    }
 }
