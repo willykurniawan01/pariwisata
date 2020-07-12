@@ -23,22 +23,22 @@
                             <div class="single_place" style="height: 500px;">
                                 <div class="thumb">
                                     <img style="width: 100%; height:300px;" src="<?= base_url('assets/home/assets/img/akomodasi/') . $w['gambar'] ?>" alt="">
+                                    <a href="<?= base_url('akomodasi/detail/') . $w['id_akomodasi'] ?>" class="prise">Rp.<?= $w['sewa'] ?>/Malam</a>
                                 </div>
                                 <div class="place_info">
                                     <a href="<?= base_url('akomodasi/detail/') . $w['id_akomodasi'] ?>">
                                         <h3><?= $w['nama_akomodasi'] ?></h3>
                                     </a>
                                     <p><?= $w['alamat'] ?></p>
-                                    <div class="rating_days d-flex justify-content-between">
+                                    <!-- <div class="rating_days d-flex justify-content-between">
                                         <span class="d-flex justify-content-center align-items-center">
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>
-                                            <a href="#">(20 Review)</a>
                                         </span>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                         </div>

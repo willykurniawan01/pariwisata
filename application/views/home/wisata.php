@@ -68,16 +68,6 @@
                                         <h3><?= $w['nama_wisata'] ?></h3>
                                     </a>
                                     <p><?= $w['alamat'] ?></p>
-                                    <div class="rating_days d-flex justify-content-between">
-                                        <span class="d-flex justify-content-center align-items-center">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <a href="#">(20 Review)</a>
-                                        </span>
-                                    </div>
                                 </div>
                             </div>
                         </div>
