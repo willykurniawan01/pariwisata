@@ -11,7 +11,7 @@
             <h1 class="h3 text-light"><?= $judul ?></h1>
         </div>
         <div class="card-body">
-            <a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#menu">Tambah Menu</a>
+            <a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#menu">Tambah Slider</a>
             <div class="table-responsive">
                 <table class="table table-bordered">
                     <thead>
@@ -33,7 +33,7 @@
                         ?>
                             <tr>
                                 <td>
-                                    <img class="img-fluid" src="<?= base_url('assets/admin/img/sliders/') . $s['gambar'] ?>" alt="<?= $s['judul'] ?>" style="overflow: hidden; height: 240px;">
+                                    <img style="width: 400px; height:300px;" class="img-fluid img-thumbnail" src="<?= base_url('assets/admin/img/sliders/') . $s['gambar'] ?>" alt="<?= $s['judul'] ?>" style="overflow: hidden; height: 240px;">
                                 </td>
                                 <td class="align-middle">
                                     <a href="<?= base_url('admin/editslider/') . $s['id_slider'] ?>" class="btn ml-2 btn-warning btn-icon-split">

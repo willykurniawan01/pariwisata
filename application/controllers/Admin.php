@@ -35,6 +35,7 @@ class Admin extends CI_Controller
         $data['restoran'] = $this->db->get('restoran')->num_rows();
         $data['agenda'] = $this->db->get('agenda')->num_rows();
         $data['akomodasi'] = $this->db->get('akomodasi')->num_rows();
+        $data['bukutamu'] = $this->db->get('buku_tamu')->num_rows();
         $data['judul'] = "Dashboard";
         $this->tampilan('dashboard', $data);
     }
