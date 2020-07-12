@@ -67,7 +67,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="video_wrap text-center">
-                    <h3>Enjoy Video</h3>
+                    <h3>Enjoy Beautiful View</h3>
                 </div>
             </div>
         </div>

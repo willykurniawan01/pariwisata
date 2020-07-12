@@ -803,6 +803,7 @@ class Admin extends CI_Controller
         //validasi input data akomodasi
         $this->form_validation->set_rules('nama_akomodasi', 'Nama akomodasi', 'required|trim');
         $this->form_validation->set_rules('alamat', 'Alamat', 'required|trim');
+        $this->form_validation->set_rules('sewa', 'sewa', 'required|trim|integer');
         $this->form_validation->set_rules('deskripsi', 'Deskripsi', 'required|trim');
         $this->form_validation->set_rules('garis_bujur', 'garis_bujur', 'required|trim');
         $this->form_validation->set_rules('garis_lintang', 'garis_lintang', 'required|trim');
@@ -829,6 +830,7 @@ class Admin extends CI_Controller
                     'nama_akomodasi' => $this->input->post('nama_akomodasi'),
                     'deskripsi' => $this->input->post('deskripsi'),
                     'alamat' => $this->input->post('alamat'),
+                    'sewa' => $this->input->post('sewa'),
                     'gambar' => $this->gambar->data('file_name'),
                     'garis_bujur' => $this->input->post('garis_bujur'),
                     'garis_lintang' => $this->input->post('garis_lintang')
@@ -862,6 +864,7 @@ class Admin extends CI_Controller
         $this->form_validation->set_rules('nama_akomodasi', 'Nama akomodasi', 'required|trim');
         $this->form_validation->set_rules('deskripsi', 'Deskripsi akomodasi', 'required|trim');
         $this->form_validation->set_rules('alamat', 'Alamat akomodasi', 'required|trim');
+        $this->form_validation->set_rules('sewa', 'sewa', 'required|trim|integer');
         $this->form_validation->set_rules('garis_bujur', 'garis_bujur', 'required|trim');
         $this->form_validation->set_rules('garis_lintang', 'garis_lintang', 'required|trim');
 
@@ -890,6 +893,7 @@ class Admin extends CI_Controller
                         'nama_akomodasi' => $this->input->post('nama_akomodasi'),
                         'deskripsi' => $this->input->post('deskripsi'),
                         'alamat' => $this->input->post('alamat'),
+                        'sewa' => $this->input->post('sewa'),
                         'gambar' => $this->gambar->data('file_name'),
                         'garis_bujur' => $this->input->post('garis_bujur'),
                         'garis_lintang' => $this->input->post('garis_lintang')
@@ -910,6 +914,7 @@ class Admin extends CI_Controller
                     'nama_akomodasi' => $this->input->post('nama_akomodasi'),
                     'deskripsi' => $this->input->post('deskripsi'),
                     'alamat' => $this->input->post('alamat'),
+                    'sewa' => $this->input->post('sewa'),
                     'garis_bujur' => $this->input->post('garis_bujur'),
                     'garis_lintang' => $this->input->post('garis_lintang')
                 ];

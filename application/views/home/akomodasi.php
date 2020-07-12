@@ -20,7 +20,7 @@
                 <div class="row">
                     <?php foreach ($akomodasi as $w) : ?>
                         <div class="col-lg-4 col-md-4">
-                            <div class="single_place">
+                            <div class="single_place" style="height: 500px;">
                                 <div class="thumb">
                                     <img style="width: 100%; height:300px;" src="<?= base_url('assets/home/assets/img/akomodasi/') . $w['gambar'] ?>" alt="">
                                 </div>

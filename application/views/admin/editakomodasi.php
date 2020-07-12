@@ -43,6 +43,17 @@
     </div>
     <div class="row mt-4">
         <div class="col-md-12">
+            <div class="input-group input-group-lg">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="sewa">Harga Sewa/Malam</span>
+                </div>
+                <input type="text" class="form-control" name="sewa" value="<?= $akomodasi['sewa'] ?>">
+            </div>
+            <small id="error" class="form-text text-danger"><?= form_error('sewa') ?></small>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-md-12">
             <label for="editor">Deskripsi</label>
             <textarea name="deskripsi" id="editor">
                 <?= $akomodasi['deskripsi'] ?>
