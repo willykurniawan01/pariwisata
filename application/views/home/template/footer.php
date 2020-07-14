@@ -9,10 +9,7 @@
                                 <img style="width: 80px; height:100px;" src="<?= base_url('assets/home/assets/img/logo.png') ?>" alt="">
                             </a>
                         </div>
-                        <p>5th flora, 700/D kings road, green <br> lane New York-1782 <br>
-                            <a href="#">+10 367 826 2567</a> <br>
-                            <a href="#">contact@carpenter.com</a>
-                        </p>
+
                         <div class="socail_links">
                             <ul>
                                 <li>

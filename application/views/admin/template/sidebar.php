@@ -63,6 +63,10 @@
                     <i class="fas fa-fw fa-images"></i>
                     <span>Galeri</span>
                 </a>
+                <a class="collapse-item" href="<?= base_url('admin/pengumuman') ?>">
+                    <i class="fas fa-bullhorn"></i>
+                    <span>Pengumuman</span>
+                </a>
             </div>
         </div>
     </li>

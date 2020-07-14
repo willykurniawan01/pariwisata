@@ -19,9 +19,9 @@
                                     <ul id="navigation">
                                         <li><a class="active" href="<?= base_url('home') ?>">Home</a></li>
 
-                                        <li><a href="#">Menu <i class="ti-angle-down"></i></a>
+                                        <li><a href="#">Wisata <i class="ti-angle-down"></i></a>
                                             <ul class="submenu">
-                                                <li><a href="<?= base_url('/wisata') ?>">Wisata</a>
+                                                <li><a href="<?= base_url('/wisata') ?>">Objek Wisata</a>
                                                 </li>
                                                 <li><a href="<?= base_url('/berita') ?>">Berita</a>
                                                 </li>
@@ -30,6 +30,8 @@
                                                 <li><a href="<?= base_url('/restoran') ?>">Restoran</a>
                                                 </li>
                                                 <li><a href="<?= base_url('/agenda') ?>">Agenda</a>
+                                                </li>
+                                                <li><a href="<?= base_url('/pengumuman') ?>">Pengumuman</a>
                                                 </li>
                                             </ul>
                                         </li>
@@ -49,9 +51,7 @@
                         </div>
                         <div class="col-xl-4 col-lg-4 d-none d-lg-block">
                             <div class="social_wrap d-flex align-items-center justify-content-end">
-                                <div class="number">
-                                    <p> <i class="fa fa-phone"></i> 10(256)-928 256</p>
-                                </div>
+
                                 <div class="social_links d-none d-xl-block">
                                     <ul>
                                         <li><a href="#"> <i class="fa fa-instagram"></i> </a></li>

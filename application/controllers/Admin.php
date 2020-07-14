@@ -1098,4 +1098,39 @@ class Admin extends CI_Controller
         $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil menghapus data buku tamu!</div>');
         redirect('admin/bukutamu');
     }
+
+    public function pengumuman()
+    {
+        $this->form_validation->set_rules('judul', 'Judul', 'required|trim');
+        $this->form_validation->set_rules('isi', 'isi', 'required|trim');
+
+        $data['pengumuman'] = $this->db->get('pengumuman')->result_array();
+
+
+        $judul = $this->input->post('judul');
+        $isi = $this->input->post('isi');
+
+        if ($this->form_validation->run() == FALSE) {
+            $data['error'] = '';
+            $data['judul'] = "Pengumuman";
+            $this->tampilan('pengumuman', $data);
+        } else {
+            $pengumuman = [
+                'judul' => $judul,
+                'isi' => $isi
+            ];
+            $this->db->insert('pengumuman', $pengumuman);
+            $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil Menambahkan Pengumuman!</div>');
+            redirect('admin/pengumuman');
+        }
+    }
+
+    public function deletePengumuman($id)
+    {
+        $this->db->where('id_pengumuman', $id);
+        $this->db->delete('pengumuman');
+
+        $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil menghapus data buku tamu!</div>');
+        redirect('admin/pengumuman');
+    }
 }

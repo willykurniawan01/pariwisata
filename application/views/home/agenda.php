@@ -23,14 +23,14 @@
                     <?php foreach ($agenda as $a) : ?>
                         <article class="blog_item">
                             <div class="blog_item_img">
-                                <a href="#" class="blog_item_date">
+                                <a class="blog_item_date">
                                     <h3>15</h3>
                                     <p>Jan</p>
                                 </a>
                             </div>
 
                             <div class="blog_details">
-                                <a class="d-inline-block" href="single-blog.html">
+                                <a class="d-inline-block">
                                     <h2><?= $a['nama_agenda'] ?></h2>
                                 </a>
                                 <p><?= $a['isi_agenda'] ?></p>

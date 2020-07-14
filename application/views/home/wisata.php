@@ -19,30 +19,17 @@
         <div class="row align-items-center">
             <div class="col-lg-3">
                 <div class="form_area">
-                    <h3>Kemana Kamu Mau Pergi?</h3>
+                    <h3>Cari Tempat Wisata</h3>
                 </div>
             </div>
             <div class="col-lg-9">
                 <div class="search_wrap">
-                    <form class="search_form" action="#">
+                    <form class="search_form" method="get" action="<?= base_url('wisata/cariwisata') ?>">
                         <div class="input_field">
-                            <input type="text" placeholder="Mau Pergi ke Mana?">
+                            <input type="text" name="nama_wisata" placeholder="Nama Tempat Wisata?">
                         </div>
-
-                        <div class="input_field">
-                            <select>
-                                <option data-display="Pilih Kategori">Pilih Kategori</option>
-                                <?php
-                                $kategori = $this->db->get('kategori_wisata')->result_array();
-                                foreach ($kategori as $k) :
-                                ?>
-                                    <option value="<?= $k['id_kategori'] ?>"><?= $k['nama_kategori'] ?></option>
-                                <?php endforeach; ?>
-                            </select>
-                        </div>
-                        <div class="search_btn">
-                            <button class="boxed-btn4 " type="submit">Search</button>
-                        </div>
+                        <button class="boxed-btn4 " type="submit">Search</button>
+                        <a class="boxed-btn4" href="<?= base_url('wisata') ?>">Segarkan</a>
                     </form>
                 </div>
             </div>
