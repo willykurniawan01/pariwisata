@@ -46,7 +46,11 @@
                                                     </a>
                                                     <a href="<?= base_url('admin/deletewisata/') . $b['id_wisata'] ?>" class="btn btn-sm btn-danger">
                                                         <span class="text">Delete</span>
-                                                    </a></li>
+                                                    </a>
+                                                    <a href="<?= base_url('admin/view/') . $b['id_wisata'] ?>" class="btn btn-sm btn-dark">
+                                                        <span class="text">View</span>
+                                                    </a>
+                                                </li>
 
                                                 <li class="nav-link"> <a href="<?= base_url('admin/tambahwisataunggulan/') . $b['id_wisata'] ?>" class="btn btn-sm btn-success">
                                                         <span class="text"><i class="fas fa-plus"></i> Unggulan</span>

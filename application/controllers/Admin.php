@@ -1133,4 +1133,63 @@ class Admin extends CI_Controller
         $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil menghapus data buku tamu!</div>');
         redirect('admin/pengumuman');
     }
+
+    public function view($id)
+    {
+        $this->form_validation->set_rules('caption', 'caption', 'required|trim');
+
+        $caption = $this->input->post('caption');
+
+        $config['upload_path'] = './assets/home/assets/img/view/';
+        $config['allowed_types'] = 'jpg|jpeg|png|gif';
+        $config['max_size'] = '1000000';
+        $config['file_name'] = 'view';
+
+        $this->load->library('upload', $config, 'gambar');
+        $this->gambar->initialize($config);
+
+        if ($this->form_validation->run() == FALSE) {
+            $data['error'] = '';
+            $this->db->where('id_wisata', $id);
+            $data['view'] = $this->db->get('view')->result_array();
+            $data['caption'] = "view";
+            $data['judul'] = "View";
+            $data['id_wisata'] = $id;
+            $this->tampilan('view', $data);
+        } else {
+            if ($this->gambar->do_upload('gambar')) {
+                $data = [
+                    'gambar' => $this->gambar->data('file_name'),
+                    'caption' => $caption,
+                    'id_wisata' => $id
+                ];
+                $this->db->insert('view', $data);
+                $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil menambah view!</div>');
+                redirect('admin/view/' . $id);
+            } else {
+                $this->session->set_flashdata('message', '<div class="alert alert-danger mt-4" role="alert">Gagal menambah view!</div>');
+                $data['error'] = $this->gambar->display_errors();
+                $data['view'] = $this->db->get('view')->result_array();
+                $data['judul'] = "View";
+                $this->db->where('id_wisata', $id);
+                $data['id_wisata'] = $id;
+                $this->tampilan('view', $data);
+            }
+        }
+    }
+
+    public function deleteview($id)
+    {
+        $this->db->where('id_view', $id);
+        $view = $this->db->get('view')->row_array();
+
+        $this->db->where('id_view', $id);
+        $this->db->delete('view');
+
+        $link = "./assets/home/assets/img/view/";
+        unlink($link . $view['gambar']);
+
+        $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil menghapus view!</div>');
+        redirect('admin/view/' . $view['id_wisata']);
+    }
 }

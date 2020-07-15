@@ -43,8 +43,6 @@
                                                 Buku Tamu
                                             </button>
                                         </li>
-                                        <li><a href="<?= base_url('/kontak') ?>">Kontak</a>
-                                        </li>
                                     </ul>
                                 </nav>
                             </div>

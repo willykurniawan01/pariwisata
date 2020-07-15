@@ -43,11 +43,11 @@
         </div>
         <div class="row">
             <?php foreach ($wisata as $w) : ?>
-                <div class="col-lg-4">
+                <div class="col-lg-6">
                     <a href="<?= base_url('wisata/detail/') . $w['id_wisata'] ?>">
                         <div class="single_destination">
                             <div class="thumb">
-                                <img style="height: 300px; width:100%;" src="<?= base_url('assets/home/assets/img/wisata/') . $w['gambar'] ?>" alt="">
+                                <img style="height: 400px; width:100%;" src="<?= base_url('assets/home/assets/img/wisata/') . $w['gambar'] ?>" alt="">
                             </div>
                             <div class="content">
                                 <p class="d-flex align-items-center"><?= $w['nama_wisata'] ?>
@@ -72,4 +72,36 @@
             </div>
         </div>
     </div>
+</div>
+
+<div class="popular_places_area">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="section_title text-center mb_70">
+                    <h3>Berita Terbaru</h3>
+                    <p>Berita Terbaru Tentang Pariwisata Kabupaten Kampar</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <?php foreach ($berita as $b) : ?>
+                <div class="col-lg-4 col-md-6">
+                    <div class="single_place">
+                        <div class="thumb">
+                            <img src="<?= base_url('assets/home/assets/img/berita/') . $b['gambar'] ?>" alt="">
+                        </div>
+                        <div class="place_info">
+                            <a href="<?= base_url('berita/detail/') . $b['id_berita'] ?>">
+                                <h3><?= $b['judul'] ?></h3>
+                            </a>
+                            <p class="text-justify"><?= substr($b['isi'], 0, 200) . '...' ?></p>
+                            <a href="<?= base_url('berita/detail/') . $b['id_berita'] ?>" class="btn btn-danger">Baca Selengkapnya</a>
+                        </div>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</div>
 </div>
