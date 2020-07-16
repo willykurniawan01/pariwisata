@@ -14,7 +14,7 @@
                             <img src="<?= base_url('assets/home/assets/img/view/') . $g['gambar'] ?>" class="card-img-top" alt="<?= $g['caption'] ?>" style="overflow: hidden; height: 240px;">
                             <div class="card-body text-center">
                                 <h5 class="card-title"><?= $g['caption'] ?></h5>
-                                <a href="<?= base_url('admin/deleteview/') . $g['id_view'] ?>" class="btn btn-sm btn-danger mt-2">Delete Gambar</a>
+                                <a href="<?= base_url('admin/deleteview/') . $g['id_view'] ?>" class="btn btn-sm btn-danger mt-2">Delete View</a>
 
                             </div>
                         </div>

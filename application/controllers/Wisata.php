@@ -68,7 +68,7 @@ class Wisata extends CI_Controller
         $cari = $this->input->get('cari');
         $data['cari'] = $cari;
         $data['navbar'] = "wisata";
-
+        $data['view'] = $this->db->get_where('view', ['id_wisata' => $id])->result_array();
         $data['kategori'] = $this->db->get('kategori_wisata')->result_array();
         $data['wisata'] = $this->db->get_where('wisata', ['id_wisata' => $id])->row_array();
         $data['judul'] = "Detail";

@@ -41,6 +41,23 @@
 
                     </div>
                 </div>
+                <?php foreach ($view as $v) : ?>
+
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-app 1 wow fadeInUp ">
+                        <div class="portfolio-wrap">
+                            <figure>
+                                <a href="<?= base_url('assets/home/assets/img/view/') . $v['gambar'] ?>" class="link-preview venobox" data-gall="portfolioGallery" title="Web 3">
+                                    <img src="<?= base_url('assets/home/assets/img/view/') . $v['gambar'] ?>" class="img-fluid" alt="">
+                                </a>
+                            </figure>
+
+                            <div class="portfolio-info">
+                                <p><?= $v['caption'] ?></p>
+                            </div>
+                        </div>
+                    </div>
+
+                <?php endforeach; ?>
                 <div id="mymap" style="width: 100%; height: 400px;"></div>
 
 
