@@ -41,23 +41,32 @@
 
                     </div>
                 </div>
-                <?php foreach ($view as $v) : ?>
+                <div class="row my-5  justify-content-center">
+                    <h2>View</h2>
+                </div>
+                <div class="row justify-content-between">
+                    <?php foreach ($view as $v) : ?>
 
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-app 1 wow fadeInUp ">
-                        <div class="portfolio-wrap">
-                            <figure>
-                                <a href="<?= base_url('assets/home/assets/img/view/') . $v['gambar'] ?>" class="link-preview venobox" data-gall="portfolioGallery" title="Web 3">
-                                    <img src="<?= base_url('assets/home/assets/img/view/') . $v['gambar'] ?>" class="img-fluid" alt="">
-                                </a>
-                            </figure>
+                        <div class="col-lg-6  portfolio-item filter-app 1 ">
+                            <div class="portfolio-wrap">
+                                <figure>
+                                    <a href="<?= base_url('assets/home/assets/img/view/') . $v['gambar'] ?>" class="link-preview venobox" data-gall="portfolioGallery" title="Web 3">
+                                        <img src="<?= base_url('assets/home/assets/img/view/') . $v['gambar'] ?>" class="img-fluid" alt="">
+                                    </a>
+                                </figure>
 
-                            <div class="portfolio-info">
-                                <p><?= $v['caption'] ?></p>
+                                <div class="portfolio-info">
+                                    <p><?= $v['caption'] ?></p>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                <?php endforeach; ?>
+                    <?php endforeach; ?>
+                </div>
+                <div class="row my-5 justify-content-center">
+                    <h2>Map ke Lokasi</h2>
+                </div>
+
                 <div id="mymap" style="width: 100%; height: 400px;"></div>
 
 
