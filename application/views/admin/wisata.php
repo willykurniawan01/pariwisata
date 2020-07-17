@@ -50,6 +50,9 @@
                                                     <a href="<?= base_url('admin/view/') . $b['id_wisata'] ?>" class="btn btn-sm btn-dark">
                                                         <span class="text">View</span>
                                                     </a>
+                                                    <a href="<?= base_url('admin/komentar/') . $b['id_wisata'] ?>" class="btn btn-sm btn-primary">
+                                                        <span class="text">Komentar</span>
+                                                    </a>
                                                 </li>
 
                                                 <li class="nav-link"> <a href="<?= base_url('admin/tambahwisataunggulan/') . $b['id_wisata'] ?>" class="btn btn-sm btn-success">

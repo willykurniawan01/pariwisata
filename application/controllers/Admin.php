@@ -1192,4 +1192,24 @@ class Admin extends CI_Controller
         $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil menghapus view!</div>');
         redirect('admin/view/' . $view['id_wisata']);
     }
+
+    public function komentar($id)
+    {
+        $data['komentar'] = $this->db->get_where('komentar_wisata', ['id_wisata' => $id])->result_array();
+        $data['judul'] = "Komentar";
+        $data['id_wisata'] = $id;
+        $this->tampilan('komentar', $data);
+    }
+
+    public function deletekomentar($id)
+    {
+        $this->db->where('id_komentar', $id);
+        $komentar = $this->db->get('komentar_wisata')->row_array();
+
+        $this->db->where('id_komentar', $id);
+        $this->db->delete('komentar_wisata');
+
+        $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil menghapus komentar!</div>');
+        redirect('admin/komentar/' . $komentar['id_wisata']);
+    }
 }
