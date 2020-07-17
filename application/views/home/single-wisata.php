@@ -19,7 +19,7 @@
             <div class="col-lg-8 posts-list">
                 <div class="single-post">
                     <div class="feature-img">
-                        <img style="width: 700px; height:500px;" src="<?= base_url('assets/home/assets/img/wisata/') . $wisata['gambar'] ?>" alt="">
+                        <img style="width: 100%; height:500px;" src="<?= base_url('assets/home/assets/img/wisata/') . $wisata['gambar'] ?>" alt="">
                     </div>
                     <div class="blog_details">
                         <h2><?= $wisata['nama_wisata'] ?>
@@ -41,14 +41,23 @@
                 </div>
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item" role="presentation">
-                        <a class="nav-link active" id="deskripsi-tab" data-toggle="tab" href="#deskripsi" role="tab" aria-controls="deskripsi" aria-selected="true">Deskripsi</a>
+                        <a class="nav-link active" id="rute-tab" data-toggle="tab" href="#rute" role="tab" aria-controls="rute" aria-selected="true">Rute</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link" id="deskripsi-tab" data-toggle="tab" href="#deskripsi" role="tab" aria-controls="deskripsi" aria-selected="true">Deskripsi</a>
                     </li>
                     <li class="nav-item" role="presentation">
                         <a class="nav-link" id="view-tab" data-toggle="tab" href="#view" role="tab" aria-controls="view" aria-selected="false">View</a>
                     </li>
                 </ul>
                 <div class="tab-content" id="myTabContent">
-                    <div class="tab-pane fade show active" id="deskripsi" role="tabpanel" aria-labelledby="deskripsi-tab">
+                    <div class="tab-pane fade show active" id="rute" role="tabpanel" aria-labelledby="rute-tab">
+                        <div class="row my-5 justify-content-center">
+                            <h2>Map ke Lokasi</h2>
+                            <div id="mymap" style="width: 100%; height: 400px;"></div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="deskripsi" role="tabpanel" aria-labelledby="deskripsi-tab">
                         <div class="row my-5  justify-content-center">
                             <h2>Deskripsi</h2>
                         </div>
@@ -81,11 +90,6 @@
                         </div>
                     </div>
 
-                </div>
-
-                <div class="row my-5 justify-content-center">
-                    <h2>Map ke Lokasi</h2>
-                    <div id="mymap" style="width: 100%; height: 400px;"></div>
                 </div>
 
 
