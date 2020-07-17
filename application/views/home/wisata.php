@@ -62,7 +62,7 @@
                                             $komentar = $this->db->get_where('komentar_wisata   ', ['id_wisata' => $w['id_wisata']])->row_array();
                                             $parse = (int)$komentar['rating'];
                                             ?>
-                                            <?php for ($i = 1; $i < $parse; $i++) : ?>
+                                            <?php for ($i = 0; $i < $parse; $i++) : ?>
                                                 <i class="fa fa-star"></i>
                                             <?php endfor; ?>
                                             <a href="#"><?php $komentar = $this->db->get_where('komentar_wisata   ', ['id_wisata' => $w['id_wisata']])->num_rows();
