@@ -43,9 +43,8 @@
             padding: 0;
         }
 
-        #map {
-            width: 100%;
-            height: 300px;
+        #mymap {
+            z-index: 0;
         }
     </style>
     <!-- <link rel="stylesheet" href="css/responsive.css"> -->

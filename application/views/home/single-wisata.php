@@ -35,39 +35,58 @@
                                 </a>
                             </li>
                         </ul>
-                        <p class="excert">
-                            <?= $wisata['deskripsi'] ?>
-                        </p>
+
 
                     </div>
                 </div>
-                <div class="row my-5  justify-content-center">
-                    <h2>View</h2>
-                </div>
-                <div class="row justify-content-between">
-                    <?php foreach ($view as $v) : ?>
-
-                        <div class="col-lg-6  portfolio-item filter-app 1 ">
-                            <div class="portfolio-wrap">
-                                <figure>
-                                    <a href="<?= base_url('assets/home/assets/img/view/') . $v['gambar'] ?>" class="link-preview venobox" data-gall="portfolioGallery" title="Web 3">
-                                        <img src="<?= base_url('assets/home/assets/img/view/') . $v['gambar'] ?>" class="img-fluid" alt="">
-                                    </a>
-                                </figure>
-
-                                <div class="portfolio-info">
-                                    <p><?= $v['caption'] ?></p>
-                                </div>
-                            </div>
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link active" id="deskripsi-tab" data-toggle="tab" href="#deskripsi" role="tab" aria-controls="deskripsi" aria-selected="true">Deskripsi</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link" id="view-tab" data-toggle="tab" href="#view" role="tab" aria-controls="view" aria-selected="false">View</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="deskripsi" role="tabpanel" aria-labelledby="deskripsi-tab">
+                        <div class="row my-5  justify-content-center">
+                            <h2>Deskripsi</h2>
                         </div>
+                        <p class="excert">
+                            <?= $wisata['deskripsi'] ?>
+                        </p>
+                    </div>
+                    <div class="tab-pane fade" id="view" role="tabpanel" aria-labelledby="view-tab">
+                        <div class="row my-5  justify-content-center">
+                            <h2>View</h2>
+                        </div>
+                        <div class="row justify-content-between">
+                            <?php foreach ($view as $v) : ?>
 
-                    <?php endforeach; ?>
+                                <div class="col-lg-6  portfolio-item filter-app 1 ">
+                                    <div class="portfolio-wrap">
+                                        <figure>
+                                            <a href="<?= base_url('assets/home/assets/img/view/') . $v['gambar'] ?>" class="link-preview venobox" data-gall="portfolioGallery" title="Web 3">
+                                                <img src="<?= base_url('assets/home/assets/img/view/') . $v['gambar'] ?>" class="img-fluid" alt="">
+                                            </a>
+                                        </figure>
+
+                                        <div class="portfolio-info">
+                                            <p><?= $v['caption'] ?></p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
+
                 </div>
+
                 <div class="row my-5 justify-content-center">
                     <h2>Map ke Lokasi</h2>
+                    <div id="mymap" style="width: 100%; height: 400px;"></div>
                 </div>
-
-                <div id="mymap" style="width: 100%; height: 400px;"></div>
 
 
                 <div class="comments-area" id="result">
@@ -229,6 +248,7 @@
 </script>
 
 <script>
+    var map = L.map('mymap').setView([0.5554599, 101.5060433], 9);
     navigator.geolocation.getCurrentPosition(function(location) {
         var latlng = new L.LatLng(location.coords.latitude, location.coords.longitude);
         L.marker([location.coords.latitude, location.coords.longitude]).addTo(map);
@@ -247,7 +267,6 @@
             .openOn(map);
 
     });
-    var map = L.map('mymap').setView([0.5554599, 101.5060433], 9);
     L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
         maxZoom: 18,
         attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
