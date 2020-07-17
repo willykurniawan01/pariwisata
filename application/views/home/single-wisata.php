@@ -27,7 +27,7 @@
                         <ul class="blog-info-link mt-3 mb-4">
                             <li><a href="#"><i class="fa fa-user"></i>Admin</a></li>
                             <li>
-                                <a href="#"><i class="fa fa-comments"></i>
+                                <a href="#result"><i class="fa fa-comments"></i>
                                     <?php
                                     $this->db->where('id_wisata', $wisata['id_wisata']);
                                     echo $this->db->get('komentar_wisata')->num_rows() . ' komentar';
@@ -76,7 +76,7 @@
                                     <div class="portfolio-wrap">
                                         <figure>
                                             <a href="<?= base_url('assets/home/assets/img/view/') . $v['gambar'] ?>" class="link-preview venobox" data-gall="portfolioGallery" title="Web 3">
-                                                <img src="<?= base_url('assets/home/assets/img/view/') . $v['gambar'] ?>" class="img-fluid" alt="">
+                                                <img style="width:300px; height:200px;" src="<?= base_url('assets/home/assets/img/view/') . $v['gambar'] ?>" class="img-fluid" alt="">
                                             </a>
                                         </figure>
 
@@ -116,8 +116,19 @@
                                 </div>
                             </div>
 
+                            <div class="col-sm-6 my-3">
+                                <div class="form-group">
+                                    <div class="rating">
+                                        <input type="radio" name="poling" value="5" id="star1"><label for="star1"></label>
+                                        <input type="radio" name="poling" value="4" id="star2"><label for="star2"></label>
+                                        <input type="radio" name="poling" value="3" id="star3"><label for="star3"></label>
+                                        <input type="radio" name="poling" value="2" id="star4"><label for="star4"></label>
+                                        <input type="radio" name="poling" value="1" id="star5"><label for="star5"></label>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group mt-2">
                             <button id="tambahkomentar" type="button" class="button button-contactForm btn_1 boxed-btn">Kirim</button>
                         </div>
                     </form>

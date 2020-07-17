@@ -84,7 +84,8 @@ class Wisata extends CI_Controller
             'nama' => $this->input->post('nama'),
             'email' => $this->input->post('email'),
             'komentar' => $this->input->post('komentar'),
-            'id_wisata' => $id
+            'id_wisata' => $id,
+            'rating' => $this->input->post('poling'),
         ];
 
         $result = $this->db->insert('komentar_wisata', $data);
