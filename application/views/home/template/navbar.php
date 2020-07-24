@@ -23,6 +23,12 @@
                                             <ul class="submenu">
                                                 <li><a href="<?= base_url('/wisata') ?>">Objek Wisata</a>
                                                 </li>
+                                                <li><a href="<?= base_url('/situsbudaya') ?>">Situs Budaya</a>
+                                                </li>
+                                                <li><a href="<?= base_url('/senibudaya') ?>">Seni Budaya</a>
+                                                </li>
+                                                <li><a href="<?= base_url('/makanankhas') ?>">Makanan Khas</a>
+                                                </li>
                                                 <li><a href="<?= base_url('/berita') ?>">Berita</a>
                                                 </li>
                                                 <li><a href="<?= base_url('/akomodasi') ?>">akomodasi</a>

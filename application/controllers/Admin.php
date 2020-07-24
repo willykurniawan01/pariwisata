@@ -1212,4 +1212,18 @@ class Admin extends CI_Controller
         $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil menghapus komentar!</div>');
         redirect('admin/komentar/' . $komentar['id_wisata']);
     }
+
+
+    //method untuk menampilkan halaman wisata admin
+    public function situsBudaya()
+    {
+        //judul pada halaman 
+        $data['judul'] = "Situs Budaya";
+
+        //query data situsbudaya
+        $data['situsbudaya'] = $this->db->get('situs_budaya')->result_array();
+
+        //menampilkan view input data situsbudaya
+        $this->tampilan('situsbudaya', $data);
+    }
 }

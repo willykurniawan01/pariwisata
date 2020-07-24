@@ -85,6 +85,18 @@
                     <i class="fas fa-map-marker-alt"></i>
                     <span>Wisata</span>
                 </a>
+                <a class="collapse-item" href="<?= base_url('admin/situsbudaya') ?>">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Situs Budaya</span>
+                </a>
+                <a class="collapse-item" href="<?= base_url('admin/senibudaya') ?>">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Seni Budaya</span>
+                </a>
+                <a class="collapse-item" href="<?= base_url('admin/makanankhas') ?>">
+                    <i class="fas fa-fw fa-utensils"></i>
+                    <span>Makanan Khas</span>
+                </a>
                 <a class="collapse-item" href="<?= base_url('admin/agenda') ?>">
                     <i class="fas fa-calendar-alt"></i>
                     <span>Agenda</span>
