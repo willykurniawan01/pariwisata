@@ -13,7 +13,7 @@
                     <h1 class="h3 text-light"><?= $judul ?></h1>
                 </div>
                 <div class="card-body">
-                    <a href="<?= base_url('admin/tambahsituswisata') ?>" class="btn btn-primary mb-3">Tambah <?= $judul ?></a>
+                    <a href="<?= base_url('admin/tambahsitusbudaya') ?>" class="btn btn-primary mb-3">Tambah <?= $judul ?></a>
                     <div class="table-responsive">
                         <table class="table table-sm table-bordered" id="dataTable">
                             <thead>
@@ -33,17 +33,17 @@
                                     <tr>
                                         <td><?= $i ?></td>
                                         <td>
-                                            <?= $b['nama'] ?>
+                                            <?= $b['nama_situs'] ?>
                                         </td>
                                         <td>
-                                            <img style="width: 100px; height:100px;" src="<?= base_url('assets/home/assets/img/wisata/') . $b['gambar'] ?>" alt="">
+                                            <img style="width: 100px; height:100px;" src="<?= base_url('assets/home/assets/img/situsbudaya/') . $b['gambar'] ?>" alt="">
                                         </td>
                                         <td class="align-middle">
                                             <ul>
                                                 <li class="nav-link"> <a href="<?= base_url('admin/editsitusbudaya/') . $b['id_situs'] ?>" class="btn btn-sm btn-warning">
                                                         <span class="text">Edit</span>
                                                     </a>
-                                                    <a href="<?= base_url('admin/deletesituswisata/') . $b['id_situs'] ?>" class="btn btn-sm btn-danger">
+                                                    <a href="<?= base_url('admin/deletesitusbudaya/') . $b['id_situs'] ?>" class="btn btn-sm btn-danger">
                                                         <span class="text">Delete</span>
                                                     </a>
                                                 </li>

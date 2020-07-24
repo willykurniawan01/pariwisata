@@ -17,6 +17,7 @@
 
 
 
+
 <div class="container-fluid">
     <?php echo form_open_multipart(); ?>
     <div class="row">
@@ -25,18 +26,18 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="Nama Situs">Nama Situs Budaya</span>
                 </div>
-                <input type="text" class="form-control" name="nama_situs">
+                <input type="text" class="form-control" name="nama_situs" value="<?= $situsbudaya['nama_situs'] ?>">
             </div>
-            <small id="error" class="form-text text-danger"><?= form_error('nama_situs') ?></small>
+            <small id="error" class="form-text text-danger"><?= form_error('nama_situsbudaya') ?></small>
         </div>
     </div>
     <div class="row mt-4">
         <div class="col-md-12">
             <div class="input-group input-group-lg">
                 <div class="input-group-prepend">
-                    <span class="input-group-text" id="Alamat">Alamat</span>
+                    <span class="input-group-text" id="alamat">Alamat</span>
                 </div>
-                <input type="text" class="form-control" name="alamat">
+                <input type="text" class="form-control" name="alamat" value="<?= $situsbudaya['alamat'] ?>">
             </div>
             <small id="error" class="form-text text-danger"><?= form_error('alamat') ?></small>
         </div>
@@ -45,6 +46,7 @@
         <div class="col-md-12">
             <label for="editor">Deskripsi</label>
             <textarea name="deskripsi" id="editor">
+                <?= $situsbudaya['deskripsi'] ?>
                 </textarea>
             <small id="error" class="form-text text-danger"><?= form_error('deskripsi') ?></small>
         </div>
@@ -56,7 +58,7 @@
                 Silahkan Geser Mark Pada Map Untuk Mendapatkan Koordinat!
             </div>
             <label for="garis_bujur">Garis Bujur</label>
-            <input type="text" id="garis_bujur" class="form-control" name="garis_bujur">
+            <input type="text" id="garis_bujur" value=" <?= $situsbudaya['garis_bujur'] ?>" class="form-control" name="garis_bujur">
             <small id="error" class="form-text text-danger"><?= form_error('garis_bujur') ?></small>
         </div>
     </div>
@@ -64,7 +66,7 @@
     <div class="row mt-4">
         <div class="col-md-12">
             <label for="garis_lintang">Garis Lintang</label>
-            <input type="text" id="garis_lintang" class="form-control" name="garis_lintang">
+            <input type="text" id="garis_lintang" value=" <?= $situsbudaya['garis_lintang'] ?>" class="form-control" name="garis_lintang">
             <small id="error" class="form-text text-danger"><?= form_error('garis_lintang') ?></small>
         </div>
     </div>
@@ -76,18 +78,27 @@
         </div>
     </div>
 
-
     <div class="row mt-5 justify-content-between">
         <div class="col-md-5 border">
-            <div class="form-group">
-                <label for="gambar berita">Upload gambar</label>
-                <input type="file" class="form-control-file" name="gambar">
-                <small id="error" class="form-text text-danger"><?= $error ?></small>
-            </div>
-        </div>
+            <?php
+            if (!$ubahgambar) :
+            ?>
+                <div class="row justify-content-center">
+                    <img class="img-fluid rounded" src="<?= base_url('assets/home/assets/img/situsbudaya/') . $situsbudaya['gambar'] ?>">
+                    <a href="<?= base_url('admin/editsitusbudaya/') . $situsbudaya['id_situs'] . "/1" ?>" class="btn btn-danger mt-3">Ubah Gambar</a>
+                </div>
+            <?php else : ?>
+                <div class="form-group">
+                    <label for="gambar situsbudaya">Upload gambar</label>
+                    <input type="file" class="form-control-file" name="gambar">
+                    <small id="error" class="form-text text-danger"><?= $error ?></small>
+                </div>
+            <?php endif; ?>
 
+
+        </div>
         <div class="col-md-3 text-right">
-            <button class="btn btn-primary mt-3 btn-lg" type="submit">Upload <?= $judul ?></button>
+            <button class="btn btn-primary mt-3 btn-lg" type="submit">Update situsbudaya</button>
         </div>
     </div>
     </form>
@@ -101,21 +112,23 @@
         });
 </script>
 
+
 <script>
     mapboxgl.accessToken = 'pk.eyJ1Ijoid2lsbHlrdXJuaWF3YW4iLCJhIjoiY2tjODBqZ2d6MTZ1ZTJxbzYxZHFrbHE3ciJ9.-5zLbrYVwJTovz6MA7Pd7Q';
     var coordinates = document.getElementById('coordinates');
     var map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v11',
-        center: [101.01556741507335, 0.3395797198906365],
+        center: [<?= $situsbudaya['garis_bujur'] ?>, <?= $situsbudaya['garis_lintang'] ?>],
         zoom: 11
     });
 
     var marker = new mapboxgl.Marker({
             draggable: true
         })
-        .setLngLat([101.01556741507335, 0.3395797198906365])
+        .setLngLat([<?= $situsbudaya['garis_bujur'] ?>, <?= $situsbudaya['garis_lintang'] ?>])
         .addTo(map);
+
 
     function onDragEnd() {
         var lngLat = marker.getLngLat();
@@ -124,7 +137,6 @@
             'Longitude: ' + lngLat.lng + '<br />Latitude: ' + lngLat.lat;
         $("#garis_bujur").val(lngLat.lng);
         $("#garis_lintang").val(lngLat.lat);
-
     }
     // Add zoom and rotation controls to the map.
     map.addControl(new mapboxgl.NavigationControl());

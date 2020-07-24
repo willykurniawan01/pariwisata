@@ -1226,4 +1226,126 @@ class Admin extends CI_Controller
         //menampilkan view input data situsbudaya
         $this->tampilan('situsbudaya', $data);
     }
+
+    public function tambahSitusBudaya()
+    {
+        //validasi input data wisata
+        $this->form_validation->set_rules('nama_situs', 'Nama Wisata', 'required|trim');
+        $this->form_validation->set_rules('deskripsi', 'Deskripsi', 'required|trim');
+        $this->form_validation->set_rules('alamat', 'alamat', 'required|trim');
+        $this->form_validation->set_rules('garis_bujur', 'garis_bujur', 'required|trim');
+        $this->form_validation->set_rules('garis_lintang', 'garis_lintang', 'required|trim');
+
+
+        //konfigurasi upload gambar
+        $config['upload_path'] = './assets/home/assets/img/situsbudaya/';
+        $config['allowed_types'] = 'jpg|jpeg|png|gif|jfif';
+        $config['max_size'] = '1000000';
+        $config['file_name'] = 'situsbudaya';
+
+        //load library upload
+        $this->load->library('upload', $config, 'gambar');
+        //inisialiasi konfigurasi
+        $this->gambar->initialize($config);
+
+        if ($this->form_validation->run() == FALSE) {
+            $data['error'] = '';
+            $data['judul'] = "Situs Budaya";
+            $this->tampilan('tambahsitusbudaya', $data);
+        } else {
+            if ($this->gambar->do_upload('gambar')) {
+                $data = [
+                    'nama_situs' => $this->input->post('nama_situs'),
+                    'deskripsi' => $this->input->post('deskripsi'),
+                    'alamat' => $this->input->post('alamat'),
+                    'gambar' => $this->gambar->data('file_name'),
+                    'garis_bujur' => $this->input->post('garis_bujur'),
+                    'garis_lintang' => $this->input->post('garis_lintang')
+                ];
+
+                $this->db->insert('situs_budaya', $data);
+                $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil mengupload Situs Budaya!</div>');
+                redirect('admin/situsbudaya');
+            } else {
+                $data['error'] = $this->gambar->display_errors();
+                $data['judul'] = "situs_budaya";
+                $this->tampilan('tambahsitusbudaya', $data);
+            }
+        }
+    }
+
+    public function deleteSitusBudaya($id)
+    {
+        $situsbudaya = $this->db->get_where('situs_budaya', ['id_situs' => $id])->row_array();
+        $link = "./assets/home/assets/img/situsbudaya/";
+        unlink($link . $situsbudaya['gambar']);
+        $this->db->delete('situs_budaya', ['id_situs' => $id]);
+        $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil menghapus situs budaya!</div>');
+        redirect('admin/situsbudaya');
+    }
+
+    //method mengedit data Situs Budaya
+    public function editSitusBudaya($id, $gambar = '')
+    {
+        $this->form_validation->set_rules('nama_situs', 'Nama situsbudaya', 'required|trim');
+        $this->form_validation->set_rules('deskripsi', 'Deskripsi situsbudaya', 'required|trim');
+        $this->form_validation->set_rules('alamat', 'Alamat situsbudaya', 'required|trim');
+        $this->form_validation->set_rules('garis_bujur', 'garis_bujur', 'required|trim');
+        $this->form_validation->set_rules('garis_lintang', 'garis_lintang', 'required|trim');
+
+        $config['upload_path'] = './assets/home/assets/img/situsbudaya/';
+        $config['allowed_types'] = 'jpg|jpeg|png|gif';
+        $config['max_size'] = '1000000';
+        $config['file_name'] = 'situsbudaya';
+
+        $this->load->library('upload', $config, 'gambar');
+        $this->gambar->initialize($config);
+
+        $situsbudaya = $this->db->get_where('situs_budaya', ['id_situs' => $id])->row_array();
+        if ($this->form_validation->run() == FALSE) {
+            $data['ubahgambar'] = $gambar;
+            $data['situsbudaya'] = $situsbudaya;
+            $data['error'] = '';
+            $data['judul'] = "Situs Budaya";
+            $this->tampilan('editsitusbudaya', $data);
+        } else {
+            if ($gambar) {
+                if ($this->gambar->do_upload('gambar')) {
+                    $link = "./assets/home/assets/img/situsbudaya/";
+                    unlink($link . $situsbudaya['gambar']);
+
+                    $data = [
+                        'nama_situs' => $this->input->post('nama_situs'),
+                        'deskripsi' => $this->input->post('deskripsi'),
+                        'alamat' => $this->input->post('alamat'),
+                        'gambar' => $this->gambar->data('file_name'),
+                        'garis_bujur' => $this->input->post('garis_bujur'),
+                        'garis_lintang' => $this->input->post('garis_lintang')
+                    ];
+
+                    $this->db->update('situs_budaya', $data, ['id_situs' => $id]);
+                    $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil mengedit situs budaya!</div>');
+                    redirect('admin/situsbudaya');
+                } else {
+                    $data['error'] = $this->gambar->display_errors();
+                    $data['ubahgambar'] = $gambar;
+                    $data['situsbudaya'] = $this->db->get_where('situs_budaya', ['id_situs' => $id])->row_array();
+                    $data['judul'] = "Situs Budaya";
+                    $this->tampilan('editsitusbudaya', $data);
+                }
+            } else {
+                $data = [
+                    'nama_situs' => $this->input->post('nama_situs'),
+                    'deskripsi' => $this->input->post('deskripsi'),
+                    'alamat' => $this->input->post('alamat'),
+                    'garis_bujur' => $this->input->post('garis_bujur'),
+                    'garis_lintang' => $this->input->post('garis_lintang')
+                ];
+
+                $this->db->update('situs_budaya', $data, ['id_situs' => $id]);
+                $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil mengedit situs budaya!</div>');
+                redirect('admin/situsbudaya');
+            }
+        }
+    }
 }
