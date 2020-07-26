@@ -36,6 +36,9 @@ class Admin extends CI_Controller
         $data['agenda'] = $this->db->get('agenda')->num_rows();
         $data['akomodasi'] = $this->db->get('akomodasi')->num_rows();
         $data['bukutamu'] = $this->db->get('buku_tamu')->num_rows();
+        $data['situsbudaya'] = $this->db->get('situs_budaya')->num_rows();
+        $data['senibudaya'] = $this->db->get('seni_budaya')->num_rows();
+        $data['makanankhas'] = $this->db->get('makanan_khas')->num_rows();
         $data['judul'] = "Dashboard";
         $this->tampilan('dashboard', $data);
     }
@@ -1345,6 +1348,223 @@ class Admin extends CI_Controller
                 $this->db->update('situs_budaya', $data, ['id_situs' => $id]);
                 $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil mengedit situs budaya!</div>');
                 redirect('admin/situsbudaya');
+            }
+        }
+    }
+
+    public function seniBudaya()
+    {
+        $data['judul'] = "Seni Budaya";
+        $data['senibudaya'] = $this->db->get('seni_budaya')->result_array();
+        $this->tampilan('senibudaya', $data);
+    }
+
+    public function tambahSeniBudaya()
+    {
+        $this->form_validation->set_rules('nama_seni', 'nama_seni', 'required|trim');
+        $this->form_validation->set_rules('deskripsi', 'deskripsi', 'required|trim');
+
+        $config['upload_path'] = './assets/home/assets/img/senibudaya/';
+        $config['allowed_types'] = 'jpg|jpeg|png|gif';
+        $config['max_size'] = '1000000';
+        $config['file_name'] = 'senibudaya';
+
+        $this->load->library('upload', $config, 'gambar');
+        $this->gambar->initialize($config);
+
+        if ($this->form_validation->run() == FALSE) {
+            $data['error'] = '';
+            $data['judul'] = "Seni Budaya";
+            $this->tampilan('tambahsenibudaya', $data);
+        } else {
+            if ($this->gambar->do_upload('gambar')) {
+                $data = [
+                    'nama_seni' => $this->input->post('nama_seni'),
+                    'deskripsi' => $this->input->post('deskripsi'),
+                    'gambar' => $this->gambar->data('file_name')
+                ];
+
+                $this->db->insert('seni_budaya', $data);
+                $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil mengupload seni budaya!</div>');
+                redirect('admin/senibudaya');
+            } else {
+                $data['error'] = $this->gambar->display_errors();
+                $data['judul'] = "Seni Budaya";
+                $this->tampilan('tambahsenibudaya', $data);
+            }
+        }
+    }
+
+    public function deleteSeniBudaya($id)
+    {
+        $senibudaya = $this->db->get_where('seni_budaya', ['id' => $id])->row_array();
+        $link = "./assets/home/assets/img/senibudaya/";
+        unlink($link . $senibudaya['gambar']);
+        $this->db->delete('seni_budaya', ['id' => $id]);
+        $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil menghapus seni budaya!</div>');
+        redirect('admin/senibudaya');
+    }
+
+    public function editSeniBudaya($id, $gambar = '')
+    {
+        $this->form_validation->set_rules('nama_seni', 'nama_seni', 'required|trim');
+        $this->form_validation->set_rules('deskripsi', 'deskripsi', 'required|trim');
+
+        $config['upload_path'] = './assets/home/assets/img/senibudaya/';
+        $config['allowed_types'] = 'jpg|jpeg|png|gif';
+        $config['max_size'] = '1000000';
+        $config['file_name'] = 'senibudaya';
+
+        $this->load->library('upload', $config, 'gambar');
+        $this->gambar->initialize($config);
+
+        $senibudaya = $this->db->get_where('seni_budaya', ['id' => $id])->row_array();
+        // $cek_gambar = $this->input->post('cek');
+        if ($this->form_validation->run() == FALSE) {
+            $data['ubahgambar'] = $gambar;
+            $data['senibudaya'] = $senibudaya;
+            $data['error'] = '';
+            $data['judul'] = "Seni Budaya";
+            $this->tampilan('editsenibudaya', $data);
+        } else {
+            if ($gambar) {
+                if ($this->gambar->do_upload('gambar')) {
+                    $link = "./assets/home/assets/img/senibudaya/";
+                    unlink($link . $senibudaya['gambar']);
+
+                    $data = [
+                        'nama_seni' => $this->input->post('nama_seni'),
+                        'deskripsi' => $this->input->post('deskripsi'),
+                        'gambar' => $this->gambar->data('file_name')
+                    ];
+
+                    $this->db->update('seni_budaya', $data, ['id' => $id]);
+                    $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil mengedit seni budaya!</div>');
+                    redirect('admin/senibudaya');
+                } else {
+                    $data['error'] = $this->gambar->display_errors();
+                    $data['ubahgambar'] = $gambar;
+                    $data['senibudaya'] = $this->db->get_where('seni_budaya', ['id' => $id])->row_array();
+                    $data['judul'] = "Seni Budaya";
+                    $this->tampilan('editsenibudaya', $data);
+                }
+            } else {
+                $data = [
+                    'nama_seni' => $this->input->post('nama_seni'),
+                    'deskripsi' => $this->input->post('deskripsi')
+                ];
+
+                $this->db->update('seni_budaya', $data, ['id' => $id]);
+                $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil mengedit seni budaya!</div>');
+                redirect('admin/senibudaya');
+            }
+        }
+    }
+
+    public function makananKhas()
+    {
+        $data['judul'] = "Makanan Khas";
+        $data['makanankhas'] = $this->db->get('makanan_khas')->result_array();
+        $this->tampilan('makanankhas', $data);
+    }
+
+    public function tambahMakananKhas()
+    {
+        $this->form_validation->set_rules('nama_makanan', 'nama_makanan', 'required|trim');
+        $this->form_validation->set_rules('deskripsi', 'deskripsi', 'required|trim');
+
+        $config['upload_path'] = './assets/home/assets/img/makanankhas/';
+        $config['allowed_types'] = 'jpg|jpeg|png|gif';
+        $config['max_size'] = '1000000';
+        $config['file_name'] = 'makanankhas';
+
+        $this->load->library('upload', $config, 'gambar');
+        $this->gambar->initialize($config);
+
+        if ($this->form_validation->run() == FALSE) {
+            $data['error'] = '';
+            $data['judul'] = "Makanan Khas";
+            $this->tampilan('tambahmakanankhas', $data);
+        } else {
+            if ($this->gambar->do_upload('gambar')) {
+                $data = [
+                    'nama_makanan' => $this->input->post('nama_makanan'),
+                    'deskripsi' => $this->input->post('deskripsi'),
+                    'gambar' => $this->gambar->data('file_name')
+                ];
+
+                $this->db->insert('makanan_khas', $data);
+                $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil mengupload makanan khas!</div>');
+                redirect('admin/makanankhas');
+            } else {
+                $data['error'] = $this->gambar->display_errors();
+                $data['judul'] = "Makanan Khas";
+                $this->tampilan('tambahmakanankhas', $data);
+            }
+        }
+    }
+    public function deleteMakananKhas($id)
+    {
+        $makanankhas = $this->db->get_where('makanan_khas', ['id' => $id])->row_array();
+        $link = "./assets/home/assets/img/makanankhas/";
+        unlink($link . $makanankhas['gambar']);
+        $this->db->delete('makanan_khas', ['id' => $id]);
+        $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil menghapus makanan khas!</div>');
+        redirect('admin/makanankhas');
+    }
+
+    public function editMakananKhas($id, $gambar = '')
+    {
+        $this->form_validation->set_rules('nama_makanan', 'nama_makanan', 'required|trim');
+        $this->form_validation->set_rules('deskripsi', 'deskripsi', 'required|trim');
+
+        $config['upload_path'] = './assets/home/assets/img/makanankhas/';
+        $config['allowed_types'] = 'jpg|jpeg|png|gif';
+        $config['max_size'] = '1000000';
+        $config['file_name'] = 'makanankhas';
+
+        $this->load->library('upload', $config, 'gambar');
+        $this->gambar->initialize($config);
+
+        $makanankhas = $this->db->get_where('makanan_khas', ['id' => $id])->row_array();
+        // $cek_gambar = $this->input->post('cek');
+        if ($this->form_validation->run() == FALSE) {
+            $data['ubahgambar'] = $gambar;
+            $data['makanankhas'] = $makanankhas;
+            $data['error'] = '';
+            $data['judul'] = "Makanan Khas";
+            $this->tampilan('editmakanankhas', $data);
+        } else {
+            if ($gambar) {
+                if ($this->gambar->do_upload('gambar')) {
+                    $link = "./assets/home/assets/img/makanankhas/";
+                    unlink($link . $makanankhas['gambar']);
+
+                    $data = [
+                        'nama_makanan' => $this->input->post('nama_makanan'),
+                        'deskripsi' => $this->input->post('deskripsi'),
+                        'gambar' => $this->gambar->data('file_name')
+                    ];
+
+                    $this->db->update('makanan_khas', $data, ['id' => $id]);
+                    $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil mengedit makanan khas!</div>');
+                    redirect('admin/makanankhas');
+                } else {
+                    $data['error'] = $this->gambar->display_errors();
+                    $data['ubahgambar'] = $gambar;
+                    $data['makanankhas'] = $this->db->get_where('makanan_khas', ['id' => $id])->row_array();
+                    $data['judul'] = "Seni Budaya";
+                    $this->tampilan('editmakanankhas', $data);
+                }
+            } else {
+                $data = [
+                    'nama_makanan' => $this->input->post('nama_makanan'),
+                    'deskripsi' => $this->input->post('deskripsi')
+                ];
+
+                $this->db->update('makanan_khas', $data, ['id' => $id]);
+                $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil mengedit makanan khas!</div>');
+                redirect('admin/makanankhas');
             }
         }
     }
