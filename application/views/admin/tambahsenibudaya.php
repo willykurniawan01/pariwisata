@@ -32,7 +32,7 @@
             </div>
         </div>
         <div class="col-md-3 text-right">
-            <button class="btn btn-primary mt-3 btn-lg" type="submit">Upload Berita</button>
+            <button class="btn btn-primary mt-3 btn-lg" type="submit">Upload <?= $judul ?></button>
         </div>
     </div>
     </form>
