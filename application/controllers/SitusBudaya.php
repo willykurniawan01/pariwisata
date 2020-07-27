@@ -1,15 +1,15 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Agenda extends CI_Controller
+class SitusBudaya extends CI_Controller
 {
 
     public function index()
     {
         //pagination config
-        $config['base_url'] = 'http://localhost/pariwisata/agenda/index';
+        $config['base_url'] = 'http://localhost/pariwisata/situsbudaya/index';
 
-        $config['total_rows'] = $this->db->get('agenda')->num_rows();
+        $config['total_rows'] = $this->db->get('situs_budaya')->num_rows();
         $config['per_page'] = 6;
 
 
@@ -46,27 +46,43 @@ class Agenda extends CI_Controller
         $cari = $this->input->get('cari');
 
         $data['start'] = $this->uri->segment(3);
-        $this->db->order_by('id_agenda', 'DESC');
-        $this->db->like('nama_agenda', $cari);
+        $this->db->order_by('id', 'DESC');
+        $this->db->like('nama_situs', $cari);
 
-        $agenda = $this->db->get('agenda', $config['per_page'], $data['start'])->result_array();
-        $data['agenda'] = $agenda;
-        $data['judul'] = "Agenda";
+        $situsbudaya = $this->db->get('situs_budaya', $config['per_page'], $data['start'])->result_array();
+        $data['situsbudaya'] = $situsbudaya;
+        $data['judul'] = "Situs Budaya";
         $data['cari'] = $cari;
-        $data['navbar'] = "agenda";
+        $data['navbar'] = "Situs Budaya";
 
         $this->load->view('home/template/header', $data);
         $this->load->view('home/template/navbar', $data);
-        $this->load->view('home/agenda', $data);
+        $this->load->view('home/situsbudaya', $data);
         $this->load->view('home/template/footer');
     }
 
-    public function cariAgenda()
+    public function detail($id) //menerima parameter id dari post
+    {
+        $cari = $this->input->get('cari');
+        $data['cari'] = $cari;
+        $data['navbar'] = "situsbudaya";
+        // $detail = $this->situsbudaya->getDetail($id);
+        // $data['detail'] = $detail;
+
+        $data['situsbudaya'] = $this->db->get_where('situs_budaya', ['id' => $id])->row_array();
+        $data['judul'] = "Seni Budaya";
+        $this->load->view('home/template/header', $data);
+        $this->load->view('home/template/navbar', $data);
+        $this->load->view('home/single-situsbudaya', $data);
+        $this->load->view('home/template/footer');
+    }
+
+    public function carisitusbudaya()
     {
         //pagination config
-        $config['base_url'] = 'http://localhost/pariwisata/agenda/cariagenda';
-        $this->db->like('nama_agenda', $this->input->get('nama_agenda'));
-        $config['total_rows'] = $this->db->get('agenda')->num_rows();
+        $config['base_url'] = 'http://localhost/pariwisata/situsbudaya/carisitusbudaya';
+        $this->db->like('nama_situsbudaya', $this->input->get('nama_situsbudaya'));
+        $config['total_rows'] = $this->db->get('situsbudaya')->num_rows();
         $config['per_page'] = 6;
 
 
@@ -100,23 +116,23 @@ class Agenda extends CI_Controller
         $this->pagination->initialize($config);
         //end custom pagination
 
-        $cari = $this->input->get('nama_agenda');
+        $cari = $this->input->get('nama_situsbudaya');
 
         $data['start'] = $this->uri->segment(3);
-        $this->db->order_by('id_agenda', 'DESC');
-        $this->db->like('nama_agenda', $cari);
+        $this->db->order_by('id_situsbudaya', 'DESC');
+        $this->db->like('nama_situsbudaya', $cari);
 
-        $this->db->like('nama_agenda', $this->input->get('nama_agenda'));
-        $agenda = $this->db->get('agenda', $config['per_page'], $data['start'])->result_array();
-        $data['agenda'] = $agenda;
-        $data['judul'] = "Agenda";
+        $this->db->like('nama_situsbudaya', $this->input->get('nama_situsbudaya'));
+        $situsbudaya = $this->db->get('situsbudaya', $config['per_page'], $data['start'])->result_array();
+        $data['situsbudaya'] = $situsbudaya;
+        $data['judul'] = "situsbudaya";
         $data['cari'] = $cari;
-        $data['navbar'] = "Agenda";
+        $data['navbar'] = "situsbudaya";
 
 
         $this->load->view('home/template/header', $data);
         $this->load->view('home/template/navbar', $data);
-        $this->load->view('home/agenda', $data);
+        $this->load->view('home/situsbudaya', $data);
         $this->load->view('home/template/footer');
     }
 }

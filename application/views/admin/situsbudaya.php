@@ -40,10 +40,10 @@
                                         </td>
                                         <td class="align-middle">
                                             <ul>
-                                                <li class="nav-link"> <a href="<?= base_url('admin/editsitusbudaya/') . $b['id_situs'] ?>" class="btn btn-sm btn-warning">
+                                                <li class="nav-link"> <a href="<?= base_url('admin/editsitusbudaya/') . $b['id'] ?>" class="btn btn-sm btn-warning">
                                                         <span class="text">Edit</span>
                                                     </a>
-                                                    <a href="<?= base_url('admin/deletesitusbudaya/') . $b['id_situs'] ?>" class="btn btn-sm btn-danger">
+                                                    <a href="<?= base_url('admin/deletesitusbudaya/') . $b['id'] ?>" class="btn btn-sm btn-danger">
                                                         <span class="text">Delete</span>
                                                     </a>
                                                 </li>

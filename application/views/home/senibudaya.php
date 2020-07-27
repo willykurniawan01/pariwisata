@@ -61,6 +61,14 @@
                 </div>
             <?php endforeach; ?>
         </div>
+        <div class="row mb-5">
+            <div class="col-lg-12  d-flex justify-content-center">
+                <div class="more_place_btn text-center">
+                    <!-- <a class="boxed-btn4" href="#">More Places</a> -->
+                    <?= $this->pagination->create_links(); ?>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 <!-- popular_destination_area_end  -->

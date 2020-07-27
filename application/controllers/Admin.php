@@ -1279,10 +1279,10 @@ class Admin extends CI_Controller
 
     public function deleteSitusBudaya($id)
     {
-        $situsbudaya = $this->db->get_where('situs_budaya', ['id_situs' => $id])->row_array();
+        $situsbudaya = $this->db->get_where('situs_budaya', ['id' => $id])->row_array();
         $link = "./assets/home/assets/img/situsbudaya/";
         unlink($link . $situsbudaya['gambar']);
-        $this->db->delete('situs_budaya', ['id_situs' => $id]);
+        $this->db->delete('situs_budaya', ['id' => $id]);
         $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil menghapus situs budaya!</div>');
         redirect('admin/situsbudaya');
     }
@@ -1304,7 +1304,7 @@ class Admin extends CI_Controller
         $this->load->library('upload', $config, 'gambar');
         $this->gambar->initialize($config);
 
-        $situsbudaya = $this->db->get_where('situs_budaya', ['id_situs' => $id])->row_array();
+        $situsbudaya = $this->db->get_where('situs_budaya', ['id' => $id])->row_array();
         if ($this->form_validation->run() == FALSE) {
             $data['ubahgambar'] = $gambar;
             $data['situsbudaya'] = $situsbudaya;
@@ -1326,13 +1326,13 @@ class Admin extends CI_Controller
                         'garis_lintang' => $this->input->post('garis_lintang')
                     ];
 
-                    $this->db->update('situs_budaya', $data, ['id_situs' => $id]);
+                    $this->db->update('situs_budaya', $data, ['id' => $id]);
                     $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil mengedit situs budaya!</div>');
                     redirect('admin/situsbudaya');
                 } else {
                     $data['error'] = $this->gambar->display_errors();
                     $data['ubahgambar'] = $gambar;
-                    $data['situsbudaya'] = $this->db->get_where('situs_budaya', ['id_situs' => $id])->row_array();
+                    $data['situsbudaya'] = $this->db->get_where('situs_budaya', ['id' => $id])->row_array();
                     $data['judul'] = "Situs Budaya";
                     $this->tampilan('editsitusbudaya', $data);
                 }
@@ -1345,7 +1345,7 @@ class Admin extends CI_Controller
                     'garis_lintang' => $this->input->post('garis_lintang')
                 ];
 
-                $this->db->update('situs_budaya', $data, ['id_situs' => $id]);
+                $this->db->update('situs_budaya', $data, ['id' => $id]);
                 $this->session->set_flashdata('message', '<div class="alert alert-success mt-4" role="alert">Berhasil mengedit situs budaya!</div>');
                 redirect('admin/situsbudaya');
             }
