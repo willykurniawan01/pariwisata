@@ -81,8 +81,8 @@ class SitusBudaya extends CI_Controller
     {
         //pagination config
         $config['base_url'] = 'http://localhost/pariwisata/situsbudaya/carisitusbudaya';
-        $this->db->like('nama_situsbudaya', $this->input->get('nama_situsbudaya'));
-        $config['total_rows'] = $this->db->get('situsbudaya')->num_rows();
+        $this->db->like('nama_situs', $this->input->get('nama_situs'));
+        $config['total_rows'] = $this->db->get('situs_budaya')->num_rows();
         $config['per_page'] = 6;
 
 
@@ -116,18 +116,18 @@ class SitusBudaya extends CI_Controller
         $this->pagination->initialize($config);
         //end custom pagination
 
-        $cari = $this->input->get('nama_situsbudaya');
+        $cari = $this->input->get('nama_situs');
 
         $data['start'] = $this->uri->segment(3);
-        $this->db->order_by('id_situsbudaya', 'DESC');
-        $this->db->like('nama_situsbudaya', $cari);
+        $this->db->order_by('id', 'DESC');
+        $this->db->like('nama_situs', $cari);
 
-        $this->db->like('nama_situsbudaya', $this->input->get('nama_situsbudaya'));
-        $situsbudaya = $this->db->get('situsbudaya', $config['per_page'], $data['start'])->result_array();
+        $this->db->like('nama_situs', $this->input->get('nama_situs'));
+        $situsbudaya = $this->db->get('situs_budaya', $config['per_page'], $data['start'])->result_array();
         $data['situsbudaya'] = $situsbudaya;
-        $data['judul'] = "situsbudaya";
+        $data['judul'] = "Situs BUdaya";
         $data['cari'] = $cari;
-        $data['navbar'] = "situsbudaya";
+        $data['navbar'] = "Situs Budaya";
 
 
         $this->load->view('home/template/header', $data);
